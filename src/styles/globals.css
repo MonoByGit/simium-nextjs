@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* === APPLE TYPOGRAPHY SYSTEM === */
+  --font-system: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+  --font-size-base: 17px; /* Apple's preferred base */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 17px;
+  --font-size-lg: 19px;
+  --font-size-xl: 21px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 34px;
+  --font-size-4xl: 40px;
+  --font-size-5xl: 48px;
+  --text-header-p: 19px; /* Apple's larger paragraph size */
+  
+  /* === APPLE COLOR SYSTEM === */
+  --color-apple-blue: #007AFF;
+  --color-apple-blue-dark: #0A84FF;
+  --color-apple-gray: #8E8E93;
+  --color-apple-gray-2: #AEAEB2;
+  --color-apple-gray-3: #C7C7CC;
+  --color-apple-gray-4: #D1D1D6;
+  --color-apple-gray-5: #E5E5EA;
+  --color-apple-gray-6: #F2F2F7;
+  --color-apple-green: #30D158;
+  --color-apple-indigo: #5856D6;
+  --color-apple-purple: #AF52DE;
+  --color-apple-red: #FF3B30;
+  --color-apple-orange: #FF9500;
+  --color-apple-yellow: #FFCC00;
+  
+  /* === REFINED COLOR PALETTE === */
+  --title-color: #1D1D1F;
+  --background: #FFFFFF;
+  --foreground: #1D1D1F;
+  --card: #FFFFFF;
+  --card-foreground: #1D1D1F;
+  --secondary: #F5F5F7;
+  --secondary-foreground: #1D1D1F;
+  --muted: #F5F5F7;
+  --muted-foreground: #86868B;
+  --accent: #F5F5F7;
+  --accent-foreground: #1D1D1F;
+  --destructive: #FF3B30;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(0, 0, 0, 0.04);
+  --input: rgba(0, 0, 0, 0.04);
+  --input-background: rgba(0, 0, 0, 0.04);
+  --ring: rgba(0, 122, 255, 0.3);
+}
+
+.dark {
+  /* === DARK MODE REFINEMENTS === */
+  --title-color: #F5F5F7;
+  --background: #000000;
+  --foreground: #F5F5F7;
+  --card: #1C1C1E;
+  --card-foreground: #F5F5F7;
+  --secondary: #2C2C2E;
+  --secondary-foreground: #F5F5F7;
+  --muted: #2C2C2E;
+  --muted-foreground: #8E8E93;
+  --accent: #2C2C2E;
+  --accent-foreground: #F5F5F7;
+  --destructive: #FF453A;
+  --destructive-foreground: #F5F5F7;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --input-background: rgba(255, 255, 255, 0.08);
+  --ring: rgba(10, 132, 255, 0.4);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-system);
+    font-size: var(--font-size-base);
+    line-height: 1.47; /* Apple's preferred line height */
+    letter-spacing: -0.022em; /* Apple's refined letter spacing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* === APPLE TYPOGRAPHY HIERARCHY === */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-system);
+    font-weight: 600; /* Apple's preferred heading weight */
+    line-height: 1.2;
+    letter-spacing: -0.022em;
+    color: var(--title-color);
+    margin: 0;
+  }
+
+  h1 {
+    font-size: var(--font-size-5xl);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: var(--font-size-4xl);
+    font-weight: 600;
+    letter-spacing: -0.024em;
+  }
+
+  h3 {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    letter-spacing: -0.023em;
+  }
+
+  h4 {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+  }
+
+  h5 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+  }
+
+  h6 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+  }
+
+  p {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+    margin: 0;
+  }
+
+  section p {
+    font-size: var(--text-header-p);
+    line-height: 1.47;
+  }
+
+  label {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+  }
+
+  button {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+  }
+
+  input, textarea, select {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+  }
+}
+
+@layer utilities {
+  /* === BACKGROUND CONVERSIONS === */
+  .bg-gray-50 {
+    @apply dark:bg-gray-900;
+  }
+  
+  .bg-white {
+    @apply dark:bg-gray-900;
+  }
+
+  .bg-gray-100 {
+    @apply dark:bg-gray-800;
+  }
+
+  .bg-gray-200 {
+    @apply dark:bg-gray-700;
+  }
+
+  /* === TEXT CONVERSIONS === */
+  .text-gray-500 {
+    @apply dark:text-gray-400;
+  }
+
+  .text-gray-600 {
+    @apply dark:text-gray-300;
+  }
+  
+  .text-gray-700 {
+    @apply dark:text-gray-200;
+  }
+  
+  .text-gray-800 {
+    @apply dark:text-gray-100;
+  }
+  
+  .text-gray-900 {
+    @apply dark:text-white;
+  }
+
+  /* === BORDER CONVERSIONS === */
+  .border-gray-100 {
+    @apply dark:border-gray-800;
+  }
+  
+  .border-gray-200 {
+    @apply dark:border-gray-700;
+  }
+
+  .border-gray-300 {
+    @apply dark:border-gray-600;
+  }
+
+  /* === APPLE COLOR ADAPTATIONS === */
+  .text-blue-600 {
+    color: var(--color-apple-blue);
+  }
+
+  .dark .text-blue-600 {
+    color: var(--color-apple-blue-dark);
+  }
+
+  .bg-blue-600 {
+    background-color: var(--color-apple-blue);
+  }
+
+  .dark .bg-blue-600 {
+    background-color: var(--color-apple-blue-dark);
+  }
+
+  /* === FORM ELEMENTS === */
+  .dark input,
+  .dark textarea,
+  .dark select {
+    background-color: var(--input-background);
+    border-color: var(--border);
+    color: var(--foreground);
+  }
+
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    border-color: var(--color-apple-blue-dark);
+    box-shadow: 0 0 0 3px var(--ring);
+    outline: none;
+  }
+
+  /* === GLASS MORPHISM REFINEMENTS === */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .dark .glass-effect {
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-card {
+    background: rgba(28, 28, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    .transition-all,
+    .transition-transform {
+      transition: none;
+      animation: none;
+    }
+    
+    .hover\\:scale-105:hover,
+    .hover\\:-translate-y-1:hover {
+      transform: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      color-scheme: dark;
+    }
+  }
+}
