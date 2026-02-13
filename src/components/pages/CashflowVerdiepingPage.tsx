@@ -162,7 +162,7 @@ export function CashflowVerdiepingPage() {
         <div className="flex justify-between items-center">
           <a 
             href="#/cashflow-analyse" 
-            className="inline-flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors"
+            className="inline-flex items-center text-sm text-gray-600 hover:text-[var(--color-apple-blue)] transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mr-2">
               <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2"/>
@@ -173,15 +173,15 @@ export function CashflowVerdiepingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white mx-4 rounded-2xl mb-8 overflow-hidden">
+      <section className="bg-gradient-to-r from-[var(--color-apple-blue)] to-[var(--color-apple-blue)] text-white mx-4 rounded-2xl mb-8 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-16 relative">
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-center mb-6">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl text-white">Verdiepingsscan Cashflow</h1>
-              <p className="text-blue-100 mt-2">Premium analyse op maat</p>
+              <p className="text-[var(--color-apple-gray-6)] mt-2">Premium analyse op maat</p>
             </div>
             
-            <p className="text-xl mb-6 text-blue-100 max-w-2xl mx-auto">
+            <p className="text-xl mb-6 text-[var(--color-apple-gray-6)] max-w-2xl mx-auto">
               Krijg een volledig gepersonaliseerde cashflow-analyse met concrete actiepunten en voorspellingen voor jouw specifieke situatie.
             </p>
             
@@ -215,7 +215,7 @@ export function CashflowVerdiepingPage() {
           {/* 1. Financiële Basis */}
           <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-blue-600 mb-2">Financiële basis</h3>
+              <h3 className="text-[var(--color-apple-blue)] mb-2">Financiële basis</h3>
               <p className="text-gray-600">Vertel ons meer over je financiële situatie</p>
             </div>
 
@@ -225,7 +225,7 @@ export function CashflowVerdiepingPage() {
                 <label className="block mb-2 text-gray-800 flex items-center">
                   Wat is je gemiddelde maandelijkse omzet?
                   {hasSavedData && formData.monthlyRevenue && (
-                    <span className="ml-2 inline-flex items-center text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                    <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-gray-6)] text-[var(--color-apple-gray)] px-2 py-1 rounded-full">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mr-1">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                       </svg>
@@ -241,7 +241,7 @@ export function CashflowVerdiepingPage() {
                     placeholder="bijv. 25000"
                     value={formData.monthlyRevenue}
                     onChange={(e) => handleInputChange('monthlyRevenue', e.target.value)}
-                    className="w-full pl-8 pr-4 py-4 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pl-8 pr-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
                   />
                 </div>
               </div>
@@ -251,7 +251,7 @@ export function CashflowVerdiepingPage() {
                 <label className="block mb-2 text-gray-800 flex items-center">
                   Welke betaaltermijnen hanteer je?
                   {hasSavedData && formData.paymentTerms && (
-                    <span className="ml-2 inline-flex items-center text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                    <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-gray-6)] text-[var(--color-apple-gray)] px-2 py-1 rounded-full">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mr-1">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                       </svg>
@@ -273,7 +273,7 @@ export function CashflowVerdiepingPage() {
                       onClick={() => handleInputChange('paymentTerms', option.value)}
                       className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
                         formData.paymentTerms === option.value
-                          ? 'border-blue-500 bg-blue-50'
+                          ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
                           : 'border-gray-200'
                       }`}
                     >
@@ -293,7 +293,7 @@ export function CashflowVerdiepingPage() {
                     placeholder="bijv. 7"
                     value={formData.averagePaymentDelay}
                     onChange={(e) => handleInputChange('averagePaymentDelay', e.target.value)}
-                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">dagen</span>
                 </div>
@@ -304,7 +304,7 @@ export function CashflowVerdiepingPage() {
           {/* 2. Cash Cycle Management */}
           <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-blue-600 mb-2">Cash cycle beheer</h3>
+              <h3 className="text-[var(--color-apple-blue)] mb-2">Cash cycle beheer</h3>
               <p className="text-gray-600">Hoe beheers je je werkkapitaal?</p>
             </div>
 
@@ -319,7 +319,7 @@ export function CashflowVerdiepingPage() {
                     placeholder="bijv. 45"
                     value={formData.receivablesDays}
                     onChange={(e) => handleInputChange('receivablesDays', e.target.value)}
-                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">dagen</span>
                 </div>
@@ -335,7 +335,7 @@ export function CashflowVerdiepingPage() {
                     placeholder="bijv. 30"
                     value={formData.payablesDays}
                     onChange={(e) => handleInputChange('payablesDays', e.target.value)}
-                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">dagen</span>
                 </div>
@@ -351,7 +351,7 @@ export function CashflowVerdiepingPage() {
                     placeholder="bijv. 12"
                     value={formData.inventoryTurnover}
                     onChange={(e) => handleInputChange('inventoryTurnover', e.target.value)}
-                    className="w-full pr-16 pl-4 py-4 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-16 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">x/jaar</span>
                 </div>
@@ -373,7 +373,7 @@ export function CashflowVerdiepingPage() {
                       key={option.value}
                       className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
                         formData.creditLines.includes(option.value)
-                          ? 'border-blue-500 bg-blue-50'
+                          ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
                           : 'border-gray-200'
                       }`}
                     >
@@ -393,7 +393,7 @@ export function CashflowVerdiepingPage() {
           {/* 3. Planning & Risk Management */}
           <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-blue-600 mb-2">Planning & risicobeheer</h3>
+              <h3 className="text-[var(--color-apple-blue)] mb-2">Planning & risicobeheer</h3>
               <p className="text-gray-600">Hoe plan je voor de toekomst en beheer je risico's?</p>
             </div>
 
@@ -406,7 +406,7 @@ export function CashflowVerdiepingPage() {
                   placeholder="bijv. Nieuwe machines €50k in Q3, kantoorverhuizing €25k in Q2, software upgrade €10k..."
                   value={formData.investmentPlans}
                   onChange={(e) => handleInputChange('investmentPlans', e.target.value)}
-                  className="w-full p-4 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
 
@@ -427,7 +427,7 @@ export function CashflowVerdiepingPage() {
                       key={option.value}
                       className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
                         formData.riskScenarios.includes(option.value)
-                          ? 'border-blue-500 bg-blue-50'
+                          ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
                           : 'border-gray-200'
                       }`}
                     >
@@ -459,7 +459,7 @@ export function CashflowVerdiepingPage() {
                       onClick={() => handleInputChange('forecastAccuracy', option.value)}
                       className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
                         formData.forecastAccuracy === option.value
-                          ? 'border-blue-500 bg-blue-50'
+                          ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
                           : 'border-gray-200'
                       }`}
                     >
@@ -474,7 +474,7 @@ export function CashflowVerdiepingPage() {
           {/* 4. KPI Tracking & Reporting */}
           <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-blue-600 mb-2">KPI tracking & rapportage</h3>
+              <h3 className="text-[var(--color-apple-blue)] mb-2">KPI tracking & rapportage</h3>
               <p className="text-gray-600">Welke cijfers volg je voor cashflow management?</p>
             </div>
 
@@ -498,7 +498,7 @@ export function CashflowVerdiepingPage() {
                       key={option.value}
                       className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
                         formData.kpiTracking.includes(option.value)
-                          ? 'border-blue-500 bg-blue-50'
+                          ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
                           : 'border-gray-200'
                       }`}
                     >
@@ -521,7 +521,7 @@ export function CashflowVerdiepingPage() {
                   placeholder="bijv. Specifieke uitdagingen, doelen, vragen over cashflow management..."
                   value={formData.additionalComments}
                   onChange={(e) => handleInputChange('additionalComments', e.target.value)}
-                  className="w-full p-4 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
             </div>
@@ -530,7 +530,7 @@ export function CashflowVerdiepingPage() {
           {/* 5. File Upload Section */}
           <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-blue-600 mb-2">Upload je gegevens (optioneel)</h3>
+              <h3 className="text-[var(--color-apple-blue)] mb-2">Upload je gegevens (optioneel)</h3>
               <p className="text-gray-600">Voor de meest nauwkeurige analyse kun je je financiële bestanden uploaden</p>
             </div>
 
@@ -542,14 +542,14 @@ export function CashflowVerdiepingPage() {
                   Ondersteunde bestanden: Bank afschriften, cashflow overzichten, debiteurenlijsten, crediteuren overzichten (.csv, .xlsx, .pdf)
                 </p>
                 
-                <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-500 transition-colors">
+                <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-[var(--color-apple-blue)] transition-colors">
                   <div className="flex flex-col items-center">
                     <svg className="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                     <p className="text-gray-600 mb-2">Sleep bestanden hierheen of</p>
                     <label className="cursor-pointer">
-                      <span className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                      <span className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-4 py-2 rounded-lg transition-colors">
                         Kies bestanden
                       </span>
                       <input 
@@ -574,7 +574,7 @@ export function CashflowVerdiepingPage() {
                       {formData.uploadedFiles.map((file, index) => (
                         <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
                           <div className="flex items-center">
-                            <svg className="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-[var(--color-apple-gray-6)]0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                             <span className="text-sm text-gray-700">{file.name}</span>
@@ -610,7 +610,7 @@ export function CashflowVerdiepingPage() {
               }}
               className={`px-12 py-4 rounded-xl font-medium text-lg transition-all ${
                 isFormValid 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl' 
+                  ? 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white shadow-lg hover:shadow-xl' 
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >

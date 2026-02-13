@@ -205,11 +205,11 @@ export function PrijsstrategieResultatenPage() {
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-blue-600 mb-2">
+              <div className="text-3xl text-[var(--color-apple-blue)] mb-2">
                 {mockAnalysisData.currentMargin}% → {mockAnalysisData.optimizedMargin}%
               </div>
               <div className="text-gray-700 mb-1">Marge verbetering</div>
-              <div className="text-blue-600 text-sm">+10 procentpunten</div>
+              <div className="text-[var(--color-apple-blue)] text-sm">+10 procentpunten</div>
             </div>
           </Card>
           
@@ -383,7 +383,7 @@ export function PrijsstrategieResultatenPage() {
                         className={
                           segment.suggestedPrice > segment.currentPrice 
                             ? 'text-green-600 border-green-600' 
-                            : 'text-blue-600 border-blue-600'
+                            : 'text-[var(--color-apple-blue)] border-[var(--color-apple-blue)]'
                         }
                       >
                         {segment.suggestedPrice > segment.currentPrice ? '+' : ''}
@@ -397,7 +397,7 @@ export function PrijsstrategieResultatenPage() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm text-gray-600">Aanbevolen prijs</span>
-                        <span className={`text-sm ${segment.suggestedPrice > segment.currentPrice ? 'text-green-600' : 'text-blue-600'}`}>
+                        <span className={`text-sm ${segment.suggestedPrice > segment.currentPrice ? 'text-green-600' : 'text-[var(--color-apple-blue)]'}`}>
                           €{segment.suggestedPrice}
                         </span>
                       </div>
@@ -420,12 +420,12 @@ export function PrijsstrategieResultatenPage() {
                     <div className="text-sm text-green-600">Potentieel: +40% marge</div>
                   </div>
                   
-                  <div className="border-l-4 border-blue-500 pl-4">
+                  <div className="border-l-4 border-[var(--color-apple-blue)] pl-4">
                     <div className="font-medium">Tijdsbesparing premium</div>
                     <div className="text-sm text-gray-600">
                       Snelle implementatie als premium service
                     </div>
-                    <div className="text-sm text-blue-600">Potentieel: +25% prijs</div>
+                    <div className="text-sm text-[var(--color-apple-blue)]">Potentieel: +25% prijs</div>
                   </div>
                   
                   <div className="border-l-4 border-purple-500 pl-4">
@@ -503,25 +503,25 @@ export function PrijsstrategieResultatenPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 text-sm">2</span>
+                  <div className="w-8 h-8 bg-[var(--color-apple-gray-6)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-[var(--color-apple-blue)] text-sm">2</span>
                   </div>
                   <div className="flex-1">
                     <h5>Fase 2: Segmentatie optimalisatie (Week 3-6)</h5>
                     <p className="text-sm text-gray-600 mb-3">Implementeer gedifferentieerde pricing</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-blue-50 p-3 rounded">
-                        <div className="font-medium text-blue-800">Startup pricing</div>
-                        <div className="text-sm text-blue-600">€75 → €65 (volume play)</div>
-                        <div className="text-xs text-blue-600">Target: +40% volume</div>
+                      <div className="bg-[var(--color-apple-gray-6)] p-3 rounded">
+                        <div className="font-medium text-[var(--color-apple-gray)]">Startup pricing</div>
+                        <div className="text-sm text-[var(--color-apple-blue)]">€75 → €65 (volume play)</div>
+                        <div className="text-xs text-[var(--color-apple-blue)]">Target: +40% volume</div>
                       </div>
-                      <div className="bg-blue-50 p-3 rounded">
-                        <div className="font-medium text-blue-800">Enterprise premium</div>
-                        <div className="text-sm text-blue-600">€150 → €195 (+30%)</div>
-                        <div className="text-xs text-blue-600">Value-based positioning</div>
+                      <div className="bg-[var(--color-apple-gray-6)] p-3 rounded">
+                        <div className="font-medium text-[var(--color-apple-gray)]">Enterprise premium</div>
+                        <div className="text-sm text-[var(--color-apple-blue)]">€150 → €195 (+30%)</div>
+                        <div className="text-xs text-[var(--color-apple-blue)]">Value-based positioning</div>
                       </div>
                     </div>
-                    <div className="mt-2 text-sm text-blue-600">Impact: +€2.800/maand</div>
+                    <div className="mt-2 text-sm text-[var(--color-apple-blue)]">Impact: +€2.800/maand</div>
                   </div>
                 </div>
 
@@ -587,7 +587,7 @@ export function PrijsstrategieResultatenPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">Gemiddelde marge</span>
-                    <span className="font-medium text-blue-600">35% → 45%</span>
+                    <span className="font-medium text-[var(--color-apple-blue)]">35% → 45%</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">Klantbehoud target</span>

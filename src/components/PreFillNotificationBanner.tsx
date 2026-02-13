@@ -37,13 +37,13 @@ export function PreFillNotificationBanner({
       buttonBg: 'hover:bg-green-100'
     },
     blue: {
-      background: 'bg-blue-50',
-      border: 'border-blue-200',
-      iconBg: 'bg-blue-600',
-      titleText: 'text-blue-800',
-      subtitleText: 'text-blue-600',
-      buttonText: 'text-blue-600 hover:text-blue-800',
-      buttonBg: 'hover:bg-blue-100'
+      background: 'bg-[var(--color-apple-gray-6)]',
+      border: 'border-[var(--color-apple-gray-6)]',
+      iconBg: 'bg-[var(--color-apple-blue)]',
+      titleText: 'text-[var(--color-apple-gray)]',
+      subtitleText: 'text-[var(--color-apple-blue)]',
+      buttonText: 'text-[var(--color-apple-blue)] hover:text-[var(--color-apple-gray)]',
+      buttonBg: 'hover:bg-[var(--color-apple-gray-6)]'
     },
     purple: {
       background: 'bg-purple-50',

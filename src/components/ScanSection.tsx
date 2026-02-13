@@ -37,11 +37,11 @@ export function ScanSection({
     switch (color) {
       case 'blue':
         return {
-          title: 'text-blue-600 dark:text-blue-400',
-          button: 'bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700',
-          checkmark: 'text-blue-600 dark:text-blue-400',
-          savingsBox: 'from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30',
-          savingsNumber: 'text-blue-600 dark:text-blue-400'
+          title: 'text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]',
+          button: 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] dark:bg-[var(--color-apple-blue)] dark:hover:bg-[var(--color-apple-blue)]',
+          checkmark: 'text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]',
+          savingsBox: 'from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-6)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)]',
+          savingsNumber: 'text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]'
         }
       case 'gray':
         return {
@@ -80,7 +80,7 @@ export function ScanSection({
 
   const getIconBackground = (color: 'blue' | 'gray' | 'slate' | 'green' | 'purple') => {
     switch (color) {
-      case 'blue': return 'bg-blue-600 dark:bg-blue-600'
+      case 'blue': return 'bg-[var(--color-apple-blue)] dark:bg-[var(--color-apple-blue)]'
       case 'gray': return 'bg-gray-700 dark:bg-gray-600'
       case 'slate': return 'bg-slate-600 dark:bg-slate-600'
       case 'green': return 'bg-green-600 dark:bg-green-600'

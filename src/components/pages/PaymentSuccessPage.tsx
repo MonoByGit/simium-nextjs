@@ -43,8 +43,8 @@ export function PaymentSuccessPage() {
                 <p className="text-sm text-muted-foreground">€49,95 succesvol verwerkt</p>
               </div>
               
-              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-2xl p-8 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] border border-[var(--color-apple-gray-6)] dark:border-[var(--color-apple-gray-2)] rounded-2xl p-8 text-center">
+                <div className="w-12 h-12 bg-[var(--color-apple-blue)] rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
                     <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
@@ -115,8 +115,8 @@ export function PaymentSuccessPage() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="bg-card border border-border rounded-3xl p-12 text-center shadow-sm">
             <div className="space-y-8">
-              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-950/50 rounded-2xl flex items-center justify-center mx-auto">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-blue-600">
+              <div className="w-16 h-16 bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] rounded-2xl flex items-center justify-center mx-auto">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[var(--color-apple-blue)]">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2"/>
                 </svg>
               </div>
@@ -130,7 +130,7 @@ export function PaymentSuccessPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
+                  className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-6 py-3 rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
                   onClick={() => window.location.href = '#/contact'}
                 >
                   Stel een vraag

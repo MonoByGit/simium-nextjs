@@ -11,14 +11,14 @@ export function ProductsPage() {
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+            <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
+              <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
               Kies je scan
             </div>
             
             <h1 className="text-6xl leading-tight">
               Waar wil je
-              <span className="block text-blue-600">beginnen?</span>
+              <span className="block text-[var(--color-apple-blue)]">beginnen?</span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -85,13 +85,13 @@ export function ProductsPage() {
               <div key={index} className="relative group">
                 {scan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-blue-600 text-white px-3 py-1 text-sm font-medium">
+                    <Badge className="bg-[var(--color-apple-blue)] text-white px-3 py-1 text-sm font-medium">
                       Meest gekozen
                     </Badge>
                   </div>
                 )}
                 
-                <div className={`bg-card border border-border rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full ${scan.popular ? 'ring-2 ring-blue-500/20' : ''}`}
+                <div className={`bg-card border border-border rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full ${scan.popular ? 'ring-2 ring-[var(--color-apple-blue)]' : ''}`}
                      onClick={() => window.location.href = scan.href}>
                   <div className="flex flex-col h-full space-y-8">
                     {/* Header */}
@@ -224,7 +224,7 @@ export function ProductsPage() {
       </section>
 
       {/* Final CTA - Apple's Clean Close */}
-      <section className="py-32 bg-blue-600 text-white">
+      <section className="py-32 bg-[var(--color-apple-blue)] text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="space-y-8">
             <h2 className="text-5xl leading-tight text-white">
@@ -232,14 +232,14 @@ export function ProductsPage() {
               <span className="block">beginnen</span>
             </h2>
             
-            <p className="text-xl text-blue-100 leading-relaxed">
+            <p className="text-xl text-[var(--color-apple-gray-6)] leading-relaxed">
               Kies je eerste scan en ontdek binnen 24 uur waar je kunt optimaliseren
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                className="bg-white text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                 onClick={() => document.querySelector('.grid.grid-cols-1.lg\\:grid-cols-3')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Kies je scan

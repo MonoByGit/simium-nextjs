@@ -20,7 +20,7 @@ export function Layout({ children }: LayoutProps) {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center group transition-all duration-200">
-                <div className="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg mr-3 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200">
+                <div className="w-7 h-7 bg-gradient-to-br from-[var(--color-apple-blue)] to-[var(--color-apple-blue)] rounded-lg mr-3 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200">
                   <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                     <path d="M8 3L5 6h2v4h2V6h2L8 3z" fill="white"/>
                   </svg>
@@ -52,7 +52,7 @@ export function Layout({ children }: LayoutProps) {
               </Link>
               <DarkModeToggle />
               <Link href="/producten">
-                <button className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <button className="hidden sm:block bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
                   Start gratis scan
                 </button>
               </Link>
@@ -74,7 +74,7 @@ export function Layout({ children }: LayoutProps) {
             {/* Brand Column */}
             <div className="md:col-span-1">
               <div className="flex items-center mb-6">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg mr-3 flex items-center justify-center shadow-sm">
+                <div className="w-8 h-8 bg-gradient-to-br from-[var(--color-apple-blue)] to-[var(--color-apple-blue)] rounded-lg mr-3 flex items-center justify-center shadow-sm">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M8 3L5 6h2v4h2V6h2L8 3z" fill="white"/>
                   </svg>

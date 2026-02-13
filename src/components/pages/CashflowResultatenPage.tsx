@@ -104,7 +104,7 @@ export function CashflowResultatenPage() {
       <>
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <Card className="p-8 max-w-md w-full text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-apple-blue)] mx-auto mb-4"></div>
             <h3 className="mb-2">AI analyseert je cashflow...</h3>
             <p className="text-gray-600 text-sm">
               Onze AI voorspelt je kasstromen en identificeert optimalisaties
@@ -120,7 +120,7 @@ export function CashflowResultatenPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white mx-4 rounded-2xl mb-8">
+      <div className="bg-gradient-to-r from-[var(--color-apple-blue)] to-[var(--color-apple-blue)] text-white mx-4 rounded-2xl mb-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8">
 
           
@@ -133,7 +133,7 @@ export function CashflowResultatenPage() {
               <h1 className="text-2xl lg:text-3xl text-white mb-2">
                 Je cashflow-analyse is klaar
               </h1>
-              <p className="text-blue-100">
+              <p className="text-[var(--color-apple-gray-6)]">
                 Gegenereerd op {customerInfo?.analysisDate || new Date().toLocaleDateString('nl-NL', { 
                   day: 'numeric', 
                   month: 'long', 
@@ -144,7 +144,7 @@ export function CashflowResultatenPage() {
             <div className="flex justify-end">
               <Button 
                 onClick={handleDownloadPDF}
-                className="bg-white text-blue-600 hover:bg-blue-50 text-[14px]"
+                className="bg-white text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] text-[14px]"
               >
                 Download PDF
               </Button>
@@ -159,8 +159,8 @@ export function CashflowResultatenPage() {
           <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 text-lg">{customerInfo.name?.charAt(0) || 'M'}</span>
+                <div className="w-10 h-10 bg-[var(--color-apple-gray-6)] rounded-full flex items-center justify-center">
+                  <span className="text-[var(--color-apple-blue)] text-lg">{customerInfo.name?.charAt(0) || 'M'}</span>
                 </div>
                 <div>
                   <div className="text-gray-900 font-medium">{customerInfo.name}</div>
@@ -179,11 +179,11 @@ export function CashflowResultatenPage() {
       {/* Key Metrics */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100">
+          <Card className="p-6 bg-gradient-to-br from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-6)]">
             <div className="text-center">
-              <div className="text-3xl text-blue-600 mb-2">{mockAnalysisData.cashflowScore}/100</div>
+              <div className="text-3xl text-[var(--color-apple-blue)] mb-2">{mockAnalysisData.cashflowScore}/100</div>
               <div className="text-gray-700 mb-1">Cashflow score</div>
-              <div className="text-blue-600 text-sm">Goed met verbeterpotentieel</div>
+              <div className="text-[var(--color-apple-blue)] text-sm">Goed met verbeterpotentieel</div>
             </div>
           </Card>
           
@@ -270,8 +270,8 @@ export function CashflowResultatenPage() {
               <Card className="p-6">
                 <h4 className="mb-4">Liquiditeitsbuffer aanbeveling</h4>
                 <div className="space-y-4">
-                  <div className="text-center p-4 bg-blue-50 rounded-lg">
-                    <div className="text-2xl text-blue-600 mb-2">€18.500</div>
+                  <div className="text-center p-4 bg-[var(--color-apple-gray-6)] rounded-lg">
+                    <div className="text-2xl text-[var(--color-apple-blue)] mb-2">€18.500</div>
                     <div className="text-sm text-gray-600">Aanbevolen buffer</div>
                   </div>
                   <div className="space-y-2">
@@ -285,7 +285,7 @@ export function CashflowResultatenPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-sm text-gray-600">Optimaal niveau</span>
-                      <span className="text-sm text-blue-600">€18.500</span>
+                      <span className="text-sm text-[var(--color-apple-blue)]">€18.500</span>
                     </div>
                     <div className="flex justify-between font-medium border-t pt-2">
                       <span className="text-sm">Vrij te maken</span>
@@ -354,7 +354,7 @@ export function CashflowResultatenPage() {
                         variant="outline"
                         className={
                           expense.predictability >= 90 ? 'text-green-600 border-green-600' :
-                          expense.predictability >= 70 ? 'text-blue-600 border-blue-600' :
+                          expense.predictability >= 70 ? 'text-[var(--color-apple-blue)] border-[var(--color-apple-blue)]' :
                           expense.predictability >= 50 ? 'text-orange-600 border-orange-600' :
                           'text-red-600 border-red-600'
                         }
@@ -438,7 +438,7 @@ export function CashflowResultatenPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="text-lg mb-2">Basis scenario</div>
-                  <div className="text-2xl text-blue-600 mb-2">€45.000</div>
+                  <div className="text-2xl text-[var(--color-apple-blue)] mb-2">€45.000</div>
                   <div className="text-sm text-gray-600">Gem. maandelijkse cashflow</div>
                   <div className="text-xs text-gray-500 mt-2">85% waarschijnlijkheid</div>
                 </div>
@@ -468,7 +468,7 @@ export function CashflowResultatenPage() {
                     <div>
                       <div className="font-medium">Kortere betaaltermijnen</div>
                       <div className="text-sm text-gray-600">Verhoog cashflow met €3.200/maand</div>
-                      <div className="text-sm text-blue-600">2% vroegbetaalkorting invoeren</div>
+                      <div className="text-sm text-[var(--color-apple-blue)]">2% vroegbetaalkorting invoeren</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -476,7 +476,7 @@ export function CashflowResultatenPage() {
                     <div>
                       <div className="font-medium">Automatische betalingsherinneringen</div>
                       <div className="text-sm text-gray-600">Verminder betaalvertraging met 8 dagen</div>
-                      <div className="text-sm text-blue-600">Impact: €2.100 eerder beschikbaar</div>
+                      <div className="text-sm text-[var(--color-apple-blue)]">Impact: €2.100 eerder beschikbaar</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -484,7 +484,7 @@ export function CashflowResultatenPage() {
                     <div>
                       <div className="font-medium">Maandelijkse factuurperiode</div>
                       <div className="text-sm text-gray-600">Voorspelbaarder dan quarterly billing</div>
-                      <div className="text-sm text-blue-600">Verbeter cashflow stabiliteit</div>
+                      <div className="text-sm text-[var(--color-apple-blue)]">Verbeter cashflow stabiliteit</div>
                     </div>
                   </li>
                 </ul>
@@ -494,27 +494,27 @@ export function CashflowResultatenPage() {
                 <h4 className="mb-4">Strategische optimalisaties</h4>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500 mt-1">→</span>
+                    <span className="text-[var(--color-apple-gray-6)]0 mt-1">→</span>
                     <div>
                       <div className="font-medium">Dynamische pricing seizoenen</div>
                       <div className="text-sm text-gray-600">Verhoog marges in Q4, verlager in Q1</div>
-                      <div className="text-sm text-blue-600">Vla cashflow over het jaar</div>
+                      <div className="text-sm text-[var(--color-apple-blue)]">Vla cashflow over het jaar</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500 mt-1">→</span>
+                    <span className="text-[var(--color-apple-gray-6)]0 mt-1">→</span>
                     <div>
                       <div className="font-medium">Creditmanagement systeem</div>
                       <div className="text-sm text-gray-600">Automatiseer debiteuren management</div>
-                      <div className="text-sm text-blue-600">Verminder DSO met 12 dagen</div>
+                      <div className="text-sm text-[var(--color-apple-blue)]">Verminder DSO met 12 dagen</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500 mt-1">→</span>
+                    <span className="text-[var(--color-apple-gray-6)]0 mt-1">→</span>
                     <div>
                       <div className="font-medium">Diversificatie klantbase</div>
                       <div className="text-sm text-gray-600">Verminder afhankelijkheid top klanten</div>
-                      <div className="text-sm text-blue-600">Target: Geen klant &gt;15% van omzet</div>
+                      <div className="text-sm text-[var(--color-apple-blue)]">Target: Geen klant &gt;15% van omzet</div>
                     </div>
                   </li>
                 </ul>
@@ -542,8 +542,8 @@ export function CashflowResultatenPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 text-sm">2</span>
+                  <div className="w-8 h-8 bg-[var(--color-apple-gray-6)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-[var(--color-apple-blue)] text-sm">2</span>
                   </div>
                   <div className="flex-1">
                     <h5>Maand 2-3: Processen optimaliseren</h5>
@@ -554,7 +554,7 @@ export function CashflowResultatenPage() {
                       <div>• Dashboard cashflow monitoring</div>
                       <div>• KPI targets vaststellen</div>
                     </div>
-                    <div className="mt-2 text-sm text-blue-600">Impact: +€2.800 extra stabiliteit</div>
+                    <div className="mt-2 text-sm text-[var(--color-apple-blue)]">Impact: +€2.800 extra stabiliteit</div>
                   </div>
                 </div>
 
@@ -582,7 +582,7 @@ export function CashflowResultatenPage() {
 
       {/* Bottom CTA */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <Card className="p-8 bg-gradient-to-r from-blue-50 to-blue-100 text-center">
+        <Card className="p-8 bg-gradient-to-r from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-6)] text-center">
           <h3 className="mb-4">Klaar om je cashflow te optimaliseren?</h3>
           <p className="text-gray-600 mb-6">
             Verhoog je cashflow met €8.100 per maand door onze aanbevelingen te implementeren.
@@ -590,14 +590,14 @@ export function CashflowResultatenPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadPDF}
-              className="bg-blue-600 hover:bg-blue-700 text-white text-[14px]"
+              className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white text-[14px]"
             >
               Download volledige analyse
             </Button>
             <a href="#/contact">
               <Button 
                 variant="outline" 
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 text-[14px]"
+                className="border-[var(--color-apple-blue)] text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] text-[14px]"
               >
                 Hulp bij implementatie?
               </Button>

@@ -194,9 +194,9 @@ export function CloudkostenResultatenPage() {
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-blue-600 mb-2">{mockAnalysisData.optimizationScore}</div>
+              <div className="text-3xl text-[var(--color-apple-blue)] mb-2">{mockAnalysisData.optimizationScore}</div>
               <div className="text-gray-700 mb-1">Optimalisatie score</div>
-              <div className="text-blue-600 text-sm">Goed voor verbetering</div>
+              <div className="text-[var(--color-apple-blue)] text-sm">Goed voor verbetering</div>
             </div>
           </Card>
           
@@ -410,8 +410,8 @@ export function CloudkostenResultatenPage() {
 
               <Card className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                  <div className="w-10 h-10 bg-[var(--color-apple-gray-6)] rounded-full flex items-center justify-center">
+                    <span className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full"></span>
                   </div>
                   <div>
                     <h4>Strategische optimalisaties</h4>
@@ -420,7 +420,7 @@ export function CloudkostenResultatenPage() {
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-gray-6)]0 mt-1">•</span>
                     <div>
                       <div className="font-medium">Reserved Instances voor stable workloads</div>
                       <div className="text-sm text-gray-600">3-jaar commitment aanbevolen</div>
@@ -428,7 +428,7 @@ export function CloudkostenResultatenPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-gray-6)]0 mt-1">•</span>
                     <div>
                       <div className="font-medium">Migreer naar Graviton instances</div>
                       <div className="text-sm text-gray-600">Betere price/performance ratio</div>
@@ -516,14 +516,14 @@ export function CloudkostenResultatenPage() {
 
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-blue-600 text-sm">3</span>
+                    <div className="w-8 h-8 bg-[var(--color-apple-gray-6)] rounded-full flex items-center justify-center">
+                      <span className="text-[var(--color-apple-blue)] text-sm">3</span>
                     </div>
                     <div>
                       <h4>Week 4-6: Strategische optimalisaties</h4>
                       <p className="text-sm text-gray-600">Langetermijn besparingen</p>
                     </div>
-                    <Badge className="bg-blue-100 text-blue-600">€1.100/maand</Badge>
+                    <Badge className="bg-[var(--color-apple-gray-6)] text-[var(--color-apple-blue)]">€1.100/maand</Badge>
                   </div>
                   <div className="ml-11 space-y-2">
                     <div className="text-sm">• Purchase Reserved Instances</div>
@@ -571,7 +571,7 @@ export function CloudkostenResultatenPage() {
                     <span className="text-sm">Gemiddeld risico: €890/maand</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-[var(--color-apple-blue)] rounded-full"></div>
                     <span className="text-sm">Planning vereist: €1.100/maand</span>
                   </div>
                   <div className="text-xs text-gray-600 mt-3">

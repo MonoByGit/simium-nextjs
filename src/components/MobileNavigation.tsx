@@ -44,7 +44,7 @@ export function MobileNavigation({ onMenuToggle }: MobileNavigationProps) {
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-border/50">
                 <div className="flex items-center">
-                  <div className="w-7 h-7 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg mr-3 flex items-center justify-center shadow-sm">
+                  <div className="w-7 h-7 bg-gradient-to-br from-[var(--color-apple-blue)] to-[var(--color-apple-blue)] rounded-lg mr-3 flex items-center justify-center shadow-sm">
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                       <path d="M8 3L5 6h2v4h2V6h2L8 3z" fill="white"/>
                     </svg>
@@ -107,7 +107,7 @@ export function MobileNavigation({ onMenuToggle }: MobileNavigationProps) {
               {/* Bottom Action */}
               <div className="p-6 border-t border-border/50">
                 <a href="#/producten" onClick={closeMenu}>
-                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                  <button className="w-full bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
                     Start gratis scan
                   </button>
                 </a>

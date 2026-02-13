@@ -142,7 +142,7 @@ export function CashflowanalysePage() {
   const getScoreColor = (score: number) => {
     if (score >= 80)
       return "text-green-600 dark:text-green-400";
-    if (score >= 60) return "text-blue-600 dark:text-blue-400";
+    if (score >= 60) return "text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]";
     if (score >= 40)
       return "text-orange-600 dark:text-orange-400";
     return "text-red-600 dark:text-red-400";
@@ -191,14 +191,14 @@ export function CashflowanalysePage() {
             {/* Content */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30 text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
+                  <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
                   Cashflow-analyse
                 </div>
                 
                 <h1 className="text-5xl lg:text-6xl leading-tight">
                   Beheers je 
-                  <span className="block text-blue-600">cashflow</span>
+                  <span className="block text-[var(--color-apple-blue)]">cashflow</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-md">
@@ -222,7 +222,7 @@ export function CashflowanalysePage() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button 
                   onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                  className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                 >
                   Start gratis analyse
                 </Button>
@@ -239,14 +239,14 @@ export function CashflowanalysePage() {
             
             {/* Visual */}
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-3xl p-8 shadow-2xl">
+              <div className="relative bg-gradient-to-br from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-6)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)] rounded-3xl p-8 shadow-2xl">
                 <ImageWithFallback 
                   src={cloudImage}
                   alt="Cashflow analysis dashboard"
                   className="rounded-2xl w-full shadow-lg"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-2xl p-6 shadow-xl backdrop-blur-sm">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">85%</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-blue)] mb-1">85%</div>
                   <div className="text-muted-foreground text-sm">gem. score verbetering</div>
                 </div>
               </div>
@@ -345,7 +345,7 @@ export function CashflowanalysePage() {
                           onClick={() => handleInputChange("paymentTerms", option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.paymentTerms === option.value
-                              ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                              ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -374,7 +374,7 @@ export function CashflowanalysePage() {
                           onClick={() => handleInputChange("seasonality", option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.seasonality === option.value
-                              ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                              ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -454,7 +454,7 @@ export function CashflowanalysePage() {
                           onClick={() => handleInputChange("majorExpenses", option.value)}
                           className={`p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 text-center font-medium ${
                             formData.majorExpenses === option.value
-                              ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                              ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -487,7 +487,7 @@ export function CashflowanalysePage() {
                       disabled={!isFormValid}
                       className={`w-full py-6 rounded-2xl font-medium text-lg transition-all duration-200 ${
                         isFormValid 
-                          ? 'bg-blue-600 hover:bg-blue-700 text-white hover:-translate-y-1 hover:shadow-lg' 
+                          ? 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white hover:-translate-y-1 hover:shadow-lg' 
                           : 'bg-secondary text-muted-foreground cursor-not-allowed'
                       }`}
                     >
@@ -503,7 +503,7 @@ export function CashflowanalysePage() {
                   <div className="text-6xl">🎉</div>
                   
                   <div className="space-y-4">
-                    <div className="text-6xl font-bold text-blue-600">
+                    <div className="text-6xl font-bold text-[var(--color-apple-blue)]">
                       {calculatedScore}/100
                     </div>
                     <div className="text-xl text-muted-foreground">
@@ -526,7 +526,7 @@ export function CashflowanalysePage() {
                         'Liquiditeitsadvies'
                       ].map((item) => (
                         <div key={item} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full"></div>
                           <span className="text-foreground">{item}</span>
                         </div>
                       ))}
@@ -534,12 +534,12 @@ export function CashflowanalysePage() {
                   </div>
                   
                   {/* Premium CTA */}
-                  <div className="border border-blue-200 dark:border-blue-800 rounded-2xl p-8 bg-blue-50/50 dark:bg-blue-900/10">
+                  <div className="border border-[var(--color-apple-gray-6)] dark:border-[var(--color-apple-gray-2)] rounded-2xl p-8 bg-[var(--color-apple-gray-6)]/50 dark:bg-[var(--color-apple-gray-2)]/10">
                     <h4 className="text-2xl font-medium mb-6">Klaar voor je volledige analyse?</h4>
                     
                     <Button 
                       onClick={() => window.location.href = '#/cashflow-verdieping'}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-medium mb-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                      className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-4 rounded-2xl font-medium mb-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                     >
                       Bekijk volledige analyse – €49,95
                     </Button>
@@ -599,10 +599,10 @@ export function CashflowanalysePage() {
               }
             ].map((step, index) => (
               <div key={index} className="text-center group">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-3xl flex items-center justify-center mx-auto mb-8 border-2 border-blue-200 dark:border-blue-700 group-hover:scale-105 transition-transform duration-200">
-                  <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">{step.number}</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-6)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)] rounded-3xl flex items-center justify-center mx-auto mb-8 border-2 border-[var(--color-apple-gray-6)] dark:border-[var(--color-apple-gray-2)] group-hover:scale-105 transition-transform duration-200">
+                  <span className="text-3xl font-bold text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]">{step.number}</span>
                 </div>
-                <h3 className="text-xl font-medium mb-4 text-blue-600 dark:text-blue-400">{step.title}</h3>
+                <h3 className="text-xl font-medium mb-4 text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             ))}
@@ -680,7 +680,7 @@ export function CashflowanalysePage() {
               }
             ].map((feature, index) => (
               <div key={index} className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 group">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-200">
+                <div className="w-12 h-12 bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/40 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] group-hover:scale-110 transition-transform duration-200">
                   {feature.icon}
                 </div>
                 <h4 className="text-lg font-medium mb-3">{feature.title}</h4>
@@ -692,17 +692,17 @@ export function CashflowanalysePage() {
       </section>
 
       {/* Final CTA - Apple Style */}
-      <section className="py-32 bg-blue-600 text-white">
+      <section className="py-32 bg-[var(--color-apple-blue)] text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-white mb-6">Klaar voor financiële grip?</h2>
-          <p className="text-xl text-blue-100 mb-12 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--color-apple-gray-6)] mb-12 leading-relaxed max-w-2xl mx-auto">
             Analyseer binnen 3 minuten je cashflow-situatie en krijg direct 
             concrete verbeterpunten. Gratis en zonder verplichtingen.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+              className="bg-white text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
             >
               Start gratis cashflow-analyse
             </Button>

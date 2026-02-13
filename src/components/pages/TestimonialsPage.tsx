@@ -231,8 +231,8 @@ export function TestimonialsPage() {
                       <div className="text-sm text-muted-foreground">{testimonial.results.period}</div>
                     </div>
                     
-                    <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-2xl p-6 text-center">
-                      <div className="text-xl font-semibold text-blue-600 mb-1">{testimonial.results.roi}</div>
+                    <div className="bg-[var(--color-apple-gray-6)] dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-2xl p-6 text-center">
+                      <div className="text-xl font-semibold text-[var(--color-apple-blue)] mb-1">{testimonial.results.roi}</div>
                       <div className="text-sm text-muted-foreground">ROI</div>
                     </div>
                     
@@ -324,7 +324,7 @@ export function TestimonialsPage() {
           <div className="space-y-12">
             <h2 className="text-4xl">Sluit je aan bij 15.000+ ondernemers</h2>
             
-            <div className="bg-gradient-to-r from-green-500 to-blue-600 rounded-3xl p-12 text-white">
+            <div className="bg-gradient-to-r from-green-500 to-[var(--color-apple-blue)] rounded-3xl p-12 text-white">
               <div className="space-y-8">
                 <div className="text-6xl font-bold">€4.2M</div>
                 <div className="text-2xl">bespaard voor Nederlandse ondernemers</div>

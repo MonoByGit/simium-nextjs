@@ -62,8 +62,8 @@ export function LoginPage() {
         <div className="max-w-md w-full space-y-8">
           {/* Header - Apple Style */}
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+            <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30 text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
+              <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
               Account
             </div>
             <h1 className="text-4xl font-bold">Welkom bij Simium</h1>
@@ -116,7 +116,7 @@ export function LoginPage() {
                         Onthoud mij
                       </Label>
                     </div>
-                    <a href="#" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+                    <a href="#" className="text-sm text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                       Wachtwoord vergeten?
                     </a>
                   </div>
@@ -126,7 +126,7 @@ export function LoginPage() {
                     disabled={!isLoginValid}
                     className={`w-full py-4 rounded-2xl font-medium text-lg transition-all duration-200 ${
                       isLoginValid
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white hover:-translate-y-1 hover:shadow-lg'
+                        ? 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white hover:-translate-y-1 hover:shadow-lg'
                         : 'bg-secondary text-muted-foreground cursor-not-allowed'
                     }`}
                   >
@@ -226,11 +226,11 @@ export function LoginPage() {
                       />
                       <Label htmlFor="acceptTerms" className="text-sm text-muted-foreground leading-relaxed">
                         Ik ga akkoord met de{' '}
-                        <a href="#/voorwaarden" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        <a href="#/voorwaarden" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                           algemene voorwaarden
                         </a>{' '}
                         en het{' '}
-                        <a href="#/privacy" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        <a href="#/privacy" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                           privacybeleid
                         </a>
                       </Label>
@@ -253,7 +253,7 @@ export function LoginPage() {
                     disabled={!isRegisterValid}
                     className={`w-full py-4 rounded-2xl font-medium text-lg transition-all duration-200 ${
                       isRegisterValid
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white hover:-translate-y-1 hover:shadow-lg'
+                        ? 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white hover:-translate-y-1 hover:shadow-lg'
                         : 'bg-secondary text-muted-foreground cursor-not-allowed'
                     }`}
                   >
@@ -310,7 +310,7 @@ export function LoginPage() {
           <div className="text-center">
             <p className="text-muted-foreground">
               Hulp nodig?{' '}
-              <a href="#/contact" className="text-blue-600 dark:text-blue-400 hover:underline">
+              <a href="#/contact" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                 Neem contact op
               </a>
             </p>

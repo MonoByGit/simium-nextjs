@@ -153,11 +153,11 @@ export function RegisterPage() {
                     />
                     <Label htmlFor="acceptTerms" className="text-sm text-muted-foreground leading-relaxed">
                       Ik ga akkoord met de{' '}
-                      <a href="#/voorwaarden" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      <a href="#/voorwaarden" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                         algemene voorwaarden
                       </a>{' '}
                       en het{' '}
-                      <a href="#/privacy" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      <a href="#/privacy" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                         privacybeleid
                       </a>
                     </Label>
@@ -236,7 +236,7 @@ export function RegisterPage() {
             <div className="text-center">
               <p className="text-muted-foreground">
                 Heb je al een account?{' '}
-                <a href="#/inloggen" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                <a href="#/inloggen" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline font-medium">
                   Log hier in
                 </a>
               </p>

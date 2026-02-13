@@ -14,14 +14,14 @@ export function AboutPage() {
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+            <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
+              <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
               Over Simium
             </div>
             
             <h1 className="text-6xl leading-tight">
               AI die Nederlandse
-              <span className="block text-blue-600">bedrijven laat groeien</span>
+              <span className="block text-[var(--color-apple-blue)]">bedrijven laat groeien</span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -55,7 +55,7 @@ export function AboutPage() {
               
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">15.000+</div>
+                  <div className="text-4xl font-bold text-[var(--color-apple-blue)] mb-2">15.000+</div>
                   <p className="text-muted-foreground">Geholpen bedrijven</p>
                 </div>
                 <div className="text-center">
@@ -66,7 +66,7 @@ export function AboutPage() {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/50 dark:to-indigo-950/50 rounded-3xl p-12 shadow-xl">
+              <div className="bg-gradient-to-br from-[var(--color-apple-gray-6)] to-indigo-100 dark:from-blue-950/50 dark:to-indigo-950/50 rounded-3xl p-12 shadow-xl">
                 <ImageWithFallback 
                   src={image_ca1e3b46b40d11c93c9df4ed8072d161b57d1963}
                   alt="AI-gedreven business intelligence voor Nederlandse ondernemers"
@@ -133,7 +133,7 @@ export function AboutPage() {
                   <div className="space-y-3 mt-auto">
                     {feature.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full flex-shrink-0"></div>
                         <span className="text-sm text-muted-foreground">{detail}</span>
                       </div>
                     ))}
@@ -310,10 +310,10 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-12 text-white">
+            <div className="bg-gradient-to-r from-[var(--color-apple-blue)] to-purple-600 rounded-3xl p-12 text-white">
               <div className="space-y-6">
                 <div className="text-3xl font-bold">Elke scan wordt door mensen gecontroleerd</div>
-                <p className="text-xl text-blue-100">
+                <p className="text-xl text-[var(--color-apple-gray-6)]">
                   Voordat jij je rapport krijgt, bekijkt ons expertteam elke aanbeveling 
                   om ervoor te zorgen dat het praktisch en realistisch is voor jouw situatie.
                 </p>
@@ -329,7 +329,7 @@ export function AboutPage() {
           <div className="space-y-8">
             <h2 className="text-5xl leading-tight">
               Klaar om te
-              <span className="block text-blue-600">groeien?</span>
+              <span className="block text-[var(--color-apple-blue)]">groeien?</span>
             </h2>
             
             <p className="text-xl text-muted-foreground leading-relaxed">
@@ -339,7 +339,7 @@ export function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                 onClick={() => window.location.href = '#/producten'}
               >
                 Start je eerste scan

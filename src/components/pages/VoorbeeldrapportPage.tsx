@@ -295,8 +295,8 @@ export function VoorbeeldrapportPage() {
               <div className="text-muted-foreground">€40.800 per jaar</div>
             </Card>
             
-            <Card className="p-8 rounded-3xl text-center bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
-              <div className="text-5xl font-bold text-blue-600 mb-4">-23%</div>
+            <Card className="p-8 rounded-3xl text-center bg-[var(--color-apple-gray-6)] dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
+              <div className="text-5xl font-bold text-[var(--color-apple-blue)] mb-4">-23%</div>
               <div className="text-xl font-semibold mb-2">Kostenverlaging</div>
               <div className="text-muted-foreground">Van €15.000 naar €11.600</div>
             </Card>
@@ -317,8 +317,8 @@ export function VoorbeeldrapportPage() {
                 een week konden implementeren. €3.400 per maand besparing spreekt voor zich."
               </p>
               <div className="flex items-center justify-center space-x-4">
-                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-950/50 rounded-3xl flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold text-lg">MR</span>
+                <div className="w-16 h-16 bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] rounded-3xl flex items-center justify-center">
+                  <span className="text-[var(--color-apple-blue)] font-semibold text-lg">MR</span>
                 </div>
                 <div className="text-left">
                   <div className="font-semibold text-lg">Mark R.</div>
@@ -365,7 +365,7 @@ export function VoorbeeldrapportPage() {
                   <div className="space-y-3 mt-auto">
                     {feature.features.map((item, itemIndex) => (
                       <div key={itemIndex} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full flex-shrink-0"></div>
                         <span className="text-sm text-muted-foreground">{item}</span>
                       </div>
                     ))}

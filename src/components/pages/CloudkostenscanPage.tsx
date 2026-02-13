@@ -134,7 +134,7 @@ export function CloudkostenscanPage() {
             
             <a 
               href="#/cashflow-analyse" 
-              className="inline-flex items-center text-muted-foreground hover:text-blue-600 transition-colors duration-200 group"
+              className="inline-flex items-center text-muted-foreground hover:text-[var(--color-apple-blue)] transition-colors duration-200 group"
             >
               Volgende: Cashflow-analyse
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="ml-3 group-hover:translate-x-1 transition-transform duration-200">

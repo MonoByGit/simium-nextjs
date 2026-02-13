@@ -30,14 +30,14 @@ export function ContactPage() {
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+            <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
+              <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
               Contact
             </div>
             
             <h1 className="text-6xl leading-tight">
               Hoe kunnen we
-              <span className="block text-blue-600">helpen?</span>
+              <span className="block text-[var(--color-apple-blue)]">helpen?</span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -218,7 +218,7 @@ export function ContactPage() {
               <div className="pt-4">
                 <Button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 text-xl rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                  className="w-full bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white py-6 text-xl rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                 >
                   Verstuur bericht
                 </Button>
@@ -323,7 +323,7 @@ export function ContactPage() {
               }
             ].map((faq, index) => (
               <Card key={index} className="p-8 rounded-2xl">
-                <h4 className="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">{faq.question}</h4>
+                <h4 className="text-lg font-semibold mb-4 text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]">{faq.question}</h4>
                 <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
               </Card>
             ))}
@@ -332,19 +332,19 @@ export function ContactPage() {
       </section>
 
       {/* Final CTA - Apple's Clean Close */}
-      <section className="py-24 bg-blue-600 text-white">
+      <section className="py-24 bg-[var(--color-apple-blue)] text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="space-y-8">
             <h2 className="text-4xl text-white">
               Liever direct beginnen?
             </h2>
             
-            <p className="text-xl text-blue-100 leading-relaxed">
+            <p className="text-xl text-[var(--color-apple-gray-6)] leading-relaxed">
               Start vandaag nog je eerste gratis scan en ontdek binnen 24 uur waar je bedrijf kan optimaliseren
             </p>
 
             <Button 
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+              className="bg-white text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
               onClick={() => window.location.href = '#/producten'}
             >
               Start gratis scan
