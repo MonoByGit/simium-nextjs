@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Layout } from '../Layout'
 import { Button } from '../ui/button'
@@ -6,8 +8,8 @@ import { Badge } from '../ui/badge'
 import { ImageWithFallback } from '../figma/ImageWithFallback'
 
 // Import dashboard images
-import dashboardImage from 'figma:asset/b6204b50ff8a0052ace3e0e67fcfec4b9011ecbc.png'
-import analyticsImage from 'figma:asset/ca1e3b46b40d11c93c9df4ed8072d161b57d1963.png'
+import dashboardImage from '@/assets/b6204b50ff8a0052ace3e0e67fcfec4b9011ecbc.png'
+import analyticsImage from '@/assets/ca1e3b46b40d11c93c9df4ed8072d161b57d1963.png'
 
 export function VoorbeeldrapportPage() {
   return (

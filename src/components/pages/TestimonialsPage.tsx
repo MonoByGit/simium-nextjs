@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Layout } from '../Layout'
 import { Button } from '../ui/button'
@@ -6,8 +8,8 @@ import { Badge } from '../ui/badge'
 import { ImageWithFallback } from '../figma/ImageWithFallback'
 
 // Import testimonial images
-import axelImage from 'figma:asset/f015c8e32f92e0f7ba63116caed58f72718bfee7.png'
-import christinaImage from 'figma:asset/95647e819259db3fa78fb8ec348dca0617ee4409.png'
+import axelImage from '@/assets/f015c8e32f92e0f7ba63116caed58f72718bfee7.png'
+import christinaImage from '@/assets/95647e819259db3fa78fb8ec348dca0617ee4409.png'
 
 export function TestimonialsPage() {
   const [selectedFilter, setSelectedFilter] = useState('all')
@@ -183,7 +185,7 @@ export function TestimonialsPage() {
                     <div className="flex items-center gap-6">
                       <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-lg flex-shrink-0">
                         <ImageWithFallback 
-                          src={testimonial.image}
+                          src={testimonial.image!}
                           alt={`${testimonial.name} van ${testimonial.company}`}
                           className="w-full h-full object-cover"
                         />

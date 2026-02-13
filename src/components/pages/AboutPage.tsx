@@ -1,10 +1,12 @@
+'use client'
+
 import React from 'react'
 import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
 import { ImageWithFallback } from '../figma/ImageWithFallback'
-import image_ca1e3b46b40d11c93c9df4ed8072d161b57d1963 from 'figma:asset/ca1e3b46b40d11c93c9df4ed8072d161b57d1963.png'
+import image_ca1e3b46b40d11c93c9df4ed8072d161b57d1963 from '@/assets/ca1e3b46b40d11c93c9df4ed8072d161b57d1963.png'
 
 export function AboutPage() {
   return (

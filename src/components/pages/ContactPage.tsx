@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Layout } from '../Layout'
 import { Button } from '../ui/button'

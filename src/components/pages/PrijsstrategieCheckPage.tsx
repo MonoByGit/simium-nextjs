@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Layout } from '../Layout'
 import { Button } from '../ui/button'
@@ -8,13 +10,13 @@ import { Badge } from '../ui/badge'
 import { Textarea } from '../ui/textarea'
 
 import { ImageWithFallback } from '../figma/ImageWithFallback'
-import cloudImage from 'figma:asset/19eb92763caa81f24a43e8ed36ccf4d1e73e69e4.png'
+import cloudImage from '@/assets/19eb92763caa81f24a43e8ed36ccf4d1e73e69e4.png'
 
 // Logo imports
-import inventecLogo from 'figma:asset/9c65e4e456c330cb45e96ec0a02e169e72c66787.png'
-import experianLogo from 'figma:asset/41d6d232c7f38f02b040aadeac79f267ae01a47e.png'
-import mannolLogo from 'figma:asset/872636fa97798151a130f04072b7e4be8d9a69d8.png'
-import bramblesLogo from 'figma:asset/9628120ff4209cf85bc7ef502e84a4ccdb668753.png'
+import inventecLogo from '@/assets/9c65e4e456c330cb45e96ec0a02e169e72c66787.png'
+import experianLogo from '@/assets/41d6d232c7f38f02b040aadeac79f267ae01a47e.png'
+import mannolLogo from '@/assets/872636fa97798151a130f04072b7e4be8d9a69d8.png'
+import bramblesLogo from '@/assets/9628120ff4209cf85bc7ef502e84a4ccdb668753.png'
 
 export function PrijsstrategieCheckPage() {
   const [formData, setFormData] = useState({

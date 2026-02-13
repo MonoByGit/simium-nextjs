@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Layout } from '../Layout'
 import { Button } from '../ui/button'
@@ -101,12 +103,15 @@ export function CloudkostenVerdiepingPage() {
   }
 
   const handleCheckboxChange = (field: string, value: string, checked: boolean) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: checked 
-        ? [...(prev[field] as string[]), value]
-        : (prev[field] as string[]).filter(item => item !== value)
-    }))
+    setFormData(prev => {
+      const currentValue = (prev as any)[field] as string[]
+      return {
+        ...prev,
+        [field]: checked 
+          ? [...currentValue, value]
+          : currentValue.filter(item => item !== value)
+      }
+    })
   }
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
