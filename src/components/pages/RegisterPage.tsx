@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Card } from '../ui/card'
@@ -39,7 +38,7 @@ export function RegisterPage() {
     formData.confirmPassword && formData.acceptTerms
 
   return (
-    <Layout>
+    <>
       {/* Hero - Apple's Clean Registration */}
       <section className="py-32">
         <div className="max-w-md mx-auto px-6">
@@ -245,6 +244,6 @@ export function RegisterPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

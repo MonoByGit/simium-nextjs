@@ -1,13 +1,12 @@
 'use client'
 
 import React from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 
 export function PrivacyPage() {
   return (
-    <Layout>
+    <>
       {/* Hero - Apple's Trust-First Approach */}
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -314,6 +313,6 @@ export function PrivacyPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

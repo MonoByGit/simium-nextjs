@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
@@ -157,7 +156,7 @@ export function PrijsstrategieVerdiepingPage() {
                      formData.competitorPricing && formData.valueProposition
 
   return (
-    <Layout>
+    <>
       {/* Navigation */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
@@ -668,6 +667,6 @@ export function PrijsstrategieVerdiepingPage() {
 
         </div>
       </div>
-    </Layout>
+    </>
   )
 }

@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
@@ -103,7 +102,7 @@ export function CloudkostenResultatenPage() {
 
   if (isLoading) {
     return (
-      <Layout>
+      <>
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <Card className="p-8 max-w-md w-full text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
@@ -115,12 +114,12 @@ export function CloudkostenResultatenPage() {
             <p className="text-xs text-gray-500 mt-2">Bijna klaar...</p>
           </Card>
         </div>
-      </Layout>
+      </>
     )
   }
 
   return (
-    <Layout>
+    <>
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-green-700 text-white mx-4 rounded-2xl mb-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8">
@@ -611,6 +610,6 @@ export function CloudkostenResultatenPage() {
           </div>
         </Card>
       </div>
-    </Layout>
+    </>
   )
 }

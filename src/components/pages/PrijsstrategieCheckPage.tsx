@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
@@ -155,7 +154,7 @@ export function PrijsstrategieCheckPage() {
   }
 
   return (
-    <Layout>
+    <>
       {/* Apple-style Navigation Breadcrumb */}
       <section className="pt-8 pb-4">
         <div className="max-w-5xl mx-auto px-6">
@@ -758,6 +757,6 @@ export function PrijsstrategieCheckPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

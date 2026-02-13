@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Card } from '../ui/card'
@@ -58,7 +57,7 @@ export function LoginPage() {
     registerData.confirmPassword && registerData.acceptTerms
 
   return (
-    <Layout>
+    <>
       <div className="min-h-screen bg-background flex items-center justify-center py-32 px-6">
         <div className="max-w-md w-full space-y-8">
           {/* Header - Apple Style */}
@@ -318,6 +317,6 @@ export function LoginPage() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }

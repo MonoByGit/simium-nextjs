@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Textarea } from '../ui/textarea'
@@ -26,7 +25,7 @@ export function ContactPage() {
   }
 
   return (
-    <Layout>
+    <>
       {/* Hero - Apple's Minimalist Approach */}
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -353,6 +352,6 @@ export function ContactPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

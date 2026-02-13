@@ -1,12 +1,11 @@
 'use client'
 
 import React from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 
 export function WerkwijzePage() {
   return (
-    <Layout>
+    <>
       {/* Hero - Apple's Educational Introduction */}
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -279,6 +278,6 @@ export function WerkwijzePage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

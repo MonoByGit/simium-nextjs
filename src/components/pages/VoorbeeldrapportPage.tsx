@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
@@ -13,7 +12,7 @@ import analyticsImage from '@/assets/ca1e3b46b40d11c93c9df4ed8072d161b57d1963.pn
 
 export function VoorbeeldrapportPage() {
   return (
-    <Layout>
+    <>
       {/* Hero - Apple's Case Study Introduction */}
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -411,6 +410,6 @@ export function VoorbeeldrapportPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

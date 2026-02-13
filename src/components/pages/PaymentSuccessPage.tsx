@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 
 export function PaymentSuccessPage() {
@@ -11,7 +10,7 @@ export function PaymentSuccessPage() {
   }, [])
 
   return (
-    <Layout>
+    <>
       {/* Success Celebration - Apple's Delightful Confirmation */}
       <section className="py-32">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -203,6 +202,6 @@ export function PaymentSuccessPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

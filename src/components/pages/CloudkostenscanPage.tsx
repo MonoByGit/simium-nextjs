@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
@@ -118,7 +117,7 @@ export function CloudkostenscanPage() {
   const isFormValid = formData.monthlySpend && formData.cloudProvider && formData.usageType && formData.cloudServices && formData.autoScaling
 
   return (
-    <Layout>
+    <>
       {/* Apple-style Navigation Breadcrumb */}
       <section className="pt-8 pb-4">
         <div className="max-w-5xl mx-auto px-6">
@@ -635,6 +634,6 @@ export function CloudkostenscanPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

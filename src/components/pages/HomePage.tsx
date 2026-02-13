@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { Layout } from '../Layout'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import { ImageWithFallback } from '../figma/ImageWithFallback'
@@ -15,7 +14,7 @@ import bramblesLogo from '@/assets/9628120ff4209cf85bc7ef502e84a4ccdb668753.png'
 
 export function HomePage() {
   return (
-    <Layout>
+    <>
       {/* Hero - Apple's Signature Centered Focus */}
       <section className="pt-20 pb-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -295,6 +294,6 @@ export function HomePage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
