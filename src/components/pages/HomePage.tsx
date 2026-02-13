@@ -34,15 +34,15 @@ export function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                onClick={() => window.location.href = '#/producten'}
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => window.location.href = '/producten'}
               >
                 Begin gratis scan
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
+                className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 border-border"
                 onClick={() => window.location.href = '#/werkwijze'}
               >
                 Hoe het werkt
@@ -75,7 +75,7 @@ export function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1">
               <div className="relative">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/50 dark:to-indigo-950/50 rounded-3xl p-8 shadow-2xl">
+                <div className="bg-gradient-to-br from-[var(--color-apple-gray-6)] to-[var(--color-apple-indigo)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)] rounded-3xl p-8 shadow-2xl">
                   <ImageWithFallback 
                     src={womanImage} 
                     alt="AI-gedreven business inzichten" 
@@ -84,7 +84,7 @@ export function HomePage() {
                 </div>
                 {/* Floating metric card */}
                 <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-2xl p-6 shadow-xl backdrop-blur-sm">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">€4.2M</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-blue)] mb-1">€4.2M</div>
                   <div className="text-muted-foreground text-sm">bespaard voor klanten</div>
                 </div>
               </div>
@@ -92,14 +92,14 @@ export function HomePage() {
             
             <div className="order-1 lg:order-2 space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
+                  <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
                   AI-analyse
                 </div>
                 
                 <h2 className="text-5xl leading-tight">
                   Verspilling wordt
-                  <span className="block text-blue-600">zichtbaar</span>
+                  <span className="block text-[var(--color-apple-blue)]">zichtbaar</span>
                 </h2>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -215,7 +215,7 @@ export function HomePage() {
                 }
               ].map((item, index) => (
                 <div key={index} className="space-y-6">
-                  <div className="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto shadow-lg">
+                  <div className="w-16 h-16 bg-[var(--color-apple-blue)] text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto shadow-lg">
                     {item.step}
                   </div>
                   <div className="space-y-3">
@@ -237,7 +237,7 @@ export function HomePage() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-4">
-                <div className="text-4xl font-bold text-blue-600">15.000+</div>
+                <div className="text-4xl font-bold text-[var(--color-apple-blue)]">15.000+</div>
                 <div className="text-muted-foreground">analyses uitgevoerd</div>
               </div>
               <div className="space-y-4">
@@ -253,7 +253,7 @@ export function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
               <Button 
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                 onClick={() => window.location.href = '#/producten'}
               >
                 Begin je analyse
@@ -277,7 +277,7 @@ export function HomePage() {
           <div className="space-y-8">
             <h2 className="text-5xl leading-tight">
               Klaar om te
-              <span className="block text-blue-600">optimaliseren?</span>
+              <span className="block text-[var(--color-apple-blue)]">optimaliseren?</span>
             </h2>
             
             <p className="text-xl text-muted-foreground leading-relaxed">
@@ -286,7 +286,7 @@ export function HomePage() {
 
             <Button 
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 text-xl rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+              className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-12 py-6 text-xl rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
               onClick={() => window.location.href = '#/producten'}
             >
               Begin nu
