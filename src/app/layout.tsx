@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
-import { Layout } from '@/components/Layout'
+import { Layout } from '@/components/LayoutNextJS'
 import { DarkModeProvider } from '@/components/DarkModeContext'
 
 const inter = Inter({ subsets: ['latin'] })
