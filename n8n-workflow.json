@@ -1,0 +1,31 @@
+{
+  "name": "Simium Business Scan Intake",
+  "nodes": [
+    {
+      "parameters": {"path": "simium-scan"},
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.minimax.io/anthropic/v1/messages",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"MiniMax-M2.1\",\n  \"maxTokens\": 2000,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Analyseer: {{ $json }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "name": "AI Analysis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [{"node": "AI Analysis", "type": "main", "index": 0}]
+    }
+  }
+}

@@ -25,6 +25,8 @@ import bramblesLogo from "@/assets/9628120ff4209cf85bc7ef502e84a4ccdb668753.png"
 
 export function CashflowanalysePage() {
   const [formData, setFormData] = useState({
+    companyName: "",
+    email: "",
     monthlyRevenue: "",
     paymentTerms: "",
     seasonality: "",
@@ -129,10 +131,26 @@ export function CashflowanalysePage() {
         "simium_scan_data",
         JSON.stringify(scanData),
       );
+
+      // Send to N8N for AI analysis
+      fetch("https://n8n.kiririn.io/webhook/simium-scan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          scanType: "cashflow",
+          companyName: formData.companyName || "Anonieme lead",
+          email: formData.email || "",
+          ...formData,
+          calculatedScore: score,
+          submittedAt: new Date().toISOString(),
+        }),
+      }).catch((err) => console.error("N8N webhook error:", err));
     }
   };
 
   const isFormValid =
+    formData.companyName &&
+    formData.email &&
     formData.monthlyRevenue &&
     formData.paymentTerms &&
     formData.seasonality &&
@@ -308,6 +326,36 @@ export function CashflowanalysePage() {
             {!showResult ? (
               <div className="p-12">
                 <div className="space-y-12">
+                  {/* Contact Info */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-medium">Bedrijfsnaam</h3>
+                        <p className="text-muted-foreground">Hoe heet je bedrijf?</p>
+                      </div>
+                      <Input 
+                        placeholder="bijv. Mono by Dusty"
+                        value={formData.companyName}
+                        onChange={(e) => handleInputChange("companyName", e.target.value)}
+                        className="h-14 px-6 rounded-2xl border-border bg-background text-foreground text-lg"
+                      />
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-medium">E-mail</h3>
+                        <p className="text-muted-foreground">Waar mogen we het rapport sturen?</p>
+                      </div>
+                      <Input 
+                        type="email"
+                        placeholder="bijv. jouw@email.com"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        className="h-14 px-6 rounded-2xl border-border bg-background text-foreground text-lg"
+                      />
+                    </div>
+                  </div>
+
                   {/* Question 1 - Monthly Revenue */}
                   <div className="space-y-4">
                     <div className="space-y-2">
