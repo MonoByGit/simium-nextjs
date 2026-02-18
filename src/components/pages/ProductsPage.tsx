@@ -85,7 +85,7 @@ export function ProductsPage() {
               <div key={index} className="relative group">
                 {scan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-[var(--color-apple-blue)] text-white px-3 py-1 text-sm font-medium">
+                    <Badge className="bg-[var(--color-apple-blue)] text-white px-4 py-1 text-sm font-medium rounded-full">
                       Meest gekozen
                     </Badge>
                   </div>
@@ -244,10 +244,9 @@ export function ProductsPage() {
               >
                 Kies je scan
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
                 size="lg"
-                className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
+                className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
                 onClick={() => window.location.href = '#/contact'}
               >
                 Stel een vraag

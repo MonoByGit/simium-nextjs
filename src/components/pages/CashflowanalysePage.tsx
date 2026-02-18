@@ -138,9 +138,9 @@ export function CashflowanalysePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           scanType: "cashflow",
+          ...formData,
           companyName: formData.companyName || "Anonieme lead",
           email: formData.email || "",
-          ...formData,
           calculatedScore: score,
           submittedAt: new Date().toISOString(),
         }),
