@@ -70,8 +70,8 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Apple-style Footer */}
       <footer className="bg-secondary border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
             {/* Brand Column */}
             <div className="md:col-span-1">
               <div className="flex items-center mb-6">
@@ -85,7 +85,7 @@ export function Layout({ children }: LayoutProps) {
                 />
                 <span className="text-xl font-semibold text-foreground tracking-tight">Simium</span>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 AI-gedreven business scans voor het MKB. Snel, betrouwbaar, direct inzicht.
               </p>
             </div>
@@ -93,24 +93,24 @@ export function Layout({ children }: LayoutProps) {
             {/* Scans Column */}
             <div>
               <h3 className="text-xs font-semibold text-foreground mb-4 tracking-widest uppercase">Scans</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 <li>
-                  <Link href="/cloudkostenscan" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/cloudkostenscan" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Cloudkostenscan
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cashflow-analyse" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/cashflow-analyse" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Cashflow-analyse
                   </Link>
                 </li>
                 <li>
-                  <Link href="/prijsstrategie-check" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/prijsstrategie-check" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Prijsstrategie-check
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/producten" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Alle scans
                   </Link>
                 </li>
@@ -120,24 +120,24 @@ export function Layout({ children }: LayoutProps) {
             {/* Bedrijf Column */}
             <div>
               <h3 className="text-xs font-semibold text-foreground mb-4 tracking-widest uppercase">Bedrijf</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 <li>
-                  <Link href="/over-simium" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/over-simium" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Over Simium
                   </Link>
                 </li>
                 <li>
-                  <Link href="/testimonials" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/testimonials" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Testimonials
                   </Link>
                 </li>
                 <li>
-                  <Link href="/voorbeeldrapport" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/voorbeeldrapport" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Voorbeeldrapport
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/contact" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Contact
                   </Link>
                 </li>
@@ -147,24 +147,24 @@ export function Layout({ children }: LayoutProps) {
             {/* Support Column */}
             <div>
               <h3 className="text-xs font-semibold text-foreground mb-4 tracking-widest uppercase">Support</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 <li>
-                  <a href="mailto:support@simium.nl" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <a href="mailto:support@simium.nl" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     support@simium.nl
                   </a>
                 </li>
                 <li>
-                  <Link href="/inloggen" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/inloggen" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Inloggen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Privacy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/voorwaarden" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  <Link href="/voorwaarden" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200">
                     Voorwaarden
                   </Link>
                 </li>
@@ -173,8 +173,8 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-border/50 mt-12 pt-8">
-            <p className="text-muted-foreground text-sm text-center md:text-left">
+          <div className="border-t border-border/50 mt-8 pt-4">
+            <p className="text-muted-foreground text-xs text-center">
               © 2026 Simium. Alle rechten voorbehouden.
             </p>
           </div>
