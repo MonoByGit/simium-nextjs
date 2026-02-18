@@ -79,8 +79,8 @@ export function Layout({ children }: LayoutProps) {
                 <img
                   src="/logo.svg"
                   alt="Simium logo"
-                  width={32}
-                  height={32}
+                  width={40}
+                  height={40}
                   className="mr-3"
                 />
                 <span className="text-xl font-semibold text-foreground tracking-tight">Simium</span>
@@ -92,7 +92,7 @@ export function Layout({ children }: LayoutProps) {
 
             {/* Scans Column */}
             <div>
-              <h3 className="font-semibold text-foreground mb-4 tracking-tight">Scans</h3>
+              <h3 className="text-xs font-semibold text-foreground mb-4 tracking-widest uppercase">Scans</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/cloudkostenscan" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
@@ -119,7 +119,7 @@ export function Layout({ children }: LayoutProps) {
 
             {/* Bedrijf Column */}
             <div>
-              <h3 className="font-semibold text-foreground mb-4 tracking-tight">Bedrijf</h3>
+              <h3 className="text-xs font-semibold text-foreground mb-4 tracking-widest uppercase">Bedrijf</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/over-simium" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
@@ -146,7 +146,7 @@ export function Layout({ children }: LayoutProps) {
 
             {/* Support Column */}
             <div>
-              <h3 className="font-semibold text-foreground mb-4 tracking-tight">Support</h3>
+              <h3 className="text-xs font-semibold text-foreground mb-4 tracking-widest uppercase">Support</h3>
               <ul className="space-y-3">
                 <li>
                   <a href="mailto:support@simium.nl" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
