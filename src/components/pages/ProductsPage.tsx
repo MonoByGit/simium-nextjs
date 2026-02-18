@@ -1,10 +1,15 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
+import { Zap, Target, ShieldCheck, ChevronDown } from 'lucide-react'
 
 export function ProductsPage() {
+  const router = useRouter()
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
   return (
     <>
       {/* Hero - Apple's Clean Introduction */}
@@ -12,15 +17,14 @@ export function ProductsPage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
             <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
               Kies je scan
             </div>
-            
+
             <h1 className="text-6xl leading-tight">
               Waar wil je
               <span className="block text-[var(--color-apple-blue)]">beginnen?</span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Elke scan duurt 5-10 minuten en geeft je direct inzicht in optimalisatiekansen
             </p>
@@ -39,15 +43,20 @@ export function ProductsPage() {
                 description: 'Ontdek verborgen verspilling in je cloudinfrastructuur en bespaar tot 40% op je maandelijkse kosten.',
                 features: [
                   'Idle resources detectie',
-                  'Right-sizing aanbevelingen', 
+                  'Right-sizing aanbevelingen',
                   'Reserved instances advies',
                   'Automatische scaling tips'
                 ],
                 metric: '€2.400',
                 metricLabel: 'gem. maandbesparing',
-                color: 'green',
-                href: '#/cloudkostenscan',
-                popular: false
+                iconBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/50',
+                iconDot: 'bg-[var(--color-apple-green)]',
+                dotColor: 'bg-[var(--color-apple-green)]',
+                metricBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30',
+                metricText: 'text-[var(--color-apple-green)]',
+                btnClass: 'bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/90 text-white',
+                hoverRing: 'group-hover:ring-2 group-hover:ring-[var(--color-apple-green)]',
+                href: '/cloudkostenscan'
               },
               {
                 title: 'Cashflow-analyse',
@@ -61,9 +70,14 @@ export function ProductsPage() {
                 ],
                 metric: '85%',
                 metricLabel: 'score verbetering',
-                color: 'blue',
-                href: '#/cashflow-analyse',
-                popular: true
+                iconBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/50',
+                iconDot: 'bg-[var(--color-apple-blue)]',
+                dotColor: 'bg-[var(--color-apple-blue)]',
+                metricBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30',
+                metricText: 'text-[var(--color-apple-blue)]',
+                btnClass: 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white',
+                hoverRing: 'group-hover:ring-2 group-hover:ring-[var(--color-apple-blue)]',
+                href: '/cashflow-analyse'
               },
               {
                 title: 'Prijsstrategie-check',
@@ -77,66 +91,63 @@ export function ProductsPage() {
                 ],
                 metric: '23%',
                 metricLabel: 'marge verbetering',
-                color: 'purple',
-                href: '#/prijsstrategie-check',
-                popular: false
+                iconBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/50',
+                iconDot: 'bg-[var(--color-apple-indigo)]',
+                dotColor: 'bg-[var(--color-apple-indigo)]',
+                metricBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30',
+                metricText: 'text-[var(--color-apple-indigo)]',
+                btnClass: 'bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/90 text-white',
+                hoverRing: 'group-hover:ring-2 group-hover:ring-[var(--color-apple-indigo)]',
+                href: '/prijsstrategie-check'
               }
             ].map((scan, index) => (
               <div key={index} className="relative group">
-                {scan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-[var(--color-apple-blue)] text-white px-4 py-1 text-sm font-medium rounded-full">
-                      Meest gekozen
-                    </Badge>
-                  </div>
-                )}
-                
-                <div className={`bg-card border border-border rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full ${scan.popular ? 'ring-2 ring-[var(--color-apple-blue)]' : ''}`}
-                     onClick={() => window.location.href = scan.href}>
+                <div className={`bg-card border border-border rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full ${scan.hoverRing}`}
+                     onClick={() => router.push(scan.href)}>
                   <div className="flex flex-col h-full space-y-8">
                     {/* Header */}
                     <div className="space-y-4">
-                      <div className={`w-16 h-16 bg-${scan.color}-100 dark:bg-${scan.color}-950/50 rounded-2xl flex items-center justify-center`}>
-                        <div className={`w-8 h-8 bg-${scan.color}-600 rounded-lg`}></div>
+                      <div className={`w-16 h-16 ${scan.iconBg} rounded-2xl flex items-center justify-center`}>
+                        <div className={`w-8 h-8 ${scan.iconDot} rounded-lg`}></div>
                       </div>
-                      
+
                       <div className="space-y-2">
                         <h3 className="text-2xl font-semibold">{scan.title}</h3>
                         <p className="text-muted-foreground">{scan.subtitle}</p>
                       </div>
                     </div>
-                    
-                    {/* Content Area - Flexible */}
-                    <div className="flex-1 space-y-8">
+
+                    {/* Content Area - Flexible (description + features only) */}
+                    <div className="flex-1 space-y-6">
                       {/* Description */}
                       <p className="text-muted-foreground leading-relaxed">
                         {scan.description}
                       </p>
-                      
+
                       {/* Features */}
                       <div className="space-y-3">
                         {scan.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-center space-x-3">
-                            <div className={`w-2 h-2 bg-${scan.color}-500 rounded-full flex-shrink-0`}></div>
+                            <div className={`w-2 h-2 ${scan.dotColor} rounded-full flex-shrink-0`}></div>
                             <span className="text-sm text-muted-foreground">{feature}</span>
                           </div>
                         ))}
                       </div>
-                      
-                      {/* Metric */}
-                      <div className={`bg-${scan.color}-50 dark:bg-${scan.color}-950/30 rounded-2xl p-6 text-center`}>
-                        <div className={`text-3xl font-bold text-${scan.color}-600 mb-1`}>
-                          {scan.metric}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          {scan.metricLabel}
-                        </div>
+                    </div>
+
+                    {/* Metric - pinned above button */}
+                    <div className={`${scan.metricBg} rounded-2xl p-6 text-center`}>
+                      <div className={`text-3xl font-bold ${scan.metricText} mb-1`}>
+                        {scan.metric}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {scan.metricLabel}
                       </div>
                     </div>
-                    
+
                     {/* CTA - Always at bottom */}
-                    <Button 
-                      className={`w-full py-4 bg-${scan.color}-600 hover:bg-${scan.color}-700 text-white rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 mt-auto`}
+                    <Button
+                      className={`w-full py-4 ${scan.btnClass} rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1`}
                     >
                       Start {scan.title.toLowerCase()}
                     </Button>
@@ -148,32 +159,37 @@ export function ProductsPage() {
         </div>
       </section>
 
-      {/* Value Props - Apple's Confidence Building */}
+      {/* Value Props — Apple-stijl, Lucide icons */}
       <section className="py-32 bg-secondary/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-16">
             <h2 className="text-4xl">Waarom Simium</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {[
                 {
-                  icon: '⚡',
+                  icon: <Zap className="w-6 h-6 text-[var(--color-apple-blue)]" strokeWidth={1.75} />,
+                  iconBg: 'bg-[var(--color-apple-blue)]/10 dark:bg-[var(--color-apple-blue)]/15',
                   title: 'Snel resultaat',
                   description: 'Binnen 24 uur heb je concrete inzichten en aanbevelingen'
                 },
                 {
-                  icon: '🎯',
+                  icon: <Target className="w-6 h-6 text-[var(--color-apple-green)]" strokeWidth={1.75} />,
+                  iconBg: 'bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15',
                   title: 'Direct bruikbaar',
                   description: 'Geen vage adviezen, maar stap-voor-stap implementatieplan'
                 },
                 {
-                  icon: '🔒',
+                  icon: <ShieldCheck className="w-6 h-6 text-[var(--color-apple-indigo)]" strokeWidth={1.75} />,
+                  iconBg: 'bg-[var(--color-apple-indigo)]/10 dark:bg-[var(--color-apple-indigo)]/15',
                   title: 'Volledig veilig',
                   description: 'Je gegevens blijven privé en worden na analyse verwijderd'
                 }
               ].map((prop, index) => (
-                <div key={index} className="space-y-4">
-                  <div className="text-4xl">{prop.icon}</div>
+                <div key={index} className="flex flex-col items-center space-y-5">
+                  <div className={`w-14 h-14 ${prop.iconBg} rounded-2xl flex items-center justify-center`}>
+                    {prop.icon}
+                  </div>
                   <h3 className="text-xl font-semibold">{prop.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{prop.description}</p>
                 </div>
@@ -183,9 +199,9 @@ export function ProductsPage() {
         </div>
       </section>
 
-      {/* FAQ - Apple's Progressive Disclosure */}
+      {/* FAQ — Apple accordion-stijl */}
       <section className="py-32">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-2xl mx-auto px-6">
           <div className="space-y-12">
             <div className="text-center">
               <h2 className="mb-6">Veelgestelde vragen</h2>
@@ -193,8 +209,8 @@ export function ProductsPage() {
                 Alles wat je moet weten voordat je start
               </p>
             </div>
-            
-            <div className="space-y-6">
+
+            <div className="divide-y divide-border">
               {[
                 {
                   question: 'Hoe lang duurt een scan?',
@@ -213,9 +229,26 @@ export function ProductsPage() {
                   answer: 'Zeker! Veel klanten combineren scans voor een complete optimalisatie van hun bedrijf.'
                 }
               ].map((faq, index) => (
-                <div key={index} className="bg-card border border-border rounded-2xl p-8">
-                  <h4 className="text-lg font-semibold mb-3">{faq.question}</h4>
-                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                <div key={index}>
+                  <button
+                    className="w-full flex items-center justify-between py-6 text-left group"
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  >
+                    <span className="text-base font-semibold pr-8 group-hover:text-[var(--color-apple-blue)] transition-colors duration-200">
+                      {faq.question}
+                    </span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform duration-300 ease-in-out ${openFaq === index ? 'rotate-180 text-[var(--color-apple-blue)]' : ''}`}
+                      strokeWidth={1.75}
+                    />
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaq === index ? 'max-h-48 opacity-100 pb-6' : 'max-h-0 opacity-0'}`}
+                  >
+                    <p className="text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -224,30 +257,29 @@ export function ProductsPage() {
       </section>
 
       {/* Final CTA - Apple's Clean Close */}
-      <section className="py-32 bg-[var(--color-apple-blue)] text-white">
+      <section className="py-32 bg-secondary/30">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <h2 className="text-5xl leading-tight text-white">
+            <h2 className="text-5xl leading-tight">
               Tijd om te
-              <span className="block">beginnen</span>
+              <span className="block text-[var(--color-apple-blue)]">beginnen</span>
             </h2>
-            
-            <p className="text-xl text-[var(--color-apple-gray-6)] leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               Kies je eerste scan en ontdek binnen 24 uur waar je kunt optimaliseren
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 size="lg"
-                className="bg-white text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                 onClick={() => document.querySelector('.grid.grid-cols-1.lg\\:grid-cols-3')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Kies je scan
               </Button>
               <Button
+                variant="outline"
                 size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                onClick={() => window.location.href = '#/contact'}
+                className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
+                onClick={() => router.push('/contact')}
               >
                 Stel een vraag
               </Button>

@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Simium - AI-gedreven business scans voor het MKB',
   description: 'Snel, betrouwbaar, direct inzicht in je cloudkosten, cashflow en prijsstrategie.',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+  },
 }
 
 export default function RootLayout({

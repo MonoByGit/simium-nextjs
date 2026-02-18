@@ -1,23 +1,24 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 
 export function WerkwijzePage() {
+  const router = useRouter()
   return (
     <>
       {/* Hero - Apple's Educational Introduction */}
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center bg-purple-100 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+            <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-indigo)] px-4 py-2 rounded-full text-sm font-medium">
               Werkwijze
             </div>
             
             <h1 className="text-6xl leading-tight">
               Zo werken onze
-              <span className="block text-purple-600">AI-analyses</span>
+              <span className="block text-[var(--color-apple-indigo)]">AI-analyses</span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -72,7 +73,7 @@ export function WerkwijzePage() {
               <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={`space-y-8 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="space-y-6">
-                    <div className="inline-flex items-center bg-purple-100 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium">
+                    <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-indigo)] px-4 py-2 rounded-full text-sm font-medium">
                       Stap {step.step}
                     </div>
                     
@@ -83,7 +84,7 @@ export function WerkwijzePage() {
                   <div className="space-y-4">
                     {step.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-start space-x-4">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full mt-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-[var(--color-apple-indigo)] rounded-full mt-3 flex-shrink-0"></div>
                         <span className="text-muted-foreground leading-relaxed">{detail}</span>
                       </div>
                     ))}
@@ -91,9 +92,9 @@ export function WerkwijzePage() {
                 </div>
                 
                 <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                  <div className="bg-gradient-to-br from-purple-50 to-indigo-100 dark:from-purple-950/50 dark:to-indigo-950/50 rounded-3xl p-16 text-center shadow-xl">
+                  <div className="bg-gradient-to-br from-[var(--color-apple-indigo)]/5 to-[var(--color-apple-indigo)]/10 dark:from-[var(--color-apple-indigo)]/15/50 dark:to-[var(--color-apple-indigo)]/15/50 rounded-3xl p-16 text-center shadow-xl">
                     <div className="text-8xl mb-6">{step.visual}</div>
-                    <div className="text-6xl font-bold text-purple-600">{step.step}</div>
+                    <div className="text-6xl font-bold text-[var(--color-apple-indigo)]">{step.step}</div>
                   </div>
                 </div>
               </div>
@@ -137,7 +138,7 @@ export function WerkwijzePage() {
                 }
               ].map((item, index) => (
                 <div key={index} className="bg-card border border-border rounded-2xl p-8 space-y-4">
-                  <div className="text-3xl font-bold text-purple-600">{item.metric}</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-indigo)]">{item.metric}</div>
                   <div className="font-semibold">{item.label}</div>
                   <div className="text-sm text-muted-foreground leading-relaxed">{item.description}</div>
                 </div>
@@ -155,7 +156,7 @@ export function WerkwijzePage() {
               <div className="space-y-6">
                 <h2 className="text-4xl leading-tight">
                   Jouw gegevens
-                  <span className="block text-green-600">blijven veilig</span>
+                  <span className="block text-[var(--color-apple-green)]">blijven veilig</span>
                 </h2>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -184,8 +185,8 @@ export function WerkwijzePage() {
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-green-100 dark:bg-green-950/50 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <div className="w-6 h-6 bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15/50 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                      <div className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full"></div>
                     </div>
                     <div className="space-y-1">
                       <div className="font-semibold">{item.title}</div>
@@ -196,9 +197,9 @@ export function WerkwijzePage() {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/50 dark:to-emerald-950/50 rounded-3xl p-16 text-center shadow-xl">
+            <div className="bg-gradient-to-br from-[var(--color-apple-green)]/5 to-[var(--color-apple-green)]/10 dark:from-[var(--color-apple-green)]/15/50 dark:to-[var(--color-apple-green)]/15/50 rounded-3xl p-16 text-center shadow-xl">
               <div className="text-8xl mb-6">🔒</div>
-              <div className="text-2xl font-semibold text-green-600 mb-4">100% Veilig</div>
+              <div className="text-2xl font-semibold text-[var(--color-apple-green)] mb-4">100% Veilig</div>
               <div className="text-muted-foreground">Enterprise-grade beveiliging</div>
             </div>
           </div>
@@ -251,7 +252,7 @@ export function WerkwijzePage() {
           <div className="space-y-8">
             <h2 className="text-5xl leading-tight">
               Klaar om te
-              <span className="block text-purple-600">beginnen?</span>
+              <span className="block text-[var(--color-apple-indigo)]">beginnen?</span>
             </h2>
             
             <p className="text-xl text-muted-foreground leading-relaxed">
@@ -261,8 +262,8 @@ export function WerkwijzePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                onClick={() => window.location.href = '#/producten'}
+                className="bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/80 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => router.push('/producten')}
               >
                 Start je eerste scan
               </Button>
@@ -270,7 +271,7 @@ export function WerkwijzePage() {
                 variant="outline" 
                 size="lg"
                 className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                onClick={() => window.location.href = '#/voorbeeldrapport'}
+                onClick={() => router.push('/voorbeeldrapport')}
               >
                 Bekijk voorbeeld
               </Button>

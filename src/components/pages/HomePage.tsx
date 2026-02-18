@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import { ImageWithFallback } from '../figma/ImageWithFallback'
@@ -13,6 +14,7 @@ import mannolLogo from '@/assets/872636fa97798151a130f04072b7e4be8d9a69d8.png'
 import bramblesLogo from '@/assets/9628120ff4209cf85bc7ef502e84a4ccdb668753.png'
 
 export function HomePage() {
+  const router = useRouter()
   return (
     <>
       {/* Hero - Apple's Signature Centered Focus */}
@@ -35,7 +37,7 @@ export function HomePage() {
               <Button 
                 size="lg"
                 className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                onClick={() => window.location.href = '/producten'}
+                onClick={() => router.push('/producten')}
               >
                 Begin gratis scan
               </Button>
@@ -43,7 +45,7 @@ export function HomePage() {
                 variant="outline" 
                 size="lg"
                 className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 border-border"
-                onClick={() => window.location.href = '#/werkwijze'}
+                onClick={() => router.push('/over-simium')}
               >
                 Hoe het werkt
               </Button>
@@ -93,7 +95,6 @@ export function HomePage() {
             <div className="order-1 lg:order-2 space-y-8">
               <div className="space-y-6">
                 <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
                   AI-analyse
                 </div>
                 
@@ -103,22 +104,22 @@ export function HomePage() {
                 </h2>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Onze AI analyseert jouw bedrijfsdata en toont binnen 24 uur precies 
+                  Onze AI analyseert jouw bedrijfsdata en toont direct
                   waar je geld verliest en hoe je dat kunt voorkomen.
                 </p>
               </div>
 
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">€2.4K</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-green)] mb-2">€2.4K</div>
                   <div className="text-sm text-muted-foreground">gem. maandbesparing</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">24u</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-indigo)] mb-2">&lt;5 min</div>
                   <div className="text-sm text-muted-foreground">tot resultaat</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">97%</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-orange)] mb-2">97%</div>
                   <div className="text-sm text-muted-foreground">tevredenheid</div>
                 </div>
               </div>
@@ -143,38 +144,47 @@ export function HomePage() {
                 title: 'Cloudkosten',
                 description: 'Bespaar tot 40% op je cloud-infrastructuur door verspilling en inefficiëntie op te sporen.',
                 metric: '€2.400/maand',
-                color: 'green',
-                href: '#/cloudkostenscan'
+                iconBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/50',
+                iconDot: 'bg-[var(--color-apple-green)]',
+                metricBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30',
+                metricText: 'text-[var(--color-apple-green)]',
+                href: '/cloudkostenscan'
               },
               {
                 title: 'Cashflow',
                 description: 'Voorspel je cashflow en optimaliseer je financiële planning met AI-inzichten.',
                 metric: '85% verbetering',
-                color: 'blue', 
-                href: '#/cashflow-analyse'
+                iconBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/50',
+                iconDot: 'bg-[var(--color-apple-blue)]',
+                metricBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30',
+                metricText: 'text-[var(--color-apple-blue)]',
+                href: '/cashflow-analyse'
               },
               {
                 title: 'Prijsstrategie',
                 description: 'Ontdek of je geld laat liggen met je huidige prijsstrategie en segmentatie.',
                 metric: '23% hogere marge',
-                color: 'purple',
-                href: '#/prijsstrategie-check'
+                iconBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/50',
+                iconDot: 'bg-[var(--color-apple-indigo)]',
+                metricBg: 'bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30',
+                metricText: 'text-[var(--color-apple-indigo)]',
+                href: '/prijsstrategie-check'
               }
             ].map((scan, index) => (
               <div key={index} className="group">
                 <div className={`bg-card border border-border rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full`}
-                     onClick={() => window.location.href = scan.href}>
+                     onClick={() => router.push(scan.href)}>
                   <div className="space-y-6">
-                    <div className={`w-16 h-16 bg-${scan.color}-100 dark:bg-${scan.color}-950/50 rounded-2xl flex items-center justify-center`}>
-                      <div className={`w-8 h-8 bg-${scan.color}-600 rounded-lg`}></div>
+                    <div className={`w-16 h-16 ${scan.iconBg} rounded-2xl flex items-center justify-center`}>
+                      <div className={`w-8 h-8 ${scan.iconDot} rounded-lg`}></div>
                     </div>
-                    
+
                     <div className="space-y-4">
                       <h3 className="text-2xl font-semibold">{scan.title}</h3>
                       <p className="text-muted-foreground leading-relaxed">{scan.description}</p>
                     </div>
-                    
-                    <div className={`inline-flex items-center bg-${scan.color}-50 dark:bg-${scan.color}-950/30 text-${scan.color}-700 dark:text-${scan.color}-300 px-4 py-2 rounded-full text-sm font-medium`}>
+
+                    <div className={`inline-flex items-center ${scan.metricBg} ${scan.metricText} px-4 py-2 rounded-full text-sm font-medium`}>
                       {scan.metric}
                     </div>
                   </div>
@@ -241,12 +251,12 @@ export function HomePage() {
                 <div className="text-muted-foreground">analyses uitgevoerd</div>
               </div>
               <div className="space-y-4">
-                <div className="text-4xl font-bold text-green-600">€4.2M</div>
+                <div className="text-4xl font-bold text-[var(--color-apple-green)]">€4.2M</div>
                 <div className="text-muted-foreground">totaal bespaard</div>
               </div>
               <div className="space-y-4">
-                <div className="text-4xl font-bold text-purple-600">24 uur</div>
-                <div className="text-muted-foreground">gemiddelde doorlooptijd</div>
+                <div className="text-4xl font-bold text-[var(--color-apple-indigo)]">&lt;5 min</div>
+                <div className="text-muted-foreground">direct resultaat</div>
               </div>
             </div>
 
@@ -254,7 +264,7 @@ export function HomePage() {
               <Button 
                 size="lg"
                 className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                onClick={() => window.location.href = '#/producten'}
+                onClick={() => router.push('/producten')}
               >
                 Begin je analyse
               </Button>
@@ -262,7 +272,7 @@ export function HomePage() {
                 variant="outline" 
                 size="lg"
                 className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                onClick={() => window.location.href = '#/testimonials'}
+                onClick={() => router.push('/testimonials')}
               >
                 Lees verhalen
               </Button>
@@ -287,7 +297,7 @@ export function HomePage() {
             <Button 
               size="lg"
               className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-12 py-6 text-xl rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-              onClick={() => window.location.href = '#/producten'}
+              onClick={() => router.push('/producten')}
             >
               Begin nu
             </Button>

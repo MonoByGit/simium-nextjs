@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
@@ -74,6 +75,7 @@ import { PreFillNotificationBanner } from '../PreFillNotificationBanner'
   }
 
 export function CashflowVerdiepingPage() {
+  const router = useRouter()
   const [formData, setFormData] = useState(() => loadSavedScanData())
   const [hasSavedData, setHasSavedData] = useState(false)
 
@@ -161,8 +163,8 @@ export function CashflowVerdiepingPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           <a 
-            href="#/cashflow-analyse" 
-            className="inline-flex items-center text-sm text-gray-600 hover:text-[var(--color-apple-blue)] transition-colors"
+            href="/cashflow-analyse" 
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-[var(--color-apple-blue)] transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mr-2">
               <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2"/>
@@ -213,16 +215,16 @@ export function CashflowVerdiepingPage() {
         <div className="space-y-8">
           
           {/* 1. Financiële Basis */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
               <h3 className="text-[var(--color-apple-blue)] mb-2">Financiële basis</h3>
-              <p className="text-gray-600">Vertel ons meer over je financiële situatie</p>
+              <p className="text-muted-foreground">Vertel ons meer over je financiële situatie</p>
             </div>
 
             <div className="space-y-6">
               {/* Monthly Revenue */}
               <div>
-                <label className="block mb-2 text-gray-800 flex items-center">
+                <label className="block mb-2 text-foreground flex items-center">
                   Wat is je gemiddelde maandelijkse omzet?
                   {hasSavedData && formData.monthlyRevenue && (
                     <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-gray-6)] text-[var(--color-apple-gray)] px-2 py-1 rounded-full">
@@ -233,22 +235,22 @@ export function CashflowVerdiepingPage() {
                     </span>
                   )}
                 </label>
-                <p className="text-sm text-gray-500 mb-3">Je totale maandelijkse inkomsten</p>
+                <p className="text-sm text-muted-foreground mb-3">Je totale maandelijkse inkomsten</p>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">€</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">€</span>
                   <Input 
                     type="number" 
                     placeholder="bijv. 25000"
                     value={formData.monthlyRevenue}
                     onChange={(e) => handleInputChange('monthlyRevenue', e.target.value)}
-                    className="w-full pl-8 pr-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pl-8 pr-4 py-4 border-border focus:border-[var(--color-apple-blue)] focus:ring-[var(--color-apple-blue)]/20 focus:ring-2 rounded-xl transition-all"
                   />
                 </div>
               </div>
 
               {/* Payment Terms */}
               <div>
-                <label className="block mb-2 text-gray-800 flex items-center">
+                <label className="block mb-2 text-foreground flex items-center">
                   Welke betaaltermijnen hanteer je?
                   {hasSavedData && formData.paymentTerms && (
                     <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-gray-6)] text-[var(--color-apple-gray)] px-2 py-1 rounded-full">
@@ -259,7 +261,7 @@ export function CashflowVerdiepingPage() {
                     </span>
                   )}
                 </label>
-                <p className="text-sm text-gray-500 mb-4">Hoe lang doen klanten over het betalen?</p>
+                <p className="text-sm text-muted-foreground mb-4">Hoe lang doen klanten over het betalen?</p>
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { value: 'direct', label: 'Direct bij levering' },
@@ -271,13 +273,13 @@ export function CashflowVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('paymentTerms', option.value)}
-                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.paymentTerms === option.value
                           ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
-                          : 'border-gray-200'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -285,82 +287,82 @@ export function CashflowVerdiepingPage() {
 
               {/* Average Payment Delay */}
               <div>
-                <label className="block mb-2 text-gray-800">Gemiddelde betalingsvertraging</label>
-                <p className="text-sm text-gray-500 mb-3">Hoeveel dagen te laat betalen klanten gemiddeld?</p>
+                <label className="block mb-2 text-foreground">Gemiddelde betalingsvertraging</label>
+                <p className="text-sm text-muted-foreground mb-3">Hoeveel dagen te laat betalen klanten gemiddeld?</p>
                 <div className="relative">
                   <Input 
                     type="number" 
                     placeholder="bijv. 7"
                     value={formData.averagePaymentDelay}
                     onChange={(e) => handleInputChange('averagePaymentDelay', e.target.value)}
-                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-14 pl-4 py-4 border-border focus:border-[var(--color-apple-blue)] focus:ring-[var(--color-apple-blue)]/20 focus:ring-2 rounded-xl transition-all"
                   />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">dagen</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">dagen</span>
                 </div>
               </div>
             </div>
           </Card>
 
           {/* 2. Cash Cycle Management */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
               <h3 className="text-[var(--color-apple-blue)] mb-2">Cash cycle beheer</h3>
-              <p className="text-gray-600">Hoe beheers je je werkkapitaal?</p>
+              <p className="text-muted-foreground">Hoe beheers je je werkkapitaal?</p>
             </div>
 
             <div className="space-y-6">
               {/* Receivables Days */}
               <div>
-                <label className="block mb-2 text-gray-800">Debiteuren omlooptijd</label>
-                <p className="text-sm text-gray-500 mb-3">Hoeveel dagen duren je uitstaande facturen gemiddeld?</p>
+                <label className="block mb-2 text-foreground">Debiteuren omlooptijd</label>
+                <p className="text-sm text-muted-foreground mb-3">Hoeveel dagen duren je uitstaande facturen gemiddeld?</p>
                 <div className="relative">
                   <Input 
                     type="number" 
                     placeholder="bijv. 45"
                     value={formData.receivablesDays}
                     onChange={(e) => handleInputChange('receivablesDays', e.target.value)}
-                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-14 pl-4 py-4 border-border focus:border-[var(--color-apple-blue)] focus:ring-[var(--color-apple-blue)]/20 focus:ring-2 rounded-xl transition-all"
                   />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">dagen</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">dagen</span>
                 </div>
               </div>
 
               {/* Payables Days */}
               <div>
-                <label className="block mb-2 text-gray-800">Crediteuren omlooptijd</label>
-                <p className="text-sm text-gray-500 mb-3">Hoeveel dagen betaal je je leveranciers gemiddeld na ontvangst factuur?</p>
+                <label className="block mb-2 text-foreground">Crediteuren omlooptijd</label>
+                <p className="text-sm text-muted-foreground mb-3">Hoeveel dagen betaal je je leveranciers gemiddeld na ontvangst factuur?</p>
                 <div className="relative">
                   <Input 
                     type="number" 
                     placeholder="bijv. 30"
                     value={formData.payablesDays}
                     onChange={(e) => handleInputChange('payablesDays', e.target.value)}
-                    className="w-full pr-14 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-14 pl-4 py-4 border-border focus:border-[var(--color-apple-blue)] focus:ring-[var(--color-apple-blue)]/20 focus:ring-2 rounded-xl transition-all"
                   />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">dagen</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">dagen</span>
                 </div>
               </div>
 
               {/* Inventory Turnover */}
               <div>
-                <label className="block mb-2 text-gray-800">Voorraad omloopsnelheid</label>
-                <p className="text-sm text-gray-500 mb-4">Hoe vaak vernieuw je je voorraad per jaar? (Vul 0 in als je geen voorraad hebt)</p>
+                <label className="block mb-2 text-foreground">Voorraad omloopsnelheid</label>
+                <p className="text-sm text-muted-foreground mb-4">Hoe vaak vernieuw je je voorraad per jaar? (Vul 0 in als je geen voorraad hebt)</p>
                 <div className="relative">
                   <Input 
                     type="number" 
                     placeholder="bijv. 12"
                     value={formData.inventoryTurnover}
                     onChange={(e) => handleInputChange('inventoryTurnover', e.target.value)}
-                    className="w-full pr-16 pl-4 py-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-16 pl-4 py-4 border-border focus:border-[var(--color-apple-blue)] focus:ring-[var(--color-apple-blue)]/20 focus:ring-2 rounded-xl transition-all"
                   />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">x/jaar</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">x/jaar</span>
                 </div>
               </div>
 
               {/* Credit Lines */}
               <div>
-                <label className="block mb-2 text-gray-800">Beschikbare kredietfaciliteiten</label>
-                <p className="text-sm text-gray-500 mb-4">Welke financieringsmogelijkheden heb je beschikbaar?</p>
+                <label className="block mb-2 text-foreground">Beschikbare kredietfaciliteiten</label>
+                <p className="text-sm text-muted-foreground mb-4">Welke financieringsmogelijkheden heb je beschikbaar?</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { value: 'rekening-courant', label: 'Rekening-courant krediet' },
@@ -371,10 +373,10 @@ export function CashflowVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.creditLines.includes(option.value)
                           ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
-                          : 'border-gray-200'
+                          : 'border-border'
                       }`}
                     >
                       <Checkbox 
@@ -382,7 +384,7 @@ export function CashflowVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('creditLines', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -391,29 +393,29 @@ export function CashflowVerdiepingPage() {
           </Card>
 
           {/* 3. Planning & Risk Management */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
               <h3 className="text-[var(--color-apple-blue)] mb-2">Planning & risicobeheer</h3>
-              <p className="text-gray-600">Hoe plan je voor de toekomst en beheer je risico's?</p>
+              <p className="text-muted-foreground">Hoe plan je voor de toekomst en beheer je risico's?</p>
             </div>
 
             <div className="space-y-6">
               {/* Investment Plans */}
               <div>
-                <label className="block mb-2 text-gray-800">Geplande grote investeringen</label>
-                <p className="text-sm text-gray-500 mb-3">Welke grote uitgaven verwacht je de komende 12 maanden?</p>
+                <label className="block mb-2 text-foreground">Geplande grote investeringen</label>
+                <p className="text-sm text-muted-foreground mb-3">Welke grote uitgaven verwacht je de komende 12 maanden?</p>
                 <Textarea 
                   placeholder="bijv. Nieuwe machines €50k in Q3, kantoorverhuizing €25k in Q2, software upgrade €10k..."
                   value={formData.investmentPlans}
                   onChange={(e) => handleInputChange('investmentPlans', e.target.value)}
-                  className="w-full p-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-border focus:border-[var(--color-apple-blue)] focus:ring-[var(--color-apple-blue)]/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
 
               {/* Risk Scenarios */}
               <div>
-                <label className="block mb-2 text-gray-800">Cashflow risicoscenario's</label>
-                <p className="text-sm text-gray-500 mb-4">Welke situaties zouden je cashflow in gevaar kunnen brengen?</p>
+                <label className="block mb-2 text-foreground">Cashflow risicoscenario's</label>
+                <p className="text-sm text-muted-foreground mb-4">Welke situaties zouden je cashflow in gevaar kunnen brengen?</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { value: 'grote-klant-verlies', label: 'Verlies van grote klant' },
@@ -425,10 +427,10 @@ export function CashflowVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.riskScenarios.includes(option.value)
                           ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
-                          : 'border-gray-200'
+                          : 'border-border'
                       }`}
                     >
                       <Checkbox 
@@ -436,7 +438,7 @@ export function CashflowVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('riskScenarios', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -444,8 +446,8 @@ export function CashflowVerdiepingPage() {
 
               {/* Forecast Accuracy */}
               <div>
-                <label className="block mb-2 text-gray-800">Nauwkeurigheid cashflow voorspellingen</label>
-                <p className="text-sm text-gray-500 mb-4">Hoe goed kun je je cashflow voorspellen?</p>
+                <label className="block mb-2 text-foreground">Nauwkeurigheid cashflow voorspellingen</label>
+                <p className="text-sm text-muted-foreground mb-4">Hoe goed kun je je cashflow voorspellen?</p>
                 <div className="space-y-3">
                   {[
                     { value: 'zeer-accuraat', label: 'Zeer accuraat (binnen 5% afwijking)' },
@@ -457,13 +459,13 @@ export function CashflowVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('forecastAccuracy', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.forecastAccuracy === option.value
                           ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
-                          : 'border-gray-200'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -472,17 +474,17 @@ export function CashflowVerdiepingPage() {
           </Card>
 
           {/* 4. KPI Tracking & Reporting */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
               <h3 className="text-[var(--color-apple-blue)] mb-2">KPI tracking & rapportage</h3>
-              <p className="text-gray-600">Welke cijfers volg je voor cashflow management?</p>
+              <p className="text-muted-foreground">Welke cijfers volg je voor cashflow management?</p>
             </div>
 
             <div className="space-y-6">
               {/* KPI Tracking */}
               <div>
-                <label className="block mb-2 text-gray-800">Welke cashflow KPI's volg je actief?</label>
-                <p className="text-sm text-gray-500 mb-4">Selecteer alle cijfers die je regelmatig monitort</p>
+                <label className="block mb-2 text-foreground">Welke cashflow KPI's volg je actief?</label>
+                <p className="text-sm text-muted-foreground mb-4">Selecteer alle cijfers die je regelmatig monitort</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { value: 'cash-balance', label: 'Dagelijkse kasbalans' },
@@ -496,10 +498,10 @@ export function CashflowVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.kpiTracking.includes(option.value)
                           ? 'border-[var(--color-apple-blue)] bg-[var(--color-apple-gray-6)]'
-                          : 'border-gray-200'
+                          : 'border-border'
                       }`}
                     >
                       <Checkbox 
@@ -507,7 +509,7 @@ export function CashflowVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('kpiTracking', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -515,39 +517,39 @@ export function CashflowVerdiepingPage() {
 
               {/* Additional Comments */}
               <div>
-                <label className="block mb-2 text-gray-800">Aanvullende informatie</label>
-                <p className="text-sm text-gray-500 mb-3">Vertel ons meer over je specifieke cashflow uitdagingen</p>
+                <label className="block mb-2 text-foreground">Aanvullende informatie</label>
+                <p className="text-sm text-muted-foreground mb-3">Vertel ons meer over je specifieke cashflow uitdagingen</p>
                 <Textarea 
                   placeholder="bijv. Specifieke uitdagingen, doelen, vragen over cashflow management..."
                   value={formData.additionalComments}
                   onChange={(e) => handleInputChange('additionalComments', e.target.value)}
-                  className="w-full p-4 border-gray-200 focus:border-[var(--color-apple-blue)] focus:ring-blue-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-border focus:border-[var(--color-apple-blue)] focus:ring-[var(--color-apple-blue)]/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
             </div>
           </Card>
 
           {/* 5. File Upload Section */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
               <h3 className="text-[var(--color-apple-blue)] mb-2">Upload je gegevens (optioneel)</h3>
-              <p className="text-gray-600">Voor de meest nauwkeurige analyse kun je je financiële bestanden uploaden</p>
+              <p className="text-muted-foreground">Voor de meest nauwkeurige analyse kun je je financiële bestanden uploaden</p>
             </div>
 
             <div className="space-y-6">
               {/* File Upload Area */}
               <div>
-                <label className="block mb-2 text-gray-800">Upload bestanden voor gedetailleerde analyse</label>
-                <p className="text-sm text-gray-500 mb-4">
+                <label className="block mb-2 text-foreground">Upload bestanden voor gedetailleerde analyse</label>
+                <p className="text-sm text-muted-foreground mb-4">
                   Ondersteunde bestanden: Bank afschriften, cashflow overzichten, debiteurenlijsten, crediteuren overzichten (.csv, .xlsx, .pdf)
                 </p>
                 
-                <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-[var(--color-apple-blue)] transition-colors">
+                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-[var(--color-apple-blue)] transition-colors">
                   <div className="flex flex-col items-center">
-                    <svg className="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12 text-muted-foreground mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
-                    <p className="text-gray-600 mb-2">Sleep bestanden hierheen of</p>
+                    <p className="text-muted-foreground mb-2">Sleep bestanden hierheen of</p>
                     <label className="cursor-pointer">
                       <span className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-4 py-2 rounded-lg transition-colors">
                         Kies bestanden
@@ -561,7 +563,7 @@ export function CashflowVerdiepingPage() {
                       />
                     </label>
                   </div>
-                  <p className="text-xs text-gray-500 mt-4">
+                  <p className="text-xs text-muted-foreground mt-4">
                     Max. 10MB per bestand. Ondersteunde formaten: CSV, Excel, PDF
                   </p>
                 </div>
@@ -569,20 +571,20 @@ export function CashflowVerdiepingPage() {
                 {/* Uploaded Files List */}
                 {formData.uploadedFiles.length > 0 && (
                   <div className="mt-4">
-                    <h4 className="text-sm text-gray-700 mb-3">Geüploade bestanden:</h4>
+                    <h4 className="text-sm text-foreground mb-3">Geüploade bestanden:</h4>
                     <div className="space-y-2">
                       {formData.uploadedFiles.map((file, index) => (
-                        <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                        <div key={index} className="flex items-center justify-between bg-secondary/30 p-3 rounded-lg">
                           <div className="flex items-center">
-                            <svg className="w-5 h-5 text-[var(--color-apple-gray-6)]0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-muted-foreground mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
-                            <span className="text-sm text-gray-700">{file.name}</span>
-                            <span className="text-xs text-gray-500 ml-2">({(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+                            <span className="text-sm text-foreground">{file.name}</span>
+                            <span className="text-xs text-muted-foreground ml-2">({(file.size / 1024 / 1024).toFixed(2)} MB)</span>
                           </div>
                           <button
                             onClick={() => removeFile(index)}
-                            className="text-red-500 hover:text-red-700 transition-colors"
+                            className="text-[var(--color-apple-red)] hover:text-[var(--color-apple-red)]/80 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -605,18 +607,18 @@ export function CashflowVerdiepingPage() {
                 if (isFormValid) {
                   // In a real app, this would process the payment and submit data
                   // Redirect to results dashboard
-                  window.location.href = '#/cashflow-resultaten'
+                  router.push('/cashflow-resultaten')
                 }
               }}
               className={`px-12 py-4 rounded-xl font-medium text-lg transition-all ${
                 isFormValid 
                   ? 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white shadow-lg hover:shadow-xl' 
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-muted text-muted-foreground cursor-not-allowed'
               }`}
             >
               Start verdiepingsanalyse
             </Button>
-            <p className="text-sm text-gray-500 mt-4">
+            <p className="text-sm text-muted-foreground mt-4">
               ✓ Niet tevreden = geld terug  ✓ Resultaten binnen 24 uur  ✓ Al betaald
             </p>
           </div>

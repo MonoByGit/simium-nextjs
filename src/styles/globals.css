@@ -15,7 +15,6 @@
   --font-size-base: 17px; /* Apple's preferred base */
   --font-size-xs: 12px;
   --font-size-sm: 14px;
-  --font-size-base: 17px;
   --font-size-lg: 19px;
   --font-size-xl: 21px;
   --font-size-2xl: 28px;
@@ -24,21 +23,22 @@
   --font-size-5xl: 48px;
   --text-header-p: 19px; /* Apple's larger paragraph size */
   
-  /* === APPLE COLOR SYSTEM === */
-  --color-apple-blue: #007AFF;
-  --color-apple-blue-dark: #0A84FF;
-  --color-apple-gray: #8E8E93;
-  --color-apple-gray-2: #AEAEB2;
-  --color-apple-gray-3: #C7C7CC;
-  --color-apple-gray-4: #D1D1D6;
-  --color-apple-gray-5: #E5E5EA;
-  --color-apple-gray-6: #F2F2F7;
-  --color-apple-green: #30D158;
-  --color-apple-indigo: #5856D6;
-  --color-apple-purple: #AF52DE;
-  --color-apple-red: #FF3B30;
-  --color-apple-orange: #FF9500;
-  --color-apple-yellow: #FFCC00;
+  /* === SIMIUM COLOR SYSTEM (gebaseerd op logo) — ACTIEF THEMA === */
+  /* Terugschakelen naar Apple-kleuren? Voeg .theme-apple toe aan <html> in layout.tsx */
+  --color-apple-blue: #05afd6;       /* logo cyaan/blauw */
+  --color-apple-blue-dark: #0ac4ee;  /* iets lichter voor dark mode */
+  --color-apple-gray: #9297ab;       /* logo grijs/lila */
+  --color-apple-gray-2: #b0b4c2;
+  --color-apple-gray-3: #c8cad4;
+  --color-apple-gray-4: #dadce3;
+  --color-apple-gray-5: #eceef2;
+  --color-apple-gray-6: #f4f5f8;
+  --color-apple-green: #27ccbc;      /* logo teal-groen */
+  --color-apple-indigo: #323c6b;     /* logo navy (lijnen) */
+  --color-apple-purple: #323c6b;     /* logo navy (lijnen) */
+  --color-apple-red: #fe7058;        /* logo koraal/rood (center) */
+  --color-apple-orange: #fcd462;     /* logo geel/oranje */
+  --color-apple-yellow: #fcd462;     /* logo geel */
   
   /* === REFINED COLOR PALETTE === */
   --title-color: #1D1D1F;
@@ -54,10 +54,34 @@
   --accent-foreground: #1D1D1F;
   --destructive: #FF3B30;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(0, 0, 0, 0.04);
-  --input: rgba(0, 0, 0, 0.04);
-  --input-background: rgba(0, 0, 0, 0.04);
+  --popover: #FFFFFF;
+  --popover-foreground: #1D1D1F;
+  --border: rgba(0, 0, 0, 0.10);
+  --input: rgba(0, 0, 0, 0.06);
+  --input-background: rgba(0, 0, 0, 0.06);
   --ring: rgba(0, 122, 255, 0.3);
+}
+
+/* ================================================================
+   ALTERNATIEF THEMA: ORIGINELE APPLE KLEUREN
+   Gebruik: voeg class="theme-apple" toe aan <html> in layout.tsx
+   om terug te schakelen naar de originele Apple-kleuren.
+   ================================================================ */
+.theme-apple {
+  --color-apple-blue: #007AFF;
+  --color-apple-blue-dark: #0A84FF;
+  --color-apple-gray: #8E8E93;
+  --color-apple-gray-2: #AEAEB2;
+  --color-apple-gray-3: #C7C7CC;
+  --color-apple-gray-4: #D1D1D6;
+  --color-apple-gray-5: #E5E5EA;
+  --color-apple-gray-6: #F2F2F7;
+  --color-apple-green: #30D158;
+  --color-apple-indigo: #5856D6;
+  --color-apple-purple: #AF52DE;
+  --color-apple-red: #FF3B30;
+  --color-apple-orange: #FF9500;
+  --color-apple-yellow: #FFCC00;
 }
 
 .dark {
@@ -75,10 +99,25 @@
   --accent-foreground: #F5F5F7;
   --destructive: #FF453A;
   --destructive-foreground: #F5F5F7;
+  --popover: #1C1C1E;
+  --popover-foreground: #F5F5F7;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.08);
   --input-background: rgba(255, 255, 255, 0.08);
   --ring: rgba(10, 132, 255, 0.4);
+
+  /* === GRAY SCALE DARK OVERRIDES === */
+  /* All grays must be dark in dark mode — overrides light defaults */
+  --color-apple-gray-2: #3A3A3C;
+  --color-apple-gray-3: #48484A;
+  --color-apple-gray-4: #545456;
+  --color-apple-gray-5: #636366;
+  --color-apple-gray-6: #2C2C2E;
+
+  /* === COLOR DARK OVERRIDES === */
+  /* Indigo is navy (#323c6b) in light — needs bright override for dark mode */
+  --color-apple-indigo: #7b82ff;
+  --color-apple-purple: #7b82ff;
 }
 
 

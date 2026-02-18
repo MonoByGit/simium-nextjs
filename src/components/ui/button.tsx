@@ -8,8 +8,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-[var(--color-apple-blue)] text-white hover:bg-[var(--color-apple-blue)] shadow-sm hover:shadow-md hover:-translate-y-1",
-        destructive: "bg-red-500 text-white hover:bg-red-600 shadow-sm hover:shadow-md hover:-translate-y-1",
-        outline: "border border-gray-300 dark:border-gray-600 bg-background hover:bg-accent hover:text-accent-foreground shadow-sm hover:shadow-md hover:-translate-y-1",
+        destructive: "bg-[var(--color-apple-red)] text-white hover:bg-[var(--color-apple-red)]/90 shadow-sm hover:shadow-md hover:-translate-y-1",
+        outline: "border border-border bg-background hover:bg-accent hover:text-accent-foreground shadow-sm hover:shadow-md hover:-translate-y-1",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm hover:shadow-md hover:-translate-y-1",
         ghost: "hover:bg-accent hover:text-accent-foreground transition-colors duration-200",
         link: "text-primary underline-offset-4 hover:underline transition-colors duration-200"

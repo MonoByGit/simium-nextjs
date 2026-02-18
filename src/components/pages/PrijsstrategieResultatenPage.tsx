@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
@@ -108,15 +109,15 @@ export function PrijsstrategieResultatenPage() {
   if (isLoading) {
     return (
       <>
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-secondary/30">
           <Card className="p-8 max-w-md w-full text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-apple-indigo)] mx-auto mb-4"></div>
             <h3 className="mb-2">AI analyseert je prijsstrategie...</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-muted-foreground text-sm">
               Onze AI vergelijkt je prijzen met marktdata en identificeert optimalisaties
             </p>
             <Progress value={90} className="mt-4" />
-            <p className="text-xs text-gray-500 mt-2">Benchmarking...</p>
+            <p className="text-xs text-muted-foreground mt-2">Benchmarking...</p>
           </Card>
         </div>
       </>
@@ -126,7 +127,7 @@ export function PrijsstrategieResultatenPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white mx-4 rounded-2xl mb-8">
+      <div className="bg-gradient-to-r from-[var(--color-apple-indigo)] to-[var(--color-apple-indigo)]/80 text-white mx-4 rounded-2xl mb-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8">
 
           
@@ -139,7 +140,7 @@ export function PrijsstrategieResultatenPage() {
               <h1 className="text-2xl lg:text-3xl text-white mb-2">
                 Je prijsstrategie-analyse is klaar
               </h1>
-              <p className="text-purple-100">
+              <p className="text-[var(--color-apple-indigo)]">
                 Gegenereerd op {customerInfo?.analysisDate || new Date().toLocaleDateString('nl-NL', { 
                   day: 'numeric', 
                   month: 'long', 
@@ -150,7 +151,7 @@ export function PrijsstrategieResultatenPage() {
             <div className="flex justify-end">
               <Button 
                 onClick={handleDownloadPDF}
-                className="bg-white text-purple-600 hover:bg-purple-50 text-[14px]"
+                className="bg-white text-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/5 text-[14px]"
               >
                 Download PDF
               </Button>
@@ -162,20 +163,20 @@ export function PrijsstrategieResultatenPage() {
       {/* Customer Info Banner */}
       {customerInfo && (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+          <div className="bg-white dark:bg-card rounded-xl p-4 border border-border shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 text-lg">{customerInfo.name?.charAt(0) || 'D'}</span>
+                <div className="w-10 h-10 bg-[var(--color-apple-indigo)]/10 rounded-full flex items-center justify-center">
+                  <span className="text-[var(--color-apple-indigo)] text-lg">{customerInfo.name?.charAt(0) || 'D'}</span>
                 </div>
                 <div>
-                  <div className="text-gray-900 font-medium">{customerInfo.name}</div>
-                  <div className="text-gray-600 text-sm">{customerInfo.company}</div>
+                  <div className="text-muted-foreground font-medium">{customerInfo.name}</div>
+                  <div className="text-muted-foreground text-sm">{customerInfo.company}</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-gray-600 text-sm">Persoonlijke analyse voor</div>
-                <div className="text-gray-900 text-sm font-medium">{customerInfo.email}</div>
+                <div className="text-muted-foreground text-sm">Persoonlijke analyse voor</div>
+                <div className="text-muted-foreground text-sm font-medium">{customerInfo.email}</div>
               </div>
             </div>
           </div>
@@ -185,21 +186,21 @@ export function PrijsstrategieResultatenPage() {
       {/* Key Metrics */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="p-6 bg-gradient-to-br from-purple-50 to-purple-100">
+          <Card className="p-6 bg-gradient-to-br from-[var(--color-apple-indigo)]/5 to-[var(--color-apple-indigo)]/10">
             <div className="text-center">
-              <div className="text-3xl text-purple-600 mb-2">{mockAnalysisData.optimizationPotential}%</div>
-              <div className="text-gray-700 mb-1">Optimalisatiepotentieel</div>
-              <div className="text-purple-600 text-sm">Zeer hoog potentieel</div>
+              <div className="text-3xl text-[var(--color-apple-indigo)] mb-2">{mockAnalysisData.optimizationPotential}%</div>
+              <div className="text-muted-foreground mb-1">Optimalisatiepotentieel</div>
+              <div className="text-[var(--color-apple-indigo)] text-sm">Zeer hoog potentieel</div>
             </div>
           </Card>
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-green-600 mb-2">
+              <div className="text-3xl text-[var(--color-apple-green)] mb-2">
                 €{mockAnalysisData.revenueIncrease.toLocaleString()}
               </div>
-              <div className="text-gray-700 mb-1">Extra omzet/maand</div>
-              <div className="text-green-600 text-sm">Bij implementatie</div>
+              <div className="text-muted-foreground mb-1">Extra omzet/maand</div>
+              <div className="text-[var(--color-apple-green)] text-sm">Bij implementatie</div>
             </div>
           </Card>
           
@@ -208,16 +209,16 @@ export function PrijsstrategieResultatenPage() {
               <div className="text-3xl text-[var(--color-apple-blue)] mb-2">
                 {mockAnalysisData.currentMargin}% → {mockAnalysisData.optimizedMargin}%
               </div>
-              <div className="text-gray-700 mb-1">Marge verbetering</div>
+              <div className="text-muted-foreground mb-1">Marge verbetering</div>
               <div className="text-[var(--color-apple-blue)] text-sm">+10 procentpunten</div>
             </div>
           </Card>
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-orange-600 mb-2">{mockAnalysisData.competitivePosition}</div>
-              <div className="text-gray-700 mb-1">Marktpositie</div>
-              <div className="text-orange-600 text-sm">Ruimte voor verhoging</div>
+              <div className="text-3xl text-[var(--color-apple-orange)] mb-2">{mockAnalysisData.competitivePosition}</div>
+              <div className="text-muted-foreground mb-1">Marktpositie</div>
+              <div className="text-[var(--color-apple-orange)] text-sm">Ruimte voor verhoging</div>
             </div>
           </Card>
         </div>
@@ -242,9 +243,9 @@ export function PrijsstrategieResultatenPage() {
                   <XAxis dataKey="segment" />
                   <YAxis />
                   <Tooltip formatter={(value) => [`€${value}`, '']} />
-                  <Bar dataKey="yourPrice" fill="#7c3aed" name="Jouw prijs" />
-                  <Bar dataKey="marketAvg" fill="#3b82f6" name="Marktgemiddelde" />
-                  <Bar dataKey="premium" fill="#10b981" name="Premium spelers" />
+                  <Bar dataKey="yourPrice" fill="#323c6b" name="Jouw prijs" />
+                  <Bar dataKey="marketAvg" fill="#05afd6" name="Marktgemiddelde" />
+                  <Bar dataKey="premium" fill="#27ccbc" name="Premium spelers" />
                 </BarChart>
               </ResponsiveContainer>
             </Card>
@@ -254,13 +255,13 @@ export function PrijsstrategieResultatenPage() {
                 <h4 className="mb-4">Margeanalyse per product</h4>
                 <div className="space-y-4">
                   {marginAnalysis.map((product) => (
-                    <div key={product.product} className="border-b border-gray-200 pb-3 last:border-b-0">
+                    <div key={product.product} className="border-b border-border pb-3 last:border-b-0">
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <div className="font-medium">{product.product}</div>
-                          <div className="text-sm text-gray-600">{product.volume}% van volume</div>
+                          <div className="text-sm text-muted-foreground">{product.volume}% van volume</div>
                         </div>
-                        <Badge variant="outline" className="text-green-600">
+                        <Badge variant="outline" className="text-[var(--color-apple-green)]">
                           +{product.optimizedMargin - product.currentMargin}pp
                         </Badge>
                       </div>
@@ -271,7 +272,7 @@ export function PrijsstrategieResultatenPage() {
                         </div>
                         <div className="flex justify-between text-sm">
                           <span>Geoptimaliseerd</span>
-                          <span className="text-green-600">{product.optimizedMargin}%</span>
+                          <span className="text-[var(--color-apple-green)]">{product.optimizedMargin}%</span>
                         </div>
                       </div>
                     </div>
@@ -287,11 +288,11 @@ export function PrijsstrategieResultatenPage() {
                     <XAxis dataKey="change" domain={[-25, 35]} name="Prijsverandering %" />
                     <YAxis dataKey="revenue" domain={[90, 105]} name="Omzet impact %" />
                     <Tooltip formatter={(value, name) => [`${value}%`, name === 'revenue' ? 'Omzet impact' : 'Prijsverandering']} />
-                    <Scatter dataKey="revenue" fill="#7c3aed" />
+                    <Scatter dataKey="revenue" fill="#323c6b" />
                   </ScatterChart>
                 </ResponsiveContainer>
                 <div className="text-center mt-2">
-                  <div className="text-sm text-gray-600">Sweet spot: +10% prijs = +2% omzet</div>
+                  <div className="text-sm text-muted-foreground">Sweet spot: +10% prijs = +2% omzet</div>
                 </div>
               </Card>
             </div>
@@ -309,10 +310,10 @@ export function PrijsstrategieResultatenPage() {
                     name === 'price' ? `€${value}` : value,
                     name === 'price' ? 'Prijs' : name === 'quality' ? 'Kwaliteit' : 'Marktaandeel'
                   ]} />
-                  <Scatter dataKey="marketShare" fill="#7c3aed" />
+                  <Scatter dataKey="marketShare" fill="#323c6b" />
                 </ScatterChart>
               </ResponsiveContainer>
-              <div className="mt-4 text-center text-sm text-gray-600">
+              <div className="mt-4 text-center text-sm text-muted-foreground">
                 Bubble grootte = marktaandeel | Jouw positie: onderprijs voor kwaliteitsniveau
               </div>
             </Card>
@@ -324,15 +325,15 @@ export function PrijsstrategieResultatenPage() {
                   {competitorAnalysis.map((competitor) => (
                     <div key={competitor.name} className="flex justify-between items-center">
                       <div>
-                        <div className={`font-medium ${competitor.name === 'Jouw bedrijf' ? 'text-purple-600' : ''}`}>
+                        <div className={`font-medium ${competitor.name === 'Jouw bedrijf' ? 'text-[var(--color-apple-indigo)]' : ''}`}>
                           {competitor.name}
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-muted-foreground">
                           Kwaliteit: {competitor.quality}/10 | Marktaandeel: {competitor.marketShare}%
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className={`text-lg ${competitor.name === 'Jouw bedrijf' ? 'text-purple-600' : ''}`}>
+                        <div className={`text-lg ${competitor.name === 'Jouw bedrijf' ? 'text-[var(--color-apple-indigo)]' : ''}`}>
                           €{competitor.price}
                         </div>
                       </div>
@@ -345,24 +346,24 @@ export function PrijsstrategieResultatenPage() {
                 <h4 className="mb-4">🏆 Concurrentievoordelen</h4>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <span className="text-green-500 mt-1">✓</span>
+                    <span className="text-[var(--color-apple-green)] mt-1">✓</span>
                     <div>
                       <div className="font-medium">Kwaliteit-prijs verhouding</div>
-                      <div className="text-sm text-gray-600">Jouw kwaliteit (8/10) vs gemiddelde prijs concurrent</div>
+                      <div className="text-sm text-muted-foreground">Jouw kwaliteit (8/10) vs gemiddelde prijs concurrent</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-green-500 mt-1">✓</span>
+                    <span className="text-[var(--color-apple-green)] mt-1">✓</span>
                     <div>
                       <div className="font-medium">Marktpositie voor verbetering</div>
-                      <div className="text-sm text-gray-600">25% ruimte voor prijsverhoging naar marktgemiddelde</div>
+                      <div className="text-sm text-muted-foreground">25% ruimte voor prijsverhoging naar marktgemiddelde</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-1">⚠</span>
+                    <span className="text-[var(--color-apple-orange)] mt-1">⚠</span>
                     <div>
                       <div className="font-medium">Marktaandeel relatief laag</div>
-                      <div className="text-sm text-gray-600">12% vs 20-25% van top concurrenten</div>
+                      <div className="text-sm text-muted-foreground">12% vs 20-25% van top concurrenten</div>
                     </div>
                   </div>
                 </div>
@@ -382,7 +383,7 @@ export function PrijsstrategieResultatenPage() {
                         variant="outline"
                         className={
                           segment.suggestedPrice > segment.currentPrice 
-                            ? 'text-green-600 border-green-600' 
+                            ? 'text-[var(--color-apple-green)] border-[var(--color-apple-green)]' 
                             : 'text-[var(--color-apple-blue)] border-[var(--color-apple-blue)]'
                         }
                       >
@@ -392,17 +393,17 @@ export function PrijsstrategieResultatenPage() {
                     </div>
                     <div className="space-y-2 mb-3">
                       <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Huidige prijs</span>
+                        <span className="text-sm text-muted-foreground">Huidige prijs</span>
                         <span className="text-sm">€{segment.currentPrice}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Aanbevolen prijs</span>
-                        <span className={`text-sm ${segment.suggestedPrice > segment.currentPrice ? 'text-green-600' : 'text-[var(--color-apple-blue)]'}`}>
+                        <span className="text-sm text-muted-foreground">Aanbevolen prijs</span>
+                        <span className={`text-sm ${segment.suggestedPrice > segment.currentPrice ? 'text-[var(--color-apple-green)]' : 'text-[var(--color-apple-blue)]'}`}>
                           €{segment.suggestedPrice}
                         </span>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600">{segment.reasoning}</p>
+                    <p className="text-sm text-muted-foreground">{segment.reasoning}</p>
                   </Card>
                 ))}
               </div>
@@ -412,28 +413,28 @@ export function PrijsstrategieResultatenPage() {
               <Card className="p-6">
                 <h4 className="mb-4">Value-based pricing opportunities</h4>
                 <div className="space-y-4">
-                  <div className="border-l-4 border-green-500 pl-4">
+                  <div className="border-l-4 border-[var(--color-apple-green)] pl-4">
                     <div className="font-medium">ROI-based pricing</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-muted-foreground">
                       Voor Enterprise: prijs gebaseerd op besparingen die je levert
                     </div>
-                    <div className="text-sm text-green-600">Potentieel: +40% marge</div>
+                    <div className="text-sm text-[var(--color-apple-green)]">Potentieel: +40% marge</div>
                   </div>
                   
                   <div className="border-l-4 border-[var(--color-apple-blue)] pl-4">
                     <div className="font-medium">Tijdsbesparing premium</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-muted-foreground">
                       Snelle implementatie als premium service
                     </div>
                     <div className="text-sm text-[var(--color-apple-blue)]">Potentieel: +25% prijs</div>
                   </div>
                   
-                  <div className="border-l-4 border-purple-500 pl-4">
+                  <div className="border-l-4 border-[var(--color-apple-indigo)] pl-4">
                     <div className="font-medium">Outcome garanties</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-muted-foreground">
                       Resultaat-gegarandeerde pakketten
                     </div>
-                    <div className="text-sm text-purple-600">Potentieel: +60% marge</div>
+                    <div className="text-sm text-[var(--color-apple-indigo)]">Potentieel: +60% marge</div>
                   </div>
                 </div>
               </Card>
@@ -443,30 +444,30 @@ export function PrijsstrategieResultatenPage() {
                 <div className="space-y-4">
                   <div>
                     <div className="font-medium mb-2">📦 Pakket optimalisatie</div>
-                    <div className="text-sm text-gray-600 mb-2">
+                    <div className="text-sm text-muted-foreground mb-2">
                       Combineer populaire services in aantrekkelijke bundels
                     </div>
-                    <div className="text-xs bg-gray-100 p-2 rounded">
+                    <div className="text-xs bg-secondary/50 p-2 rounded">
                       Basis (€85) + Premium add-ons (€45) = €110 bundel (-€20 korting)
                     </div>
                   </div>
                   
                   <div>
                     <div className="font-medium mb-2">⚡ Frequentie korting</div>
-                    <div className="text-sm text-gray-600 mb-2">
+                    <div className="text-sm text-muted-foreground mb-2">
                       Jaarcontracten vs maandelijks met korting
                     </div>
-                    <div className="text-xs bg-gray-100 p-2 rounded">
+                    <div className="text-xs bg-secondary/50 p-2 rounded">
                       Jaarcontract: 10% korting maar betere cashflow
                     </div>
                   </div>
                   
                   <div>
                     <div className="font-medium mb-2">🎯 Volume incentives</div>
-                    <div className="text-sm text-gray-600 mb-2">
+                    <div className="text-sm text-muted-foreground mb-2">
                       Schaalvoordelen bij meerdere projecten
                     </div>
-                    <div className="text-xs bg-gray-100 p-2 rounded">
+                    <div className="text-xs bg-secondary/50 p-2 rounded">
                       2e project: -5% | 3+ projecten: -10%
                     </div>
                   </div>
@@ -480,25 +481,25 @@ export function PrijsstrategieResultatenPage() {
               <h3 className="mb-4">🚀 Implementatie strategie</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-green-600 text-sm">1</span>
+                  <div className="w-8 h-8 bg-[var(--color-apple-green)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-[var(--color-apple-green)] text-sm">1</span>
                   </div>
                   <div className="flex-1">
                     <h5>Fase 1: Direct implementeerbaar (Week 1-2)</h5>
-                    <p className="text-sm text-gray-600 mb-3">Start met laag-risico optimalisaties</p>
+                    <p className="text-sm text-muted-foreground mb-3">Start met laag-risico optimalisaties</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-green-50 p-3 rounded">
-                        <div className="font-medium text-green-800">MKB segment</div>
-                        <div className="text-sm text-green-600">€85 → €110 (+29%)</div>
-                        <div className="text-xs text-green-600">Risico: Laag | ROI: Hoog</div>
+                      <div className="bg-[var(--color-apple-green)]/5 p-3 rounded">
+                        <div className="font-medium text-[var(--color-apple-green)]">MKB segment</div>
+                        <div className="text-sm text-[var(--color-apple-green)]">€85 → €110 (+29%)</div>
+                        <div className="text-xs text-[var(--color-apple-green)]">Risico: Laag | ROI: Hoog</div>
                       </div>
-                      <div className="bg-green-50 p-3 rounded">
-                        <div className="font-medium text-green-800">Enterprise upsell</div>
-                        <div className="text-sm text-green-600">Premium services +€45</div>
-                        <div className="text-xs text-green-600">Bestaande klanten first</div>
+                      <div className="bg-[var(--color-apple-green)]/5 p-3 rounded">
+                        <div className="font-medium text-[var(--color-apple-green)]">Enterprise upsell</div>
+                        <div className="text-sm text-[var(--color-apple-green)]">Premium services +€45</div>
+                        <div className="text-xs text-[var(--color-apple-green)]">Bestaande klanten first</div>
                       </div>
                     </div>
-                    <div className="mt-2 text-sm text-green-600">Impact: +€3.200/maand</div>
+                    <div className="mt-2 text-sm text-[var(--color-apple-green)]">Impact: +€3.200/maand</div>
                   </div>
                 </div>
 
@@ -508,7 +509,7 @@ export function PrijsstrategieResultatenPage() {
                   </div>
                   <div className="flex-1">
                     <h5>Fase 2: Segmentatie optimalisatie (Week 3-6)</h5>
-                    <p className="text-sm text-gray-600 mb-3">Implementeer gedifferentieerde pricing</p>
+                    <p className="text-sm text-muted-foreground mb-3">Implementeer gedifferentieerde pricing</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="bg-[var(--color-apple-gray-6)] p-3 rounded">
                         <div className="font-medium text-[var(--color-apple-gray)]">Startup pricing</div>
@@ -526,25 +527,25 @@ export function PrijsstrategieResultatenPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-purple-600 text-sm">3</span>
+                  <div className="w-8 h-8 bg-[var(--color-apple-indigo)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-[var(--color-apple-indigo)] text-sm">3</span>
                   </div>
                   <div className="flex-1">
                     <h5>Fase 3: Strategische optimalisatie (Maand 2-3)</h5>
-                    <p className="text-sm text-gray-600 mb-3">Lange-termijn value creation</p>
+                    <p className="text-sm text-muted-foreground mb-3">Lange-termijn value creation</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-purple-50 p-3 rounded">
-                        <div className="font-medium text-purple-800">ROI-based pricing</div>
-                        <div className="text-sm text-purple-600">Performance guarantees</div>
-                        <div className="text-xs text-purple-600">Premium pricing model</div>
+                      <div className="bg-[var(--color-apple-indigo)]/5 p-3 rounded">
+                        <div className="font-medium text-[var(--color-apple-indigo)]">ROI-based pricing</div>
+                        <div className="text-sm text-[var(--color-apple-indigo)]">Performance guarantees</div>
+                        <div className="text-xs text-[var(--color-apple-indigo)]">Premium pricing model</div>
                       </div>
-                      <div className="bg-purple-50 p-3 rounded">
-                        <div className="font-medium text-purple-800">Bundling strategy</div>
-                        <div className="text-sm text-purple-600">Package optimization</div>
-                        <div className="text-xs text-purple-600">Higher customer value</div>
+                      <div className="bg-[var(--color-apple-indigo)]/5 p-3 rounded">
+                        <div className="font-medium text-[var(--color-apple-indigo)]">Bundling strategy</div>
+                        <div className="text-sm text-[var(--color-apple-indigo)]">Package optimization</div>
+                        <div className="text-xs text-[var(--color-apple-indigo)]">Higher customer value</div>
                       </div>
                     </div>
-                    <div className="mt-2 text-sm text-purple-600">Impact: +€2.400/maand</div>
+                    <div className="mt-2 text-sm text-[var(--color-apple-indigo)]">Impact: +€2.400/maand</div>
                   </div>
                 </div>
               </div>
@@ -555,24 +556,24 @@ export function PrijsstrategieResultatenPage() {
                 <h4 className="mb-4">Risk mitigation</h4>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <span className="text-green-500 mt-1">✓</span>
+                    <span className="text-[var(--color-apple-green)] mt-1">✓</span>
                     <div>
                       <div className="font-medium">A/B test prijswijzigingen</div>
-                      <div className="text-sm text-gray-600">Test nieuwe prijzen met 20% van nieuwe klanten eerst</div>
+                      <div className="text-sm text-muted-foreground">Test nieuwe prijzen met 20% van nieuwe klanten eerst</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-green-500 mt-1">✓</span>
+                    <span className="text-[var(--color-apple-green)] mt-1">✓</span>
                     <div>
                       <div className="font-medium">Bestaande klanten geleidelijk</div>
-                      <div className="text-sm text-gray-600">3 maanden opzegtermijn voor contractvernieuwing</div>
+                      <div className="text-sm text-muted-foreground">3 maanden opzegtermijn voor contractvernieuwing</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-green-500 mt-1">✓</span>
+                    <span className="text-[var(--color-apple-green)] mt-1">✓</span>
                     <div>
                       <div className="font-medium">Value communicatie eerst</div>
-                      <div className="text-sm text-gray-600">Toon extra waarde voor prijsverhoging</div>
+                      <div className="text-sm text-muted-foreground">Toon extra waarde voor prijsverhoging</div>
                     </div>
                   </div>
                 </div>
@@ -583,7 +584,7 @@ export function PrijsstrategieResultatenPage() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-sm">Totale omzetverhoging</span>
-                    <span className="font-medium text-green-600">+€8.400/maand</span>
+                    <span className="font-medium text-[var(--color-apple-green)]">+€8.400/maand</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">Gemiddelde marge</span>
@@ -591,16 +592,16 @@ export function PrijsstrategieResultatenPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">Klantbehoud target</span>
-                    <span className="font-medium text-purple-600">&gt;92%</span>
+                    <span className="font-medium text-[var(--color-apple-indigo)]">&gt;92%</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">ROI implementatie</span>
-                    <span className="font-medium text-orange-600">2.100%</span>
+                    <span className="font-medium text-[var(--color-apple-orange)]">2.100%</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between font-medium">
                     <span>Jaar 1 extra winst</span>
-                    <span className="text-green-600">€100.800</span>
+                    <span className="text-[var(--color-apple-green)]">€100.800</span>
                   </div>
                 </div>
               </Card>
@@ -611,26 +612,26 @@ export function PrijsstrategieResultatenPage() {
 
       {/* Bottom CTA */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <Card className="p-8 bg-gradient-to-r from-purple-50 to-purple-100 text-center">
+        <Card className="p-8 bg-gradient-to-r from-[var(--color-apple-indigo)]/5 to-[var(--color-apple-indigo)]/10 text-center">
           <h3 className="mb-4">Klaar om 28% meer marge te behalen?</h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-muted-foreground mb-6">
             Verhoog je omzet met €8.400 per maand door onze prijsstrategie te implementeren.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadPDF}
-              className="bg-purple-600 hover:bg-purple-700 text-white text-[14px]"
+              className="bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/80 text-white text-[14px]"
             >
               📄 Download volledige analyse
             </Button>
-            <a href="#/contact">
+            <Link href="/contact">
               <Button 
                 variant="outline" 
-                className="border-purple-600 text-purple-600 hover:bg-purple-50 text-[14px]"
+                className="border-[var(--color-apple-indigo)] text-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/5 text-[14px]"
               >
                 Hulp bij implementatie?
               </Button>
-            </a>
+            </Link>
           </div>
         </Card>
       </div>

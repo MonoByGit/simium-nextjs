@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
@@ -17,6 +19,7 @@ import mannolLogo from '@/assets/872636fa97798151a130f04072b7e4be8d9a69d8.png'
 import bramblesLogo from '@/assets/9628120ff4209cf85bc7ef502e84a4ccdb668753.png'
 
 export function CloudkostenscanPage() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     monthlySpend: '',
     cloudProvider: '',
@@ -122,25 +125,25 @@ export function CloudkostenscanPage() {
       <section className="pt-8 pb-4">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <a 
-              href="#/producten" 
+            <Link 
+              href="/producten" 
               className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 group"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mr-3 group-hover:-translate-x-1 transition-transform duration-200">
                 <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2"/>
               </svg>
               Alle scans
-            </a>
+            </Link>
             
-            <a 
-              href="#/cashflow-analyse" 
+            <Link 
+              href="/cashflow-analyse" 
               className="inline-flex items-center text-muted-foreground hover:text-[var(--color-apple-blue)] transition-colors duration-200 group"
             >
               Volgende: Cashflow-analyse
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="ml-3 group-hover:translate-x-1 transition-transform duration-200">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -152,14 +155,13 @@ export function CloudkostenscanPage() {
             {/* Content */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-4 py-2 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)] px-4 py-2 rounded-full text-sm font-medium">
                   Cloudkostenscan
                 </div>
                 
                 <h1 className="text-5xl lg:text-6xl leading-tight">
                   Ontdek verborgen 
-                  <span className="block text-green-600">verspilling</span>
+                  <span className="block text-[var(--color-apple-green)]">verspilling</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-md">
@@ -183,31 +185,31 @@ export function CloudkostenscanPage() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button 
                   onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                  className="bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/80 text-white px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                 >
                   Start gratis scan
                 </Button>
-                <a href="#/voorbeeldrapport">
+                <Link href="/voorbeeldrapport">
                   <Button 
                     variant="outline" 
                     className="px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     Bekijk voorbeeldrapport
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
             
             {/* Visual */}
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-3xl p-8 shadow-2xl">
+              <div className="relative bg-gradient-to-br from-[var(--color-apple-green)]/5 to-[var(--color-apple-green)]/10 dark:from-[var(--color-apple-green)]/20/20 dark:to-[var(--color-apple-green)]/25/20 rounded-3xl p-8 shadow-2xl">
                 <ImageWithFallback 
                   src={cloudImage}
                   alt="Cloud cost optimization dashboard"
                   className="rounded-2xl w-full shadow-lg"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-2xl p-6 shadow-xl backdrop-blur-sm">
-                  <div className="text-3xl font-bold text-green-600 mb-1">€2.400</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-green)] mb-1">€2.400</div>
                   <div className="text-muted-foreground text-sm">gem. maandbesparing</div>
                 </div>
               </div>
@@ -276,7 +278,7 @@ export function CloudkostenscanPage() {
                       <p className="text-muted-foreground">Waar draait je infrastructuur op?</p>
                     </div>
                     <Select value={formData.cloudProvider} onValueChange={(value) => handleInputChange('cloudProvider', value)}>
-                      <SelectTrigger className="h-14 px-6 rounded-2xl border-border bg-background text-foreground">
+                      <SelectTrigger className="h-14 px-6 rounded-2xl border-border bg-secondary/30 text-foreground">
                         <SelectValue placeholder="Selecteer je cloudplatform" />
                       </SelectTrigger>
                       <SelectContent>
@@ -312,7 +314,7 @@ export function CloudkostenscanPage() {
                           onClick={() => handleInputChange('usageType', option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.usageType === option.value
-                              ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+                              ? 'border-[var(--color-apple-green)] bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -341,7 +343,7 @@ export function CloudkostenscanPage() {
                           onClick={() => handleInputChange('cloudServices', option.value)}
                           className={`p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 text-center font-medium ${
                             formData.cloudServices === option.value
-                              ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+                              ? 'border-[var(--color-apple-green)] bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -369,7 +371,7 @@ export function CloudkostenscanPage() {
                           onClick={() => handleInputChange('autoScaling', option.value)}
                           className={`p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 text-center font-medium ${
                             formData.autoScaling === option.value
-                              ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+                              ? 'border-[var(--color-apple-green)] bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -392,7 +394,7 @@ export function CloudkostenscanPage() {
                         placeholder="bijv. 5000"
                         value={formData.monthlySpend}
                         onChange={(e) => handleInputChange('monthlySpend', e.target.value)}
-                        className="h-14 pl-12 pr-6 rounded-2xl border-border bg-background text-foreground text-lg"
+                        className="h-14 pl-12 pr-6 rounded-2xl border-border bg-secondary/30 text-foreground text-lg"
                       />
                     </div>
                   </div>
@@ -404,7 +406,7 @@ export function CloudkostenscanPage() {
                       disabled={!isFormValid}
                       className={`w-full py-6 rounded-2xl font-medium text-lg transition-all duration-200 ${
                         isFormValid 
-                          ? 'bg-green-600 hover:bg-green-700 text-white hover:-translate-y-1 hover:shadow-lg' 
+                          ? 'bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/80 text-white hover:-translate-y-1 hover:shadow-lg' 
                           : 'bg-secondary text-muted-foreground cursor-not-allowed'
                       }`}
                     >
@@ -420,13 +422,13 @@ export function CloudkostenscanPage() {
                   <div className="text-6xl">🎉</div>
                   
                   <div className="space-y-4">
-                    <div className="text-6xl font-bold text-green-600">
+                    <div className="text-6xl font-bold text-[var(--color-apple-green)]">
                       €{calculatedSavings.toLocaleString()}
                     </div>
                     <div className="text-xl text-muted-foreground">
                       per maand besparing
                     </div>
-                    <div className="text-2xl font-medium text-green-600">
+                    <div className="text-2xl font-medium text-[var(--color-apple-green)]">
                       Dat is €{(calculatedSavings * 12).toLocaleString()} per jaar!
                     </div>
                     <p className="text-muted-foreground max-w-md mx-auto">
@@ -443,7 +445,7 @@ export function CloudkostenscanPage() {
                         'Reserved instances advies'
                       ].map((item) => (
                         <div key={item} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <div className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full"></div>
                           <span className="text-foreground">{item}</span>
                         </div>
                       ))}
@@ -451,12 +453,12 @@ export function CloudkostenscanPage() {
                   </div>
                   
                   {/* Premium CTA */}
-                  <div className="border border-green-200 dark:border-green-800 rounded-2xl p-8 bg-green-50/50 dark:bg-green-900/10">
+                  <div className="border border-[var(--color-apple-green)]/30 dark:border-[var(--color-apple-green)]/25 rounded-2xl p-8 bg-[var(--color-apple-green)]/5/50 dark:bg-[var(--color-apple-green)]/20/10">
                     <h4 className="text-2xl font-medium mb-6">Klaar voor je volledige analyse?</h4>
                     
                     <Button 
-                      onClick={() => window.location.href = '#/cloudkosten-verdieping'}
-                      className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-2xl font-medium mb-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                      onClick={() => router.push('/cloudkosten-verdieping')}
+                      className="bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/80 text-white px-8 py-4 rounded-2xl font-medium mb-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                     >
                       Bekijk volledige analyse – €49,95
                     </Button>
@@ -516,10 +518,10 @@ export function CloudkostenscanPage() {
               }
             ].map((step, index) => (
               <div key={index} className="text-center group">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900 dark:to-green-800 rounded-3xl flex items-center justify-center mx-auto mb-8 border-2 border-green-200 dark:border-green-700 group-hover:scale-105 transition-transform duration-200">
-                  <span className="text-3xl font-bold text-green-600 dark:text-green-400">{step.number}</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-[var(--color-apple-green)]/10 to-[var(--color-apple-green)]/20 dark:from-[var(--color-apple-green)]/20 dark:to-[var(--color-apple-green)]/25 rounded-3xl flex items-center justify-center mx-auto mb-8 border-2 border-[var(--color-apple-green)]/30 dark:border-[var(--color-apple-green)]/30 group-hover:scale-105 transition-transform duration-200">
+                  <span className="text-3xl font-bold text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]/70">{step.number}</span>
                 </div>
-                <h3 className="text-xl font-medium mb-4 text-green-600 dark:text-green-400">{step.title}</h3>
+                <h3 className="text-xl font-medium mb-4 text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]/70">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             ))}
@@ -597,7 +599,7 @@ export function CloudkostenscanPage() {
               }
             ].map((feature, index) => (
               <div key={index} className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 group">
-                <div className="w-12 h-12 bg-green-100 dark:bg-green-900/40 rounded-2xl flex items-center justify-center mb-6 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform duration-200">
+                <div className="w-12 h-12 bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/20/40 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]/70 group-hover:scale-110 transition-transform duration-200">
                   {feature.icon}
                 </div>
                 <h4 className="text-lg font-medium mb-3">{feature.title}</h4>
@@ -609,28 +611,33 @@ export function CloudkostenscanPage() {
       </section>
 
       {/* Final CTA - Apple Style */}
-      <section className="py-32 bg-green-600 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white mb-6">Klaar om te besparen?</h2>
-          <p className="text-xl text-green-100 mb-12 leading-relaxed max-w-2xl mx-auto">
-            Ontdek binnen 5 minuten hoeveel je kunt besparen op je cloudkosten. 
-            Geen verplichtingen, direct resultaat.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
-            >
-              Start gratis cloudkostenscan
-            </Button>
-            <a href="#/contact">
-              <Button 
-                variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1"
+      <section className="py-32 bg-secondary/30">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="space-y-8">
+            <h2 className="text-5xl leading-tight">
+              Klaar om te
+              <span className="block text-[var(--color-apple-blue)]">besparen?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Ontdek binnen 5 minuten hoeveel je kunt besparen op je cloudkosten. Geen verplichtingen, direct resultaat.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Start gratis cloudkostenscan
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
+                onClick={() => router.push('/contact')}
               >
                 Neem contact op
               </Button>
-            </a>
+            </div>
           </div>
         </div>
       </section>

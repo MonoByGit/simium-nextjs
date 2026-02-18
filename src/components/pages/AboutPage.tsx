@@ -1,13 +1,16 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
+import { Target, Zap, BadgeEuro } from 'lucide-react'
 import { ImageWithFallback } from '../figma/ImageWithFallback'
 import image_ca1e3b46b40d11c93c9df4ed8072d161b57d1963 from '@/assets/ca1e3b46b40d11c93c9df4ed8072d161b57d1963.png'
 
 export function AboutPage() {
+  const router = useRouter()
   return (
     <>
       {/* Hero - Apple's Brand Story Introduction */}
@@ -15,7 +18,6 @@ export function AboutPage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
             <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
               Over Simium
             </div>
             
@@ -59,14 +61,14 @@ export function AboutPage() {
                   <p className="text-muted-foreground">Geholpen bedrijven</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-green-600 mb-2">€4.2M</div>
+                  <div className="text-4xl font-bold text-[var(--color-apple-green)] mb-2">€4.2M</div>
                   <p className="text-muted-foreground">Totaal bespaard</p>
                 </div>
               </div>
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-[var(--color-apple-gray-6)] to-indigo-100 dark:from-blue-950/50 dark:to-indigo-950/50 rounded-3xl p-12 shadow-xl">
+              <div className="bg-gradient-to-br from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-5)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)] rounded-3xl p-12 shadow-xl">
                 <ImageWithFallback 
                   src={image_ca1e3b46b40d11c93c9df4ed8072d161b57d1963}
                   alt="AI-gedreven business intelligence voor Nederlandse ondernemers"
@@ -91,7 +93,9 @@ export function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {[
               {
-                icon: '🎯',
+                icon: <Target className="w-6 h-6 text-[var(--color-apple-blue)]" strokeWidth={1.75} />,
+                iconBg: 'bg-[var(--color-apple-blue)]/10 dark:bg-[var(--color-apple-blue)]/15',
+                dotColor: 'bg-[var(--color-apple-blue)]',
                 title: 'Probleem-specifiek',
                 description: 'Geen generieke adviezen. Onze AI analyseert jouw specifieke situatie en industrie.',
                 details: [
@@ -101,7 +105,9 @@ export function AboutPage() {
                 ]
               },
               {
-                icon: '⚡',
+                icon: <Zap className="w-6 h-6 text-[var(--color-apple-green)]" strokeWidth={1.75} />,
+                iconBg: 'bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15',
+                dotColor: 'bg-[var(--color-apple-green)]',
                 title: 'Onmiddellijk inzicht',
                 description: 'Wat consultants weken kost, leveren wij in 24 uur. Zonder kwaliteitsverlies.',
                 details: [
@@ -111,7 +117,9 @@ export function AboutPage() {
                 ]
               },
               {
-                icon: '💰',
+                icon: <BadgeEuro className="w-6 h-6 text-[var(--color-apple-indigo)]" strokeWidth={1.75} />,
+                iconBg: 'bg-[var(--color-apple-indigo)]/10 dark:bg-[var(--color-apple-indigo)]/15',
+                dotColor: 'bg-[var(--color-apple-indigo)]',
                 title: 'Transparante prijzen',
                 description: 'Vaste prijzen, geen verborgen kosten. Je weet precies waar je aan toe bent.',
                 details: [
@@ -123,17 +131,21 @@ export function AboutPage() {
             ].map((feature, index) => (
               <Card key={index} className="p-8 rounded-3xl hover:shadow-lg transition-all duration-200 hover:-translate-y-1 h-full">
                 <div className="flex flex-col h-full space-y-6">
-                  <div className="text-5xl text-center">{feature.icon}</div>
-                  
+                  <div className="flex justify-center">
+                    <div className={`w-14 h-14 ${feature.iconBg} rounded-2xl flex items-center justify-center`}>
+                      {feature.icon}
+                    </div>
+                  </div>
+
                   <div className="flex-1 space-y-4 text-center">
                     <h3 className="text-2xl font-semibold">{feature.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                   </div>
-                  
+
                   <div className="space-y-3 mt-auto">
                     {feature.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full flex-shrink-0"></div>
+                        <div className={`w-2 h-2 ${feature.dotColor} rounded-full flex-shrink-0`}></div>
                         <span className="text-sm text-muted-foreground">{detail}</span>
                       </div>
                     ))}
@@ -151,13 +163,13 @@ export function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
               <div className="space-y-6">
-                <Badge className="bg-purple-100 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300">
+                <Badge className="bg-[var(--color-apple-indigo)]/10 dark:bg-[var(--color-apple-blue)]/15 text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-blue-dark)] border-0">
                   Enterprise Technology
                 </Badge>
-                
+
                 <h2 className="text-4xl">
                   Gebouwd voor
-                  <span className="block text-purple-600">betrouwbaarheid</span>
+                  <span className="block text-[var(--color-apple-indigo)]">betrouwbaarheid</span>
                 </h2>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -175,8 +187,8 @@ export function AboutPage() {
                   'Automatische data-verwijdering na analyse'
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-green-100 dark:bg-green-950/50 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <div className="w-6 h-6 bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                      <div className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full"></div>
                     </div>
                     <span className="text-muted-foreground leading-relaxed">{item}</span>
                   </div>
@@ -184,7 +196,7 @@ export function AboutPage() {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-100 dark:from-purple-950/50 dark:to-indigo-950/50 rounded-3xl p-12 shadow-xl">
+            <div className="bg-gradient-to-br from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-5)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)] rounded-3xl p-12 shadow-xl">
               <div className="grid grid-cols-2 gap-8">
                 {[
                   { metric: '99.9%', label: 'Uptime' },
@@ -193,8 +205,8 @@ export function AboutPage() {
                   { metric: 'SOC 2', label: 'Certified' }
                 ].map((stat, index) => (
                   <div key={index} className="text-center space-y-2">
-                    <div className="text-2xl font-bold text-purple-600">{stat.metric}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    <div className="text-2xl font-bold text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-blue-dark)]">{stat.metric}</div>
+                    <div className="text-sm text-muted-foreground dark:text-white/60">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -218,27 +230,27 @@ export function AboutPage() {
               {
                 title: 'Democratisatie van AI',
                 description: 'Geavanceerde technologie moet toegankelijk zijn voor iedereen, niet alleen voor grote bedrijven met diepe zakken.',
-                color: 'blue'
+                colorClass: 'text-[var(--color-apple-blue)]'
               },
               {
                 title: 'Nederlandse roots',
                 description: 'We begrijpen de Nederlandse markt, regelgeving en bedrijfscultuur. Onze AI is getraind op lokale data.',
-                color: 'green'
+                colorClass: 'text-[var(--color-apple-green)]'
               },
               {
                 title: 'Transparantie altijd',
                 description: 'Geen black-box algoritmes. We leggen uit hoe onze AI tot conclusies komt en waarom.',
-                color: 'purple'
+                colorClass: 'text-[var(--color-apple-indigo)]'
               },
               {
                 title: 'Privacy by design',
                 description: 'Je data blijft van jou. We hanteren privacy-by-design principes in alles wat we bouwen.',
-                color: 'orange'
+                colorClass: 'text-[var(--color-apple-orange)]'
               }
             ].map((value, index) => (
               <Card key={index} className="p-8 rounded-3xl hover:shadow-lg transition-all duration-200 hover:-translate-y-1 h-full">
                 <div className="flex flex-col h-full space-y-4">
-                  <h3 className={`text-2xl font-semibold text-${value.color}-600 dark:text-${value.color}-400`}>
+                  <h3 className={`text-2xl font-semibold ${value.colorClass}`}>
                     {value.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-lg flex-1">
@@ -267,29 +279,33 @@ export function AboutPage() {
                 number: '15.000+',
                 label: 'Analyses uitgevoerd',
                 sublabel: 'sinds 2023',
-                color: 'blue'
+                cardClass: 'bg-[var(--color-apple-blue)]/5 dark:bg-[var(--color-apple-blue)]/10 border border-[var(--color-apple-blue)]/20',
+                numberClass: 'text-[var(--color-apple-blue)]'
               },
               {
                 number: '€4.2M',
                 label: 'Totaal bespaard',
                 sublabel: 'voor klanten',
-                color: 'green'
+                cardClass: 'bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/10 border border-[var(--color-apple-green)]/20',
+                numberClass: 'text-[var(--color-apple-green)]'
               },
               {
                 number: '€4.125',
                 label: 'Gem. besparing',
                 sublabel: 'per klant per maand',
-                color: 'purple'
+                cardClass: 'bg-[var(--color-apple-indigo)]/5 dark:bg-[var(--color-apple-indigo)]/10 border border-[var(--color-apple-indigo)]/20',
+                numberClass: 'text-[var(--color-apple-indigo)]'
               },
               {
                 number: '97%',
                 label: 'Tevredenheid',
                 sublabel: 'beveelt ons aan',
-                color: 'orange'
+                cardClass: 'bg-[var(--color-apple-orange)]/5 dark:bg-[var(--color-apple-orange)]/10 border border-[var(--color-apple-orange)]/20',
+                numberClass: 'text-[var(--color-apple-orange)]'
               }
             ].map((stat, index) => (
-              <div key={index} className={`text-center bg-${stat.color}-50 dark:bg-${stat.color}-950/30 border border-${stat.color}-200 dark:border-${stat.color}-800 rounded-3xl p-8`}>
-                <div className={`text-4xl font-bold text-${stat.color}-600 mb-3`}>{stat.number}</div>
+              <div key={index} className={`text-center ${stat.cardClass} rounded-3xl p-8`}>
+                <div className={`text-4xl font-bold ${stat.numberClass} mb-3`}>{stat.number}</div>
                 <div className="font-semibold mb-1">{stat.label}</div>
                 <div className="text-sm text-muted-foreground">{stat.sublabel}</div>
               </div>
@@ -310,10 +326,10 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-[var(--color-apple-blue)] to-purple-600 rounded-3xl p-12 text-white">
+            <div className="bg-gradient-to-r from-[var(--color-apple-blue)] to-[var(--color-apple-indigo)] rounded-3xl p-12 text-white">
               <div className="space-y-6">
                 <div className="text-3xl font-bold">Elke scan wordt door mensen gecontroleerd</div>
-                <p className="text-xl text-[var(--color-apple-gray-6)]">
+                <p className="text-xl text-white/80">
                   Voordat jij je rapport krijgt, bekijkt ons expertteam elke aanbeveling 
                   om ervoor te zorgen dat het praktisch en realistisch is voor jouw situatie.
                 </p>
@@ -339,8 +355,8 @@ export function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                onClick={() => window.location.href = '#/producten'}
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => router.push('/producten')}
               >
                 Start je eerste scan
               </Button>
@@ -348,7 +364,7 @@ export function AboutPage() {
                 variant="outline" 
                 size="lg"
                 className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                onClick={() => window.location.href = '#/contact'}
+                onClick={() => router.push('/contact')}
               >
                 Praat met ons team
               </Button>

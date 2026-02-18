@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
@@ -94,7 +95,7 @@ export function CloudkostenResultatenPage() {
   ]
 
   const wasteCategories = [
-    { name: 'Idle Resources', value: 1840, color: '#ef4444' },
+    { name: 'Idle Resources', value: 1840, color: '#fe7058' },
     { name: 'Over-provisioned', value: 680, color: '#f97316' },
     { name: 'Unutilized Storage', value: 280, color: '#eab308' },
     { name: 'Development/Test', value: 120, color: '#84cc16' }
@@ -103,15 +104,15 @@ export function CloudkostenResultatenPage() {
   if (isLoading) {
     return (
       <>
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-secondary/30">
           <Card className="p-8 max-w-md w-full text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-apple-green)] mx-auto mb-4"></div>
             <h3 className="mb-2">AI analyseert je cloudkosten...</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-muted-foreground text-sm">
               Onze AI doorzoekt je infrastructuur op optimalisatiekansen
             </p>
             <Progress value={85} className="mt-4" />
-            <p className="text-xs text-gray-500 mt-2">Bijna klaar...</p>
+            <p className="text-xs text-muted-foreground mt-2">Bijna klaar...</p>
           </Card>
         </div>
       </>
@@ -121,7 +122,7 @@ export function CloudkostenResultatenPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-600 to-green-700 text-white mx-4 rounded-2xl mb-8">
+      <div className="bg-gradient-to-r from-[var(--color-apple-green)] to-[var(--color-apple-green)]/80 text-white mx-4 rounded-2xl mb-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8">
 
           
@@ -134,7 +135,7 @@ export function CloudkostenResultatenPage() {
               <h1 className="text-2xl lg:text-3xl text-white mb-2">
                 Je AI-analyse is klaar
               </h1>
-              <p className="text-green-100">
+              <p className="text-[var(--color-apple-green)]">
                 Gegenereerd op {customerInfo?.analysisDate || new Date().toLocaleDateString('nl-NL', { 
                   day: 'numeric', 
                   month: 'long', 
@@ -145,7 +146,7 @@ export function CloudkostenResultatenPage() {
             <div className="flex justify-end">
               <Button 
                 onClick={handleDownloadPDF}
-                className="bg-white text-green-600 hover:bg-green-50 text-[14px]"
+                className="bg-white text-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/5 text-[14px]"
               >
                 Download PDF
               </Button>
@@ -157,20 +158,20 @@ export function CloudkostenResultatenPage() {
       {/* Customer Info Banner */}
       {customerInfo && (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+          <div className="bg-white dark:bg-card rounded-xl p-4 border border-border shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 text-lg">{customerInfo.name?.charAt(0) || 'A'}</span>
+                <div className="w-10 h-10 bg-[var(--color-apple-green)]/10 rounded-full flex items-center justify-center">
+                  <span className="text-[var(--color-apple-green)] text-lg">{customerInfo.name?.charAt(0) || 'A'}</span>
                 </div>
                 <div>
-                  <div className="text-gray-900 font-medium">{customerInfo.name}</div>
-                  <div className="text-gray-600 text-sm">{customerInfo.company}</div>
+                  <div className="text-muted-foreground font-medium">{customerInfo.name}</div>
+                  <div className="text-muted-foreground text-sm">{customerInfo.company}</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-gray-600 text-sm">Persoonlijke analyse voor</div>
-                <div className="text-gray-900 text-sm font-medium">{customerInfo.email}</div>
+                <div className="text-muted-foreground text-sm">Persoonlijke analyse voor</div>
+                <div className="text-muted-foreground text-sm font-medium">{customerInfo.email}</div>
               </div>
             </div>
           </div>
@@ -180,13 +181,13 @@ export function CloudkostenResultatenPage() {
       {/* Key Metrics */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100">
+          <Card className="p-6 bg-gradient-to-br from-[var(--color-apple-green)]/5 to-[var(--color-apple-green)]/10">
             <div className="text-center">
-              <div className="text-3xl text-green-600 mb-2">
+              <div className="text-3xl text-[var(--color-apple-green)] mb-2">
                 €{mockAnalysisData.projectedSavings.toLocaleString()}
               </div>
-              <div className="text-gray-700 mb-1">Maandelijkse besparing</div>
-              <div className="text-green-600 text-sm">
+              <div className="text-muted-foreground mb-1">Maandelijkse besparing</div>
+              <div className="text-[var(--color-apple-green)] text-sm">
                 {Math.round((mockAnalysisData.projectedSavings / mockAnalysisData.totalMonthlyCost) * 100)}% reductie
               </div>
             </div>
@@ -195,24 +196,24 @@ export function CloudkostenResultatenPage() {
           <Card className="p-6">
             <div className="text-center">
               <div className="text-3xl text-[var(--color-apple-blue)] mb-2">{mockAnalysisData.optimizationScore}</div>
-              <div className="text-gray-700 mb-1">Optimalisatie score</div>
+              <div className="text-muted-foreground mb-1">Optimalisatie score</div>
               <div className="text-[var(--color-apple-blue)] text-sm">Goed voor verbetering</div>
             </div>
           </Card>
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-purple-600 mb-2">{mockAnalysisData.recommendations}</div>
-              <div className="text-gray-700 mb-1">Aanbevelingen</div>
-              <div className="text-purple-600 text-sm">Direct implementeerbaar</div>
+              <div className="text-3xl text-[var(--color-apple-indigo)] mb-2">{mockAnalysisData.recommendations}</div>
+              <div className="text-muted-foreground mb-1">Aanbevelingen</div>
+              <div className="text-[var(--color-apple-indigo)] text-sm">Direct implementeerbaar</div>
             </div>
           </Card>
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-orange-600 mb-2">{mockAnalysisData.timeToImplement}</div>
-              <div className="text-gray-700 mb-1">Implementatietijd</div>
-              <div className="text-orange-600 text-sm">Geschatte doorlooptijd</div>
+              <div className="text-3xl text-[var(--color-apple-orange)] mb-2">{mockAnalysisData.timeToImplement}</div>
+              <div className="text-muted-foreground mb-1">Implementatietijd</div>
+              <div className="text-[var(--color-apple-orange)] text-sm">Geschatte doorlooptijd</div>
             </div>
           </Card>
         </div>
@@ -239,7 +240,7 @@ export function CloudkostenResultatenPage() {
                     <XAxis dataKey="month" />
                     <YAxis />
                     <Tooltip formatter={(value) => [`€${value}`, 'Maandkosten']} />
-                    <Line type="monotone" dataKey="cost" stroke="#16a34a" strokeWidth={3} />
+                    <Line type="monotone" dataKey="cost" stroke="#27ccbc" strokeWidth={3} />
                   </LineChart>
                 </ResponsiveContainer>
               </Card>
@@ -277,14 +278,14 @@ export function CloudkostenResultatenPage() {
                     <div className="relative w-20 h-20 mx-auto mb-2">
                       <svg className="w-20 h-20" viewBox="0 0 36 36">
                         <path
-                          className="text-gray-300"
+                          className="text-muted-foreground"
                           stroke="currentColor"
                           strokeWidth="3"
                           fill="transparent"
                           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                         />
                         <path
-                          className="text-green-600"
+                          className="text-[var(--color-apple-green)]"
                           stroke="currentColor"
                           strokeWidth="3"
                           strokeDasharray={`${item.utilized}, 100`}
@@ -296,7 +297,7 @@ export function CloudkostenResultatenPage() {
                         <span className="text-sm">{item.utilized}%</span>
                       </div>
                     </div>
-                    <div className="text-xs text-gray-600">Gebruikt</div>
+                    <div className="text-xs text-muted-foreground">Gebruikt</div>
                   </div>
                 ))}
               </div>
@@ -312,8 +313,8 @@ export function CloudkostenResultatenPage() {
                   <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
                   <YAxis />
                   <Tooltip formatter={(value) => [`€${value}`, '']} />
-                  <Bar dataKey="current" fill="#ef4444" name="Huidige kosten" />
-                  <Bar dataKey="optimized" fill="#16a34a" name="Na optimalisatie" />
+                  <Bar dataKey="current" fill="#fe7058" name="Huidige kosten" />
+                  <Bar dataKey="optimized" fill="#27ccbc" name="Na optimalisatie" />
                 </BarChart>
               </ResponsiveContainer>
             </Card>
@@ -323,22 +324,22 @@ export function CloudkostenResultatenPage() {
                 <Card key={item.name} className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h4>{item.name}</h4>
-                    <Badge variant="outline" className="text-green-600">
+                    <Badge variant="outline" className="text-[var(--color-apple-green)]">
                       -€{item.savings}/maand
                     </Badge>
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Huidig</span>
+                      <span className="text-sm text-muted-foreground">Huidig</span>
                       <span className="text-sm">€{item.current}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Geoptimaliseerd</span>
-                      <span className="text-sm text-green-600">€{item.optimized}</span>
+                      <span className="text-sm text-muted-foreground">Geoptimaliseerd</span>
+                      <span className="text-sm text-[var(--color-apple-green)]">€{item.optimized}</span>
                     </div>
                     <div className="flex justify-between font-medium">
                       <span className="text-sm">Besparing</span>
-                      <span className="text-sm text-green-600">€{item.savings}</span>
+                      <span className="text-sm text-[var(--color-apple-green)]">€{item.savings}</span>
                     </div>
                   </div>
                 </Card>
@@ -350,29 +351,29 @@ export function CloudkostenResultatenPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                    <span className="w-2 h-2 bg-red-600 rounded-full"></span>
+                  <div className="w-10 h-10 bg-[var(--color-apple-red)]/10 rounded-full flex items-center justify-center">
+                    <span className="w-2 h-2 bg-[var(--color-apple-red)] rounded-full"></span>
                   </div>
                   <div>
                     <h4>Hoge prioriteit</h4>
-                    <p className="text-sm text-gray-600">Direct implementeren</p>
+                    <p className="text-sm text-muted-foreground">Direct implementeren</p>
                   </div>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-red)] mt-1">•</span>
                     <div>
                       <div className="font-medium">Stop idle EC2 instances</div>
-                      <div className="text-sm text-gray-600">15 instances draaien onnodig 24/7</div>
-                      <div className="text-sm text-green-600">Besparing: €1.240/maand</div>
+                      <div className="text-sm text-muted-foreground">15 instances draaien onnodig 24/7</div>
+                      <div className="text-sm text-[var(--color-apple-green)]">Besparing: €1.240/maand</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-red)] mt-1">•</span>
                     <div>
                       <div className="font-medium">Verwijder ongebruikte EBS volumes</div>
-                      <div className="text-sm text-gray-600">3.2TB aan ongebruikte opslag</div>
-                      <div className="text-sm text-green-600">Besparing: €280/maand</div>
+                      <div className="text-sm text-muted-foreground">3.2TB aan ongebruikte opslag</div>
+                      <div className="text-sm text-[var(--color-apple-green)]">Besparing: €280/maand</div>
                     </div>
                   </li>
                 </ul>
@@ -380,29 +381,29 @@ export function CloudkostenResultatenPage() {
 
               <Card className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                    <span className="w-2 h-2 bg-orange-600 rounded-full"></span>
+                  <div className="w-10 h-10 bg-[var(--color-apple-orange)]/10 rounded-full flex items-center justify-center">
+                    <span className="w-2 h-2 bg-[var(--color-apple-orange)] rounded-full"></span>
                   </div>
                   <div>
                     <h4>Gemiddelde prioriteit</h4>
-                    <p className="text-sm text-gray-600">Deze maand implementeren</p>
+                    <p className="text-sm text-muted-foreground">Deze maand implementeren</p>
                   </div>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-orange)] mt-1">•</span>
                     <div>
                       <div className="font-medium">Right-size over-provisioned instances</div>
-                      <div className="text-sm text-gray-600">8 instances kunnen kleiner</div>
-                      <div className="text-sm text-green-600">Besparing: €890/maand</div>
+                      <div className="text-sm text-muted-foreground">8 instances kunnen kleiner</div>
+                      <div className="text-sm text-[var(--color-apple-green)]">Besparing: €890/maand</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-orange)] mt-1">•</span>
                     <div>
                       <div className="font-medium">Implementeer auto-scaling</div>
-                      <div className="text-sm text-gray-600">Voor development omgevingen</div>
-                      <div className="text-sm text-green-600">Besparing: €320/maand</div>
+                      <div className="text-sm text-muted-foreground">Voor development omgevingen</div>
+                      <div className="text-sm text-[var(--color-apple-green)]">Besparing: €320/maand</div>
                     </div>
                   </li>
                 </ul>
@@ -415,7 +416,7 @@ export function CloudkostenResultatenPage() {
                   </div>
                   <div>
                     <h4>Strategische optimalisaties</h4>
-                    <p className="text-sm text-gray-600">Langetermijn besparingen</p>
+                    <p className="text-sm text-muted-foreground">Langetermijn besparingen</p>
                   </div>
                 </div>
                 <ul className="space-y-3">
@@ -423,16 +424,16 @@ export function CloudkostenResultatenPage() {
                     <span className="text-[var(--color-apple-gray-6)]0 mt-1">•</span>
                     <div>
                       <div className="font-medium">Reserved Instances voor stable workloads</div>
-                      <div className="text-sm text-gray-600">3-jaar commitment aanbevolen</div>
-                      <div className="text-sm text-green-600">Besparing: €680/maand</div>
+                      <div className="text-sm text-muted-foreground">3-jaar commitment aanbevolen</div>
+                      <div className="text-sm text-[var(--color-apple-green)]">Besparing: €680/maand</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[var(--color-apple-gray-6)]0 mt-1">•</span>
                     <div>
                       <div className="font-medium">Migreer naar Graviton instances</div>
-                      <div className="text-sm text-gray-600">Betere price/performance ratio</div>
-                      <div className="text-sm text-green-600">Besparing: €420/maand</div>
+                      <div className="text-sm text-muted-foreground">Betere price/performance ratio</div>
+                      <div className="text-sm text-[var(--color-apple-green)]">Besparing: €420/maand</div>
                     </div>
                   </li>
                 </ul>
@@ -440,27 +441,27 @@ export function CloudkostenResultatenPage() {
 
               <Card className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                  <div className="w-10 h-10 bg-[var(--color-apple-green)]/10 rounded-full flex items-center justify-center">
+                    <span className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full"></span>
                   </div>
                   <div>
                     <h4>Governance & Monitoring</h4>
-                    <p className="text-sm text-gray-600">Preventieve maatregelen</p>
+                    <p className="text-sm text-muted-foreground">Preventieve maatregelen</p>
                   </div>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-green-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-green)] mt-1">•</span>
                     <div>
                       <div className="font-medium">Setup cost budgets & alerts</div>
-                      <div className="text-sm text-gray-600">Voorkom onverwachte kosten</div>
+                      <div className="text-sm text-muted-foreground">Voorkom onverwachte kosten</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-green)] mt-1">•</span>
                     <div>
                       <div className="font-medium">Tag resources voor cost allocation</div>
-                      <div className="text-sm text-gray-600">Beter inzicht per project/team</div>
+                      <div className="text-sm text-muted-foreground">Beter inzicht per project/team</div>
                     </div>
                   </li>
                 </ul>
@@ -474,14 +475,14 @@ export function CloudkostenResultatenPage() {
               <div className="space-y-6">
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                      <span className="text-red-600 text-sm">1</span>
+                    <div className="w-8 h-8 bg-[var(--color-apple-red)]/10 rounded-full flex items-center justify-center">
+                      <span className="text-[var(--color-apple-red)] text-sm">1</span>
                     </div>
                     <div>
                       <h4>Week 1: Quick Wins</h4>
-                      <p className="text-sm text-gray-600">Directe besparingen zonder risico</p>
+                      <p className="text-sm text-muted-foreground">Directe besparingen zonder risico</p>
                     </div>
-                    <Badge className="bg-red-100 text-red-600">€1.520/maand</Badge>
+                    <Badge className="bg-[var(--color-apple-red)]/10 text-[var(--color-apple-red)]">€1.520/maand</Badge>
                   </div>
                   <div className="ml-11 space-y-2">
                     <div className="text-sm">✓ Stop alle idle instances</div>
@@ -495,14 +496,14 @@ export function CloudkostenResultatenPage() {
 
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                      <span className="text-orange-600 text-sm">2</span>
+                    <div className="w-8 h-8 bg-[var(--color-apple-orange)]/10 rounded-full flex items-center justify-center">
+                      <span className="text-[var(--color-apple-orange)] text-sm">2</span>
                     </div>
                     <div>
                       <h4>Week 2-3: Right-sizing</h4>
-                      <p className="text-sm text-gray-600">Optimaliseer resource allocaties</p>
+                      <p className="text-sm text-muted-foreground">Optimaliseer resource allocaties</p>
                     </div>
-                    <Badge className="bg-orange-100 text-orange-600">€890/maand</Badge>
+                    <Badge className="bg-[var(--color-apple-orange)]/10 text-[var(--color-apple-orange)]">€890/maand</Badge>
                   </div>
                   <div className="ml-11 space-y-2">
                     <div className="text-sm">⚡ Downsize over-provisioned instances</div>
@@ -521,7 +522,7 @@ export function CloudkostenResultatenPage() {
                     </div>
                     <div>
                       <h4>Week 4-6: Strategische optimalisaties</h4>
-                      <p className="text-sm text-gray-600">Langetermijn besparingen</p>
+                      <p className="text-sm text-muted-foreground">Langetermijn besparingen</p>
                     </div>
                     <Badge className="bg-[var(--color-apple-gray-6)] text-[var(--color-apple-blue)]">€1.100/maand</Badge>
                   </div>
@@ -541,20 +542,20 @@ export function CloudkostenResultatenPage() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span>Week 1</span>
-                    <span className="text-green-600">€1.520 besparing</span>
+                    <span className="text-[var(--color-apple-green)]">€1.520 besparing</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Week 3</span>
-                    <span className="text-green-600">€2.410 besparing</span>
+                    <span className="text-[var(--color-apple-green)]">€2.410 besparing</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Week 6</span>
-                    <span className="text-green-600">€3.510 besparing</span>
+                    <span className="text-[var(--color-apple-green)]">€3.510 besparing</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between font-medium">
                     <span>Totaal jaar 1</span>
-                    <span className="text-green-600">€42.120 besparing</span>
+                    <span className="text-[var(--color-apple-green)]">€42.120 besparing</span>
                   </div>
                 </div>
               </Card>
@@ -563,18 +564,18 @@ export function CloudkostenResultatenPage() {
                 <h4 className="mb-4">Risk Assessment</h4>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-[var(--color-apple-green)] rounded-full"></div>
                     <span className="text-sm">Laag risico: €1.520/maand</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-[var(--color-apple-orange)] rounded-full"></div>
                     <span className="text-sm">Gemiddeld risico: €890/maand</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-[var(--color-apple-blue)] rounded-full"></div>
                     <span className="text-sm">Planning vereist: €1.100/maand</span>
                   </div>
-                  <div className="text-xs text-gray-600 mt-3">
+                  <div className="text-xs text-muted-foreground mt-3">
                     Alle aanbevelingen zijn gebaseerd op industry best practices 
                     en AWS Well-Architected Framework principes.
                   </div>
@@ -587,26 +588,26 @@ export function CloudkostenResultatenPage() {
 
       {/* Bottom CTA */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <Card className="p-8 bg-gradient-to-r from-green-50 to-green-100 text-center">
+        <Card className="p-8 bg-gradient-to-r from-[var(--color-apple-green)]/5 to-[var(--color-apple-green)]/10 text-center">
           <h3 className="mb-4">Klaar om €2.850 per maand te besparen?</h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-muted-foreground mb-6">
             Dit rapport bevat alles wat je nodig hebt om direct te starten met kostenoptimalisatie.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadPDF}
-              className="bg-green-600 hover:bg-green-700 text-white text-[14px]"
+              className="bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/80 text-white text-[14px]"
             >
               Download volledige analyse
             </Button>
-            <a href="#/contact">
+            <Link href="/contact">
               <Button 
                 variant="outline" 
-                className="border-green-600 text-green-600 hover:bg-green-50 text-[14px]"
+                className="border-[var(--color-apple-green)] text-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/5 text-[14px]"
               >
                 Hulp bij implementatie?
               </Button>
-            </a>
+            </Link>
           </div>
         </Card>
       </div>

@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
@@ -18,6 +20,7 @@ import mannolLogo from '@/assets/872636fa97798151a130f04072b7e4be8d9a69d8.png'
 import bramblesLogo from '@/assets/9628120ff4209cf85bc7ef502e84a4ccdb668753.png'
 
 export function PrijsstrategieCheckPage() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     businessType: '',
     pricingMethod: '',
@@ -140,10 +143,10 @@ export function PrijsstrategieCheckPage() {
   const isFormValid = formData.businessType && formData.pricingMethod && formData.discountStrategy && formData.marginKnowledge && formData.customerSegments
 
   const getPotentialColor = (potential: number) => {
-    if (potential >= 30) return 'text-green-600 dark:text-green-400'
-    if (potential >= 20) return 'text-purple-600 dark:text-purple-400'
-    if (potential >= 10) return 'text-orange-600 dark:text-orange-400'
-    return 'text-gray-600 dark:text-gray-400'
+    if (potential >= 30) return 'text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]/70'
+    if (potential >= 20) return 'text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-indigo)]/70'
+    if (potential >= 10) return 'text-[var(--color-apple-orange)] dark:text-[var(--color-apple-orange)]/80'
+    return 'text-muted-foreground dark:text-muted-foreground'
   }
 
   const getPotentialLabel = (potential: number) => {
@@ -159,25 +162,25 @@ export function PrijsstrategieCheckPage() {
       <section className="pt-8 pb-4">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <a 
-              href="#/producten" 
+            <Link 
+              href="/producten" 
               className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 group"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mr-3 group-hover:-translate-x-1 transition-transform duration-200">
                 <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2"/>
               </svg>
               Alle scans
-            </a>
+            </Link>
             
-            <a 
-              href="#/cloudkostenscan" 
-              className="inline-flex items-center text-muted-foreground hover:text-green-600 transition-colors duration-200 group"
+            <Link 
+              href="/cloudkostenscan" 
+              className="inline-flex items-center text-muted-foreground hover:text-[var(--color-apple-green)]/80 transition-colors duration-200 group"
             >
               Volgende: Cloudkostenscan
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="ml-3 group-hover:translate-x-1 transition-transform duration-200">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -189,14 +192,13 @@ export function PrijsstrategieCheckPage() {
             {/* Content */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-indigo)] px-4 py-2 rounded-full text-sm font-medium">
                   Prijsstrategie-check
                 </div>
                 
                 <h1 className="text-5xl lg:text-6xl leading-tight">
                   Optimaliseer je 
-                  <span className="block text-purple-600">prijsstrategie</span>
+                  <span className="block text-[var(--color-apple-indigo)]">prijsstrategie</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-md">
@@ -220,31 +222,31 @@ export function PrijsstrategieCheckPage() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button 
                   onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                  className="bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/80 text-white px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                 >
                   Start gratis check
                 </Button>
-                <a href="#/voorbeeldrapport">
+                <Link href="/voorbeeldrapport">
                   <Button 
                     variant="outline" 
                     className="px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     Bekijk voorbeeldrapport
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
             
             {/* Visual */}
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-3xl p-8 shadow-2xl">
+              <div className="relative bg-gradient-to-br from-[var(--color-apple-indigo)]/5 to-[var(--color-apple-indigo)]/10 dark:from-[var(--color-apple-indigo)]/20/20 dark:to-[var(--color-apple-indigo)]/25/20 rounded-3xl p-8 shadow-2xl">
                 <ImageWithFallback 
                   src={cloudImage}
                   alt="Pricing strategy analysis dashboard"
                   className="rounded-2xl w-full shadow-lg"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-2xl p-6 shadow-xl backdrop-blur-sm">
-                  <div className="text-3xl font-bold text-purple-600 mb-1">23%</div>
+                  <div className="text-3xl font-bold text-[var(--color-apple-indigo)] mb-1">23%</div>
                   <div className="text-muted-foreground text-sm">gem. marge verbetering</div>
                 </div>
               </div>
@@ -325,7 +327,7 @@ export function PrijsstrategieCheckPage() {
                           onClick={() => handleInputChange('businessType', option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.businessType === option.value
-                              ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
+                              ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5 dark:bg-[var(--color-apple-indigo)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -354,7 +356,7 @@ export function PrijsstrategieCheckPage() {
                           onClick={() => handleInputChange('pricingMethod', option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.pricingMethod === option.value
-                              ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
+                              ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5 dark:bg-[var(--color-apple-indigo)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -375,7 +377,7 @@ export function PrijsstrategieCheckPage() {
                         placeholder="bijv. Bedrijf A voor basis diensten, Bedrijf B voor premium segment..."
                         value={formData.competitorDetails}
                         onChange={(e) => handleInputChange('competitorDetails', e.target.value)}
-                        className="min-h-[120px] p-6 rounded-2xl border-border bg-background text-foreground resize-none"
+                        className="min-h-[120px] p-6 rounded-2xl border-border bg-secondary/30 text-foreground resize-none"
                       />
                     </div>
                   )}
@@ -399,7 +401,7 @@ export function PrijsstrategieCheckPage() {
                           onClick={() => handleInputChange('discountStrategy', option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.discountStrategy === option.value
-                              ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
+                              ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5 dark:bg-[var(--color-apple-indigo)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -422,7 +424,7 @@ export function PrijsstrategieCheckPage() {
                           placeholder="bijv. 15"
                           value={formData.averageDiscount}
                           onChange={(e) => handleInputChange('averageDiscount', e.target.value)}
-                          className="h-14 pr-12 pl-6 rounded-2xl border-border bg-background text-foreground text-lg"
+                          className="h-14 pr-12 pl-6 rounded-2xl border-border bg-secondary/30 text-foreground text-lg"
                         />
                         <span className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground text-lg">%</span>
                       </div>
@@ -448,7 +450,7 @@ export function PrijsstrategieCheckPage() {
                           onClick={() => handleInputChange('marginKnowledge', option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.marginKnowledge === option.value
-                              ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
+                              ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5 dark:bg-[var(--color-apple-indigo)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -469,7 +471,7 @@ export function PrijsstrategieCheckPage() {
                         placeholder="bijv. Te complex om uit te rekenen, geen tijd voor gehad, weet niet hoe..."
                         value={formData.marginReasons}
                         onChange={(e) => handleInputChange('marginReasons', e.target.value)}
-                        className="min-h-[120px] p-6 rounded-2xl border-border bg-background text-foreground resize-none"
+                        className="min-h-[120px] p-6 rounded-2xl border-border bg-secondary/30 text-foreground resize-none"
                       />
                     </div>
                   )}
@@ -493,7 +495,7 @@ export function PrijsstrategieCheckPage() {
                           onClick={() => handleInputChange('customerSegments', option.value)}
                           className={`text-left p-6 rounded-2xl border transition-all duration-200 hover:bg-accent/50 ${
                             formData.customerSegments === option.value
-                              ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
+                              ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5 dark:bg-[var(--color-apple-indigo)]/20/20'
                               : 'border-border bg-background'
                           }`}
                         >
@@ -514,7 +516,7 @@ export function PrijsstrategieCheckPage() {
                         placeholder="bijv. Te ingewikkeld om te beheren, bang om klanten te verliezen, weet niet hoe..."
                         value={formData.segmentationReasons}
                         onChange={(e) => handleInputChange('segmentationReasons', e.target.value)}
-                        className="min-h-[120px] p-6 rounded-2xl border-border bg-background text-foreground resize-none"
+                        className="min-h-[120px] p-6 rounded-2xl border-border bg-secondary/30 text-foreground resize-none"
                       />
                     </div>
                   )}
@@ -526,7 +528,7 @@ export function PrijsstrategieCheckPage() {
                       disabled={!isFormValid}
                       className={`w-full py-6 rounded-2xl font-medium text-lg transition-all duration-200 ${
                         isFormValid 
-                          ? 'bg-purple-600 hover:bg-purple-700 text-white hover:-translate-y-1 hover:shadow-lg' 
+                          ? 'bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/80 text-white hover:-translate-y-1 hover:shadow-lg' 
                           : 'bg-secondary text-muted-foreground cursor-not-allowed'
                       }`}
                     >
@@ -542,7 +544,7 @@ export function PrijsstrategieCheckPage() {
                   <div className="text-6xl">🎉</div>
                   
                   <div className="space-y-4">
-                    <div className="text-6xl font-bold text-purple-600">
+                    <div className="text-6xl font-bold text-[var(--color-apple-indigo)]">
                       {calculatedPotential}%
                     </div>
                     <div className="text-xl text-muted-foreground">
@@ -565,7 +567,7 @@ export function PrijsstrategieCheckPage() {
                         'Segmentatie kansen'
                       ].map((item) => (
                         <div key={item} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <div className="w-2 h-2 bg-[var(--color-apple-indigo)] rounded-full"></div>
                           <span className="text-foreground">{item}</span>
                         </div>
                       ))}
@@ -573,12 +575,12 @@ export function PrijsstrategieCheckPage() {
                   </div>
                   
                   {/* Premium CTA */}
-                  <div className="border border-purple-200 dark:border-purple-800 rounded-2xl p-8 bg-purple-50/50 dark:bg-purple-900/10">
+                  <div className="border border-[var(--color-apple-indigo)]/30 dark:border-[var(--color-apple-indigo)]/25 rounded-2xl p-8 bg-[var(--color-apple-indigo)]/5/50 dark:bg-[var(--color-apple-indigo)]/20/10">
                     <h4 className="text-2xl font-medium mb-6">Klaar voor je volledige prijsstrategie-analyse?</h4>
                     
                     <Button 
-                      onClick={() => window.location.href = '#/prijsstrategie-verdieping'}
-                      className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-2xl font-medium mb-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                      onClick={() => router.push('/prijsstrategie-verdieping')}
+                      className="bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/80 text-white px-8 py-4 rounded-2xl font-medium mb-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                     >
                       Bekijk volledige analyse – €49,95
                     </Button>
@@ -638,10 +640,10 @@ export function PrijsstrategieCheckPage() {
               }
             ].map((step, index) => (
               <div key={index} className="text-center group">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 rounded-3xl flex items-center justify-center mx-auto mb-8 border-2 border-purple-200 dark:border-purple-700 group-hover:scale-105 transition-transform duration-200">
-                  <span className="text-3xl font-bold text-purple-600 dark:text-purple-400">{step.number}</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-[var(--color-apple-indigo)]/10 to-[var(--color-apple-indigo)]/20 dark:from-[var(--color-apple-indigo)]/20 dark:to-[var(--color-apple-indigo)]/25 rounded-3xl flex items-center justify-center mx-auto mb-8 border-2 border-[var(--color-apple-indigo)]/30 dark:border-[var(--color-apple-indigo)]/30 group-hover:scale-105 transition-transform duration-200">
+                  <span className="text-3xl font-bold text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-indigo)]/70">{step.number}</span>
                 </div>
-                <h3 className="text-xl font-medium mb-4 text-purple-600 dark:text-purple-400">{step.title}</h3>
+                <h3 className="text-xl font-medium mb-4 text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-indigo)]/70">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             ))}
@@ -720,7 +722,7 @@ export function PrijsstrategieCheckPage() {
               }
             ].map((feature, index) => (
               <div key={index} className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 group">
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-200">
+                <div className="w-12 h-12 bg-[var(--color-apple-indigo)]/10 dark:bg-[var(--color-apple-indigo)]/20/40 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-indigo)]/70 group-hover:scale-110 transition-transform duration-200">
                   {feature.icon}
                 </div>
                 <h4 className="text-lg font-medium mb-3">{feature.title}</h4>
@@ -732,28 +734,33 @@ export function PrijsstrategieCheckPage() {
       </section>
 
       {/* Final CTA - Apple Style */}
-      <section className="py-32 bg-purple-600 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white mb-6">Klaar voor meer marge?</h2>
-          <p className="text-xl text-purple-100 mb-12 leading-relaxed max-w-2xl mx-auto">
-            Check binnen 4 minuten je prijsstrategie en ontdek concrete 
-            optimalisatiekansen. Gratis en zonder verplichtingen.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-purple-600 hover:bg-purple-50 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
-            >
-              Start gratis prijsstrategie-check
-            </Button>
-            <a href="#/contact">
-              <Button 
-                variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1"
+      <section className="py-32 bg-secondary/30">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="space-y-8">
+            <h2 className="text-5xl leading-tight">
+              Klaar voor meer
+              <span className="block text-[var(--color-apple-blue)]">marge?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Check binnen 4 minuten je prijsstrategie en ontdek concrete optimalisatiekansen. Gratis en zonder verplichtingen.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Start gratis prijsstrategie-check
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
+                onClick={() => router.push('/contact')}
               >
                 Neem contact op
               </Button>
-            </a>
+            </div>
           </div>
         </div>
       </section>

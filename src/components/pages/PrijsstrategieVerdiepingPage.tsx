@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
@@ -73,6 +74,7 @@ import { PreFillNotificationBanner } from '../PreFillNotificationBanner'
   }
 
 export function PrijsstrategieVerdiepingPage() {
+  const router = useRouter()
   const [formData, setFormData] = useState(() => loadSavedScanData())
   const [hasSavedData, setHasSavedData] = useState(false)
 
@@ -161,8 +163,8 @@ export function PrijsstrategieVerdiepingPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           <a 
-            href="#/prijsstrategie-check" 
-            className="inline-flex items-center text-sm text-gray-600 hover:text-purple-600 transition-colors"
+            href="/prijsstrategie-check" 
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-[var(--color-apple-indigo)]/80 transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mr-2">
               <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2"/>
@@ -173,15 +175,15 @@ export function PrijsstrategieVerdiepingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-600 to-purple-700 text-white mx-4 rounded-2xl mb-8 overflow-hidden">
+      <section className="bg-gradient-to-r from-[var(--color-apple-indigo)] to-[var(--color-apple-indigo)]/80 text-white mx-4 rounded-2xl mb-8 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-16 relative">
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-center mb-6">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl text-white">Verdiepingsscan Prijsstrategie</h1>
-              <p className="text-purple-100 mt-2">Premium analyse op maat</p>
+              <p className="text-white/70 mt-2">Premium analyse op maat</p>
             </div>
             
-            <p className="text-xl mb-6 text-purple-100 max-w-2xl mx-auto">
+            <p className="text-xl mb-6 text-white/70 max-w-2xl mx-auto">
               Krijg een volledig gepersonaliseerde prijsstrategie-analyse met concrete aanbevelingen voor optimale prijsstelling.
             </p>
             
@@ -213,19 +215,19 @@ export function PrijsstrategieVerdiepingPage() {
         <div className="space-y-8">
           
           {/* 1. Business & Pricing Fundamentals */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-purple-600 mb-2">Business & prijsstelling</h3>
-              <p className="text-gray-600">Vertel ons meer over je huidige prijsstrategie</p>
+              <h3 className="text-[var(--color-apple-indigo)] mb-2">Business & prijsstelling</h3>
+              <p className="text-muted-foreground">Vertel ons meer over je huidige prijsstrategie</p>
             </div>
 
             <div className="space-y-6">
               {/* Business Type */}
               <div>
-                <label className="block mb-2 text-gray-800 flex items-center">
+                <label className="block mb-2 text-foreground flex items-center">
                   Type business
                   {hasSavedData && formData.businessType && (
-                    <span className="ml-2 inline-flex items-center text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">
+                    <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-indigo)]/10 text-[var(--color-apple-indigo)] px-2 py-1 rounded-full">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mr-1">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                       </svg>
@@ -233,7 +235,7 @@ export function PrijsstrategieVerdiepingPage() {
                     </span>
                   )}
                 </label>
-                <p className="text-sm text-gray-500 mb-3">Wat verkoop je voornamelijk?</p>
+                <p className="text-sm text-muted-foreground mb-3">Wat verkoop je voornamelijk?</p>
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { value: 'diensten', label: 'Diensten' },
@@ -245,13 +247,13 @@ export function PrijsstrategieVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('businessType', option.value)}
-                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.businessType === option.value
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -259,26 +261,26 @@ export function PrijsstrategieVerdiepingPage() {
 
               {/* Average Order Value */}
               <div>
-                <label className="block mb-2 text-gray-800">Gemiddelde orderwaarde</label>
-                <p className="text-sm text-gray-500 mb-3">Wat is je gemiddelde transactiewaarde?</p>
+                <label className="block mb-2 text-foreground">Gemiddelde orderwaarde</label>
+                <p className="text-sm text-muted-foreground mb-3">Wat is je gemiddelde transactiewaarde?</p>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">€</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">€</span>
                   <Input 
                     type="number" 
                     placeholder="bijv. 250"
                     value={formData.averageOrderValue}
                     onChange={(e) => handleInputChange('averageOrderValue', e.target.value)}
-                    className="w-full pl-8 pr-4 py-4 border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pl-8 pr-4 py-4 border-border focus:border-[var(--color-apple-indigo)] focus:ring-[var(--color-apple-indigo)]/20 focus:ring-2 rounded-xl transition-all"
                   />
                 </div>
               </div>
 
               {/* Current Pricing Method */}
               <div>
-                <label className="block mb-2 text-gray-800 flex items-center">
+                <label className="block mb-2 text-foreground flex items-center">
                   Huidige prijsmethode
                   {hasSavedData && formData.pricingMethod && (
-                    <span className="ml-2 inline-flex items-center text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">
+                    <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-indigo)]/10 text-[var(--color-apple-indigo)] px-2 py-1 rounded-full">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mr-1">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                       </svg>
@@ -286,7 +288,7 @@ export function PrijsstrategieVerdiepingPage() {
                     </span>
                   )}
                 </label>
-                <p className="text-sm text-gray-500 mb-4">Hoe bepaal je momenteel je prijzen?</p>
+                <p className="text-sm text-muted-foreground mb-4">Hoe bepaal je momenteel je prijzen?</p>
                 <div className="space-y-3">
                   {[
                     { value: 'concurrent', label: 'Gebaseerd op concurrentie' },
@@ -298,13 +300,13 @@ export function PrijsstrategieVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('pricingMethod', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.pricingMethod === option.value
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -312,30 +314,30 @@ export function PrijsstrategieVerdiepingPage() {
 
               {/* Value Proposition */}
               <div>
-                <label className="block mb-2 text-gray-800">Je unieke waardepropositie</label>
-                <p className="text-sm text-gray-500 mb-3">Wat maakt jouw aanbod anders/beter dan concurrenten?</p>
+                <label className="block mb-2 text-foreground">Je unieke waardepropositie</label>
+                <p className="text-sm text-muted-foreground mb-3">Wat maakt jouw aanbod anders/beter dan concurrenten?</p>
                 <Textarea 
                   placeholder="bijv. Snellere levering, hogere kwaliteit, betere service, unieke functionaliteit..."
                   value={formData.valueProposition}
                   onChange={(e) => handleInputChange('valueProposition', e.target.value)}
-                  className="w-full p-4 border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-border focus:border-[var(--color-apple-indigo)] focus:ring-[var(--color-apple-indigo)]/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
             </div>
           </Card>
 
           {/* 2. Market & Competition Analysis */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-purple-600 mb-2">Markt & concurrentie</h3>
-              <p className="text-gray-600">Hoe positioneer je jezelf in de markt?</p>
+              <h3 className="text-[var(--color-apple-indigo)] mb-2">Markt & concurrentie</h3>
+              <p className="text-muted-foreground">Hoe positioneer je jezelf in de markt?</p>
             </div>
 
             <div className="space-y-6">
               {/* Competitor Pricing */}
               <div>
-                <label className="block mb-2 text-gray-800">Hoe verhouden je prijzen zich tot concurrenten?</label>
-                <p className="text-sm text-gray-500 mb-4">Vergelijk je prijsstelling met directe concurrenten</p>
+                <label className="block mb-2 text-foreground">Hoe verhouden je prijzen zich tot concurrenten?</label>
+                <p className="text-sm text-muted-foreground mb-4">Vergelijk je prijsstelling met directe concurrenten</p>
                 <div className="space-y-3">
                   {[
                     { value: 'veel-duurder', label: 'Veel duurder (>20% hoger)' },
@@ -349,13 +351,13 @@ export function PrijsstrategieVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('competitorPricing', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.competitorPricing === option.value
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -363,8 +365,8 @@ export function PrijsstrategieVerdiepingPage() {
 
               {/* Market Position */}
               <div>
-                <label className="block mb-2 text-gray-800">Gewenste marktpositie</label>
-                <p className="text-sm text-gray-500 mb-4">Hoe wil je gepositioneerd worden?</p>
+                <label className="block mb-2 text-foreground">Gewenste marktpositie</label>
+                <p className="text-sm text-muted-foreground mb-4">Hoe wil je gepositioneerd worden?</p>
                 <div className="space-y-3">
                   {[
                     { value: 'premium', label: 'Premium speler (hoogste kwaliteit/prijs)' },
@@ -376,13 +378,13 @@ export function PrijsstrategieVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('marketPosition', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.marketPosition === option.value
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -390,8 +392,8 @@ export function PrijsstrategieVerdiepingPage() {
 
               {/* Price Sensitivity */}
               <div>
-                <label className="block mb-2 text-gray-800">Prijsgevoeligheid van je klanten</label>
-                <p className="text-sm text-gray-500 mb-4">Hoe reageren klanten op prijswijzigingen?</p>
+                <label className="block mb-2 text-foreground">Prijsgevoeligheid van je klanten</label>
+                <p className="text-sm text-muted-foreground mb-4">Hoe reageren klanten op prijswijzigingen?</p>
                 <div className="space-y-3">
                   {[
                     { value: 'zeer-gevoelig', label: 'Zeer prijsgevoelig (verlies bij 5% verhoging)' },
@@ -403,13 +405,13 @@ export function PrijsstrategieVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('priceSensitivity', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.priceSensitivity === option.value
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -418,17 +420,17 @@ export function PrijsstrategieVerdiepingPage() {
           </Card>
 
           {/* 3. Pricing Challenges & Goals */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-purple-600 mb-2">Uitdagingen & doelen</h3>
-              <p className="text-gray-600">Welke pricing uitdagingen ervaar je?</p>
+              <h3 className="text-[var(--color-apple-indigo)] mb-2">Uitdagingen & doelen</h3>
+              <p className="text-muted-foreground">Welke pricing uitdagingen ervaar je?</p>
             </div>
 
             <div className="space-y-6">
               {/* Pricing Challenges */}
               <div>
-                <label className="block mb-2 text-gray-800">Grootste prijsuitdagingen</label>
-                <p className="text-sm text-gray-500 mb-4">Selecteer alle uitdagingen die je herkent</p>
+                <label className="block mb-2 text-foreground">Grootste prijsuitdagingen</label>
+                <p className="text-sm text-muted-foreground mb-4">Selecteer alle uitdagingen die je herkent</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { value: 'prijsdruk', label: 'Constante prijsdruk van klanten' },
@@ -442,10 +444,10 @@ export function PrijsstrategieVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.pricingChallenges.includes(option.value)
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
                       <Checkbox 
@@ -453,7 +455,7 @@ export function PrijsstrategieVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('pricingChallenges', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -461,24 +463,24 @@ export function PrijsstrategieVerdiepingPage() {
 
               {/* Revenue Goals */}
               <div>
-                <label className="block mb-2 text-gray-800">Omzetdoelstelling</label>
-                <p className="text-sm text-gray-500 mb-3">Hoeveel wil je je omzet de komende 12 maanden laten groeien?</p>
+                <label className="block mb-2 text-foreground">Omzetdoelstelling</label>
+                <p className="text-sm text-muted-foreground mb-3">Hoeveel wil je je omzet de komende 12 maanden laten groeien?</p>
                 <div className="relative">
                   <Input 
                     type="number" 
                     placeholder="bijv. 25"
                     value={formData.revenueGoals}
                     onChange={(e) => handleInputChange('revenueGoals', e.target.value)}
-                    className="w-full pr-12 pl-4 py-4 border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pr-12 pl-4 py-4 border-border focus:border-[var(--color-apple-indigo)] focus:ring-[var(--color-apple-indigo)]/20 focus:ring-2 rounded-xl transition-all"
                   />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">%</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">%</span>
                 </div>
               </div>
 
               {/* Pricing Frequency */}
               <div>
-                <label className="block mb-2 text-gray-800">Hoe vaak pas je prijzen aan?</label>
-                <p className="text-sm text-gray-500 mb-4">Frequentie van prijswijzigingen</p>
+                <label className="block mb-2 text-foreground">Hoe vaak pas je prijzen aan?</label>
+                <p className="text-sm text-muted-foreground mb-4">Frequentie van prijswijzigingen</p>
                 <div className="space-y-3">
                   {[
                     { value: 'nooit', label: 'Nooit of zelden' },
@@ -491,13 +493,13 @@ export function PrijsstrategieVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('pricingFrequency', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.pricingFrequency === option.value
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -506,29 +508,29 @@ export function PrijsstrategieVerdiepingPage() {
           </Card>
 
           {/* 4. Customer Insights & Feedback */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-purple-600 mb-2">Klant inzichten</h3>
-              <p className="text-gray-600">Wat hoor je van klanten over je prijzen?</p>
+              <h3 className="text-[var(--color-apple-indigo)] mb-2">Klant inzichten</h3>
+              <p className="text-muted-foreground">Wat hoor je van klanten over je prijzen?</p>
             </div>
 
             <div className="space-y-6">
               {/* Customer Feedback */}
               <div>
-                <label className="block mb-2 text-gray-800">Klantfeedback over prijzen</label>
-                <p className="text-sm text-gray-500 mb-3">Wat zeggen klanten over je prijsstelling?</p>
+                <label className="block mb-2 text-foreground">Klantfeedback over prijzen</label>
+                <p className="text-sm text-muted-foreground mb-3">Wat zeggen klanten over je prijsstelling?</p>
                 <Textarea 
                   placeholder="bijv. Te duur vergeleken met concurrent X, maar wel goede kwaliteit. Vragen vaak om korting..."
                   value={formData.customerFeedback}
                   onChange={(e) => handleInputChange('customerFeedback', e.target.value)}
-                  className="w-full p-4 border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-border focus:border-[var(--color-apple-indigo)] focus:ring-[var(--color-apple-indigo)]/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
 
               {/* Marketing Strategy */}
               <div>
-                <label className="block mb-2 text-gray-800">Huidige marketing/verkoopstrategie</label>
-                <p className="text-sm text-gray-500 mb-4">Hoe promoot en verkoop je je producten/diensten?</p>
+                <label className="block mb-2 text-foreground">Huidige marketing/verkoopstrategie</label>
+                <p className="text-sm text-muted-foreground mb-4">Hoe promoot en verkoop je je producten/diensten?</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { value: 'prijs-competitief', label: 'Prijs als concurrentievoordeel' },
@@ -540,10 +542,10 @@ export function PrijsstrategieVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent ${
                         formData.marketingStrategy.includes(option.value)
-                          ? 'border-purple-500 bg-purple-50'
-                          : 'border-gray-200'
+                          ? 'border-[var(--color-apple-indigo)] bg-[var(--color-apple-indigo)]/5'
+                          : 'border-border'
                       }`}
                     >
                       <Checkbox 
@@ -551,7 +553,7 @@ export function PrijsstrategieVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('marketingStrategy', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800">{option.label}</span>
+                      <span className="text-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -559,41 +561,41 @@ export function PrijsstrategieVerdiepingPage() {
 
               {/* Additional Comments */}
               <div>
-                <label className="block mb-2 text-gray-800">Aanvullende informatie</label>
-                <p className="text-sm text-gray-500 mb-3">Specifieke pricing doelen, uitdagingen of context</p>
+                <label className="block mb-2 text-foreground">Aanvullende informatie</label>
+                <p className="text-sm text-muted-foreground mb-3">Specifieke pricing doelen, uitdagingen of context</p>
                 <Textarea 
                   placeholder="bijv. Specifieke doelen, branche-specifieke uitdagingen, timing van prijswijzigingen..."
                   value={formData.additionalComments}
                   onChange={(e) => handleInputChange('additionalComments', e.target.value)}
-                  className="w-full p-4 border-gray-200 focus:border-purple-500 focus:ring-purple-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-border focus:border-[var(--color-apple-indigo)] focus:ring-[var(--color-apple-indigo)]/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
             </div>
           </Card>
 
           {/* 5. File Upload Section */}
-          <Card className="p-6 lg:p-8 bg-white border border-gray-200 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-card border border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-purple-600 mb-2">Upload je gegevens (optioneel)</h3>
-              <p className="text-gray-600">Voor de meest nauwkeurige analyse kun je je prijslijsten en concurrentie-informatie uploaden</p>
+              <h3 className="text-[var(--color-apple-indigo)] mb-2">Upload je gegevens (optioneel)</h3>
+              <p className="text-muted-foreground">Voor de meest nauwkeurige analyse kun je je prijslijsten en concurrentie-informatie uploaden</p>
             </div>
 
             <div className="space-y-6">
               {/* File Upload Area */}
               <div>
-                <label className="block mb-2 text-gray-800">Upload bestanden voor gedetailleerde analyse</label>
-                <p className="text-sm text-gray-500 mb-4">
+                <label className="block mb-2 text-foreground">Upload bestanden voor gedetailleerde analyse</label>
+                <p className="text-sm text-muted-foreground mb-4">
                   Ondersteunde bestanden: Prijslijsten, concurrentie overzichten, klantfeedback, omzetanalyses (.csv, .xlsx, .pdf)
                 </p>
                 
-                <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-purple-500 transition-colors">
+                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-[var(--color-apple-indigo)] transition-colors">
                   <div className="flex flex-col items-center">
-                    <svg className="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12 text-muted-foreground mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
-                    <p className="text-gray-600 mb-2">Sleep bestanden hierheen of</p>
+                    <p className="text-muted-foreground mb-2">Sleep bestanden hierheen of</p>
                     <label className="cursor-pointer">
-                      <span className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                      <span className="bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/80 text-white px-4 py-2 rounded-lg transition-colors">
                         Kies bestanden
                       </span>
                       <input 
@@ -605,7 +607,7 @@ export function PrijsstrategieVerdiepingPage() {
                       />
                     </label>
                   </div>
-                  <p className="text-xs text-gray-500 mt-4">
+                  <p className="text-xs text-muted-foreground mt-4">
                     Max. 10MB per bestand. Ondersteunde formaten: CSV, Excel, PDF
                   </p>
                 </div>
@@ -613,20 +615,20 @@ export function PrijsstrategieVerdiepingPage() {
                 {/* Uploaded Files List */}
                 {formData.uploadedFiles.length > 0 && (
                   <div className="mt-4">
-                    <h4 className="text-sm text-gray-700 mb-3">Geüploade bestanden:</h4>
+                    <h4 className="text-sm text-foreground mb-3">Geüploade bestanden:</h4>
                     <div className="space-y-2">
                       {formData.uploadedFiles.map((file, index) => (
-                        <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                        <div key={index} className="flex items-center justify-between bg-secondary/30 p-3 rounded-lg">
                           <div className="flex items-center">
-                            <svg className="w-5 h-5 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-[var(--color-apple-indigo)] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
-                            <span className="text-sm text-gray-700">{file.name}</span>
-                            <span className="text-xs text-gray-500 ml-2">({(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+                            <span className="text-sm text-foreground">{file.name}</span>
+                            <span className="text-xs text-muted-foreground ml-2">({(file.size / 1024 / 1024).toFixed(2)} MB)</span>
                           </div>
                           <button
                             onClick={() => removeFile(index)}
-                            className="text-red-500 hover:text-red-700 transition-colors"
+                            className="text-[var(--color-apple-red)] hover:text-[var(--color-apple-red)]/80 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -649,18 +651,18 @@ export function PrijsstrategieVerdiepingPage() {
                 if (isFormValid) {
                   // In a real app, this would process the payment and submit data
                   // Redirect to results dashboard
-                  window.location.href = '#/prijsstrategie-resultaten'
+                  router.push('/prijsstrategie-resultaten')
                 }
               }}
               className={`px-12 py-4 rounded-xl font-medium text-lg transition-all ${
                 isFormValid 
-                  ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl' 
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  ? 'bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)]/80 text-white shadow-lg hover:shadow-xl' 
+                  : 'bg-muted text-muted-foreground cursor-not-allowed'
               }`}
             >
               Start verdiepingsanalyse
             </Button>
-            <p className="text-sm text-gray-500 mt-4">
+            <p className="text-sm text-muted-foreground mt-4">
               ✓ Niet tevreden = geld terug  ✓ Resultaten binnen 24 uur  ✓ Al betaald
             </p>
           </div>

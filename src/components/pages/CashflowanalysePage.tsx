@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import {
@@ -24,6 +26,7 @@ import mannolLogo from "@/assets/872636fa97798151a130f04072b7e4be8d9a69d8.png";
 import bramblesLogo from "@/assets/9628120ff4209cf85bc7ef502e84a4ccdb668753.png";
 
 export function CashflowanalysePage() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     companyName: "",
     email: "",
@@ -159,11 +162,11 @@ export function CashflowanalysePage() {
 
   const getScoreColor = (score: number) => {
     if (score >= 80)
-      return "text-green-600 dark:text-green-400";
+      return "text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]";
     if (score >= 60) return "text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)]";
     if (score >= 40)
-      return "text-orange-600 dark:text-orange-400";
-    return "text-red-600 dark:text-red-400";
+      return "text-[var(--color-apple-orange)] dark:text-[var(--color-apple-orange)]";
+    return "text-[var(--color-apple-red)] dark:text-[var(--color-apple-red)]";
   };
 
   const getScoreLabel = (score: number) => {
@@ -179,25 +182,25 @@ export function CashflowanalysePage() {
       <section className="pt-8 pb-4">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <a 
-              href="#/producten" 
+            <Link 
+              href="/producten" 
               className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 group"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mr-3 group-hover:-translate-x-1 transition-transform duration-200">
                 <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2"/>
               </svg>
               Alle scans
-            </a>
+            </Link>
             
-            <a 
-              href="#/prijsstrategie-check" 
-              className="inline-flex items-center text-muted-foreground hover:text-purple-600 transition-colors duration-200 group"
+            <Link 
+              href="/prijsstrategie-check" 
+              className="inline-flex items-center text-muted-foreground hover:text-[var(--color-apple-indigo)] transition-colors duration-200 group"
             >
               Volgende: Prijsstrategie-check
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="ml-3 group-hover:translate-x-1 transition-transform duration-200">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -209,8 +212,7 @@ export function CashflowanalysePage() {
             {/* Content */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)]/30 text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
+                <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
                   Cashflow-analyse
                 </div>
                 
@@ -244,14 +246,14 @@ export function CashflowanalysePage() {
                 >
                   Start gratis analyse
                 </Button>
-                <a href="#/voorbeeldrapport">
+                <Link href="/voorbeeldrapport">
                   <Button 
                     variant="outline" 
                     className="px-8 py-4 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     Bekijk voorbeeldrapport
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -337,7 +339,7 @@ export function CashflowanalysePage() {
                         placeholder="bijv. Mono by Dusty"
                         value={formData.companyName}
                         onChange={(e) => handleInputChange("companyName", e.target.value)}
-                        className="h-14 px-6 rounded-2xl border-border bg-background text-foreground text-lg"
+                        className="h-14 px-6 rounded-2xl border-border bg-secondary/30 text-foreground text-lg"
                       />
                     </div>
 
@@ -351,7 +353,7 @@ export function CashflowanalysePage() {
                         placeholder="bijv. jouw@email.com"
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
-                        className="h-14 px-6 rounded-2xl border-border bg-background text-foreground text-lg"
+                        className="h-14 px-6 rounded-2xl border-border bg-secondary/30 text-foreground text-lg"
                       />
                     </div>
                   </div>
@@ -369,7 +371,7 @@ export function CashflowanalysePage() {
                         placeholder="bijv. 25000"
                         value={formData.monthlyRevenue}
                         onChange={(e) => handleInputChange("monthlyRevenue", e.target.value)}
-                        className="h-14 pl-12 pr-6 rounded-2xl border-border bg-background text-foreground text-lg"
+                        className="h-14 pl-12 pr-6 rounded-2xl border-border bg-secondary/30 text-foreground text-lg"
                       />
                     </div>
                   </div>
@@ -443,7 +445,7 @@ export function CashflowanalysePage() {
                         placeholder="bijv. Q4 altijd veel drukker door feestdagen, zomer juist rustiger..."
                         value={formData.seasonalityDetails}
                         onChange={(e) => handleInputChange("seasonalityDetails", e.target.value)}
-                        className="min-h-[120px] p-6 rounded-2xl border-border bg-background text-foreground resize-none"
+                        className="min-h-[120px] p-6 rounded-2xl border-border bg-secondary/30 text-foreground resize-none"
                       />
                     </div>
                   )}
@@ -455,7 +457,7 @@ export function CashflowanalysePage() {
                       <p className="text-muted-foreground">Dit beïnvloedt je inzicht in cashflow</p>
                     </div>
                     <Select value={formData.accountingSoftware} onValueChange={(value) => handleInputChange("accountingSoftware", value)}>
-                      <SelectTrigger className="h-14 px-6 rounded-2xl border-border bg-background text-foreground">
+                      <SelectTrigger className="h-14 px-6 rounded-2xl border-border bg-secondary/30 text-foreground">
                         <SelectValue placeholder="Selecteer je boekhoudsoftware" />
                       </SelectTrigger>
                       <SelectContent>
@@ -478,7 +480,7 @@ export function CashflowanalysePage() {
                         placeholder="bijv. Notities in agenda, bonnetjes in schoenendoos, alles onthouden..."
                         value={formData.accountingMethod}
                         onChange={(e) => handleInputChange("accountingMethod", e.target.value)}
-                        className="min-h-[120px] p-6 rounded-2xl border-border bg-background text-foreground resize-none"
+                        className="min-h-[120px] p-6 rounded-2xl border-border bg-secondary/30 text-foreground resize-none"
                       />
                     </div>
                   )}
@@ -523,7 +525,7 @@ export function CashflowanalysePage() {
                         placeholder="bijv. Plotselinge reparaties, onverwachte inkoop, noodgevallen..."
                         value={formData.unpredictableExpenses}
                         onChange={(e) => handleInputChange("unpredictableExpenses", e.target.value)}
-                        className="min-h-[120px] p-6 rounded-2xl border-border bg-background text-foreground resize-none"
+                        className="min-h-[120px] p-6 rounded-2xl border-border bg-secondary/30 text-foreground resize-none"
                       />
                     </div>
                   )}
@@ -586,7 +588,7 @@ export function CashflowanalysePage() {
                     <h4 className="text-2xl font-medium mb-6">Klaar voor je volledige analyse?</h4>
                     
                     <Button 
-                      onClick={() => window.location.href = '#/cashflow-verdieping'}
+                      onClick={() => router.push('/cashflow-verdieping')}
                       className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-4 rounded-2xl font-medium mb-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                     >
                       Bekijk volledige analyse – €49,95
@@ -740,28 +742,33 @@ export function CashflowanalysePage() {
       </section>
 
       {/* Final CTA - Apple Style */}
-      <section className="py-32 bg-[var(--color-apple-blue)] text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white mb-6">Klaar voor financiële grip?</h2>
-          <p className="text-xl text-[var(--color-apple-gray-6)] mb-12 leading-relaxed max-w-2xl mx-auto">
-            Analyseer binnen 3 minuten je cashflow-situatie en krijg direct 
-            concrete verbeterpunten. Gratis en zonder verplichtingen.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
-            >
-              Start gratis cashflow-analyse
-            </Button>
-            <a href="#/contact">
-              <Button 
-                variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-200 hover:-translate-y-1"
+      <section className="py-32 bg-secondary/30">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="space-y-8">
+            <h2 className="text-5xl leading-tight">
+              Klaar voor financiële
+              <span className="block text-[var(--color-apple-blue)]">grip?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Analyseer binnen 3 minuten je cashflow-situatie en krijg direct concrete verbeterpunten. Gratis en zonder verplichtingen.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => document.querySelector('[data-calculator]')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Start gratis cashflow-analyse
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
+                onClick={() => router.push('/contact')}
               >
                 Neem contact op
               </Button>
-            </a>
+            </div>
           </div>
         </div>
       </section>

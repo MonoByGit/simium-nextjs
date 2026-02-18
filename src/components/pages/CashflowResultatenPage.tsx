@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
@@ -102,15 +103,15 @@ export function CashflowResultatenPage() {
   if (isLoading) {
     return (
       <>
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-secondary/30">
           <Card className="p-8 max-w-md w-full text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-apple-blue)] mx-auto mb-4"></div>
             <h3 className="mb-2">AI analyseert je cashflow...</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-muted-foreground text-sm">
               Onze AI voorspelt je kasstromen en identificeert optimalisaties
             </p>
             <Progress value={75} className="mt-4" />
-            <p className="text-xs text-gray-500 mt-2">Patronen herkennen...</p>
+            <p className="text-xs text-muted-foreground mt-2">Patronen herkennen...</p>
           </Card>
         </div>
       </>
@@ -156,20 +157,20 @@ export function CashflowResultatenPage() {
       {/* Customer Info Banner */}
       {customerInfo && (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+          <div className="bg-white dark:bg-card rounded-xl p-4 border border-border shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-[var(--color-apple-gray-6)] rounded-full flex items-center justify-center">
                   <span className="text-[var(--color-apple-blue)] text-lg">{customerInfo.name?.charAt(0) || 'M'}</span>
                 </div>
                 <div>
-                  <div className="text-gray-900 font-medium">{customerInfo.name}</div>
-                  <div className="text-gray-600 text-sm">{customerInfo.company}</div>
+                  <div className="text-foreground font-medium">{customerInfo.name}</div>
+                  <div className="text-muted-foreground text-sm">{customerInfo.company}</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-gray-600 text-sm">Persoonlijke analyse voor</div>
-                <div className="text-gray-900 text-sm font-medium">{customerInfo.email}</div>
+                <div className="text-muted-foreground text-sm">Persoonlijke analyse voor</div>
+                <div className="text-foreground text-sm font-medium">{customerInfo.email}</div>
               </div>
             </div>
           </div>
@@ -182,34 +183,34 @@ export function CashflowResultatenPage() {
           <Card className="p-6 bg-gradient-to-br from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-6)]">
             <div className="text-center">
               <div className="text-3xl text-[var(--color-apple-blue)] mb-2">{mockAnalysisData.cashflowScore}/100</div>
-              <div className="text-gray-700 mb-1">Cashflow score</div>
+              <div className="text-foreground mb-1">Cashflow score</div>
               <div className="text-[var(--color-apple-blue)] text-sm">Goed met verbeterpotentieel</div>
             </div>
           </Card>
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-green-600 mb-2">
+              <div className="text-3xl text-[var(--color-apple-green)] mb-2">
                 €{mockAnalysisData.bufferOptimization.toLocaleString()}
               </div>
-              <div className="text-gray-700 mb-1">Buffer optimalisatie</div>
-              <div className="text-green-600 text-sm">Minder cash buffer nodig</div>
+              <div className="text-foreground mb-1">Buffer optimalisatie</div>
+              <div className="text-[var(--color-apple-green)] text-sm">Minder cash buffer nodig</div>
             </div>
           </Card>
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-purple-600 mb-2">{mockAnalysisData.forecastAccuracy}%</div>
-              <div className="text-gray-700 mb-1">Voorspelling accuratesse</div>
-              <div className="text-purple-600 text-sm">Hoge betrouwbaarheid</div>
+              <div className="text-3xl text-[var(--color-apple-indigo)] mb-2">{mockAnalysisData.forecastAccuracy}%</div>
+              <div className="text-foreground mb-1">Voorspelling accuratesse</div>
+              <div className="text-[var(--color-apple-indigo)] text-sm">Hoge betrouwbaarheid</div>
             </div>
           </Card>
           
           <Card className="p-6">
             <div className="text-center">
-              <div className="text-3xl text-orange-600 mb-2">{mockAnalysisData.riskLevel}</div>
-              <div className="text-gray-700 mb-1">Risico niveau</div>
-              <div className="text-orange-600 text-sm">Beheersbaar met planning</div>
+              <div className="text-3xl text-[var(--color-apple-orange)] mb-2">{mockAnalysisData.riskLevel}</div>
+              <div className="text-foreground mb-1">Risico niveau</div>
+              <div className="text-[var(--color-apple-orange)] text-sm">Beheersbaar met planning</div>
             </div>
           </Card>
         </div>
@@ -234,10 +235,10 @@ export function CashflowResultatenPage() {
                   <XAxis dataKey="month" />
                   <YAxis />
                   <Tooltip formatter={(value) => [`€${value?.toLocaleString()}`, '']} />
-                  <Area type="monotone" dataKey="inflow" stackId="1" stroke="#16a34a" fill="#16a34a" fillOpacity={0.3} name="Inkomsten" />
-                  <Area type="monotone" dataKey="outflow" stackId="2" stroke="#ef4444" fill="#ef4444" fillOpacity={0.3} name="Uitgaven" />
-                  <Line type="monotone" dataKey="net" stroke="#2563eb" strokeWidth={3} name="Netto cashflow" />
-                  <Line type="monotone" dataKey="optimized" stroke="#7c3aed" strokeWidth={2} strokeDasharray="5 5" name="Geoptimaliseerd" />
+                  <Area type="monotone" dataKey="inflow" stackId="1" stroke="#27ccbc" fill="#27ccbc" fillOpacity={0.3} name="Inkomsten" />
+                  <Area type="monotone" dataKey="outflow" stackId="2" stroke="#fe7058" fill="#fe7058" fillOpacity={0.3} name="Uitgaven" />
+                  <Line type="monotone" dataKey="net" stroke="#05afd6" strokeWidth={3} name="Netto cashflow" />
+                  <Line type="monotone" dataKey="optimized" stroke="#323c6b" strokeWidth={2} strokeDasharray="5 5" name="Geoptimaliseerd" />
                 </AreaChart>
               </ResponsiveContainer>
             </Card>
@@ -250,15 +251,15 @@ export function CashflowResultatenPage() {
                     <div key={month.month} className="flex justify-between items-center">
                       <div>
                         <div className="font-medium">{month.month}</div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-muted-foreground">
                           In: €{month.inflow.toLocaleString()} | Uit: €{month.outflow.toLocaleString()}
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className={`font-medium ${month.net > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                        <div className={`font-medium ${month.net > 0 ? 'text-[var(--color-apple-green)]' : 'text-[var(--color-apple-red)]'}`}>
                           €{month.net.toLocaleString()}
                         </div>
-                        <div className="text-sm text-purple-600">
+                        <div className="text-sm text-[var(--color-apple-indigo)]">
                           Opt: €{month.optimized.toLocaleString()}
                         </div>
                       </div>
@@ -272,24 +273,24 @@ export function CashflowResultatenPage() {
                 <div className="space-y-4">
                   <div className="text-center p-4 bg-[var(--color-apple-gray-6)] rounded-lg">
                     <div className="text-2xl text-[var(--color-apple-blue)] mb-2">€18.500</div>
-                    <div className="text-sm text-gray-600">Aanbevolen buffer</div>
+                    <div className="text-sm text-muted-foreground">Aanbevolen buffer</div>
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Huidige buffer</span>
+                      <span className="text-sm text-muted-foreground">Huidige buffer</span>
                       <span className="text-sm">€22.000</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Minimaal vereist</span>
+                      <span className="text-sm text-muted-foreground">Minimaal vereist</span>
                       <span className="text-sm">€15.000</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Optimaal niveau</span>
+                      <span className="text-sm text-muted-foreground">Optimaal niveau</span>
                       <span className="text-sm text-[var(--color-apple-blue)]">€18.500</span>
                     </div>
                     <div className="flex justify-between font-medium border-t pt-2">
                       <span className="text-sm">Vrij te maken</span>
-                      <span className="text-sm text-green-600">€3.500</span>
+                      <span className="text-sm text-[var(--color-apple-green)]">€3.500</span>
                     </div>
                   </div>
                 </div>
@@ -307,7 +308,7 @@ export function CashflowResultatenPage() {
                     <XAxis dataKey="period" />
                     <YAxis />
                     <Tooltip formatter={(value) => [`€${value?.toLocaleString()}`, 'Gemiddelde omzet']} />
-                    <Bar dataKey="revenue" fill="#2563eb" />
+                    <Bar dataKey="revenue" fill="#05afd6" />
                   </BarChart>
                 </ResponsiveContainer>
               </Card>
@@ -319,16 +320,16 @@ export function CashflowResultatenPage() {
                     <div key={term.term} className="flex justify-between items-center">
                       <div>
                         <div className="font-medium">{term.term}</div>
-                        <div className="text-sm text-gray-600">{term.percentage}% van omzet</div>
+                        <div className="text-sm text-muted-foreground">{term.percentage}% van omzet</div>
                       </div>
                       <div className="text-right">
                         <div className="text-sm">Gem. {term.days} dagen</div>
                         <Badge 
                           variant="outline" 
                           className={
-                            term.risk === 'Laag' ? 'text-green-600 border-green-600' :
-                            term.risk === 'Gemiddeld' ? 'text-orange-600 border-orange-600' :
-                            'text-red-600 border-red-600'
+                            term.risk === 'Laag' ? 'text-[var(--color-apple-green)] border-[var(--color-apple-green)]' :
+                            term.risk === 'Gemiddeld' ? 'text-[var(--color-apple-orange)] border-[var(--color-apple-orange)]' :
+                            'text-[var(--color-apple-red)] border-[var(--color-apple-red)]'
                           }
                         >
                           {term.risk}
@@ -348,22 +349,22 @@ export function CashflowResultatenPage() {
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <div className="font-medium">{expense.category}</div>
-                        <div className="text-sm text-gray-600">€{expense.amount.toLocaleString()}/maand</div>
+                        <div className="text-sm text-muted-foreground">€{expense.amount.toLocaleString()}/maand</div>
                       </div>
                       <Badge 
                         variant="outline"
                         className={
-                          expense.predictability >= 90 ? 'text-green-600 border-green-600' :
+                          expense.predictability >= 90 ? 'text-[var(--color-apple-green)] border-[var(--color-apple-green)]' :
                           expense.predictability >= 70 ? 'text-[var(--color-apple-blue)] border-[var(--color-apple-blue)]' :
-                          expense.predictability >= 50 ? 'text-orange-600 border-orange-600' :
-                          'text-red-600 border-red-600'
+                          expense.predictability >= 50 ? 'text-[var(--color-apple-orange)] border-[var(--color-apple-orange)]' :
+                          'text-[var(--color-apple-red)] border-[var(--color-apple-red)]'
                         }
                       >
                         {expense.predictability}%
                       </Badge>
                     </div>
                     <Progress value={expense.predictability} className="h-2" />
-                    <div className="text-xs text-gray-500 mt-1">Voorspelbaarheid</div>
+                    <div className="text-xs text-muted-foreground mt-1">Voorspelbaarheid</div>
                   </Card>
                 ))}
               </div>
@@ -372,61 +373,61 @@ export function CashflowResultatenPage() {
 
           <TabsContent value="risks" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="p-6 border-red-200 bg-red-50">
+              <Card className="p-6 border-[var(--color-apple-red)]/30 bg-[var(--color-apple-red)]/5">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                    <span className="w-2 h-2 bg-red-600 rounded-full"></span>
+                  <div className="w-10 h-10 bg-[var(--color-apple-red)]/10 rounded-full flex items-center justify-center">
+                    <span className="w-2 h-2 bg-[var(--color-apple-red)] rounded-full"></span>
                   </div>
                   <div>
-                    <h4 className="text-red-800">Hoge risico's</h4>
-                    <p className="text-sm text-red-600">Direct aandacht vereist</p>
+                    <h4 className="text-[var(--color-apple-red)]">Hoge risico's</h4>
+                    <p className="text-sm text-[var(--color-apple-red)]">Direct aandacht vereist</p>
                   </div>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-red)] mt-1">•</span>
                     <div>
-                      <div className="font-medium text-red-800">Lange betaaltermijnen</div>
-                      <div className="text-sm text-red-600">30% van klanten betaalt &gt;60 dagen</div>
-                      <div className="text-sm text-red-600">Impact: €8.500 vertraagde cashflow</div>
+                      <div className="font-medium text-[var(--color-apple-red)]">Lange betaaltermijnen</div>
+                      <div className="text-sm text-[var(--color-apple-red)]">30% van klanten betaalt &gt;60 dagen</div>
+                      <div className="text-sm text-[var(--color-apple-red)]">Impact: €8.500 vertraagde cashflow</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-red)] mt-1">•</span>
                     <div>
-                      <div className="font-medium text-red-800">Seizoensfluctuaties Q4</div>
-                      <div className="text-sm text-red-600">40% meer omzet, maar ook 25% meer kosten</div>
-                      <div className="text-sm text-red-600">Risico: Overcapaciteit in Q1</div>
+                      <div className="font-medium text-[var(--color-apple-red)]">Seizoensfluctuaties Q4</div>
+                      <div className="text-sm text-[var(--color-apple-red)]">40% meer omzet, maar ook 25% meer kosten</div>
+                      <div className="text-sm text-[var(--color-apple-red)]">Risico: Overcapaciteit in Q1</div>
                     </div>
                   </li>
                 </ul>
               </Card>
 
-              <Card className="p-6 border-orange-200 bg-orange-50">
+              <Card className="p-6 border-[var(--color-apple-orange)]/30 bg-[var(--color-apple-orange)]/5">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                    <span className="w-2 h-2 bg-orange-600 rounded-full"></span>
+                  <div className="w-10 h-10 bg-[var(--color-apple-orange)]/10 rounded-full flex items-center justify-center">
+                    <span className="w-2 h-2 bg-[var(--color-apple-orange)] rounded-full"></span>
                   </div>
                   <div>
-                    <h4 className="text-orange-800">Gemiddelde risico's</h4>
-                    <p className="text-sm text-orange-600">Monitoring aanbevolen</p>
+                    <h4 className="text-[var(--color-apple-orange)]">Gemiddelde risico's</h4>
+                    <p className="text-sm text-[var(--color-apple-orange)]">Monitoring aanbevolen</p>
                   </div>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-orange)] mt-1">•</span>
                     <div>
-                      <div className="font-medium text-orange-800">Onvoorspelbare marketing uitgaven</div>
-                      <div className="text-sm text-orange-600">60% voorspelbaarheid</div>
-                      <div className="text-sm text-orange-600">Adviseer: Budgettering per kwartaal</div>
+                      <div className="font-medium text-[var(--color-apple-orange)]">Onvoorspelbare marketing uitgaven</div>
+                      <div className="text-sm text-[var(--color-apple-orange)]">60% voorspelbaarheid</div>
+                      <div className="text-sm text-[var(--color-apple-orange)]">Adviseer: Budgettering per kwartaal</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-1">•</span>
+                    <span className="text-[var(--color-apple-orange)] mt-1">•</span>
                     <div>
-                      <div className="font-medium text-orange-800">Klantconcentratie</div>
-                      <div className="text-sm text-orange-600">Top 3 klanten = 45% van omzet</div>
-                      <div className="text-sm text-orange-600">Risico: Afhankelijkheid</div>
+                      <div className="font-medium text-[var(--color-apple-orange)]">Klantconcentratie</div>
+                      <div className="text-sm text-[var(--color-apple-orange)]">Top 3 klanten = 45% van omzet</div>
+                      <div className="text-sm text-[var(--color-apple-orange)]">Risico: Afhankelijkheid</div>
                     </div>
                   </li>
                 </ul>
@@ -439,20 +440,20 @@ export function CashflowResultatenPage() {
                 <div className="text-center">
                   <div className="text-lg mb-2">Basis scenario</div>
                   <div className="text-2xl text-[var(--color-apple-blue)] mb-2">€45.000</div>
-                  <div className="text-sm text-gray-600">Gem. maandelijkse cashflow</div>
-                  <div className="text-xs text-gray-500 mt-2">85% waarschijnlijkheid</div>
+                  <div className="text-sm text-muted-foreground">Gem. maandelijkse cashflow</div>
+                  <div className="text-xs text-muted-foreground mt-2">85% waarschijnlijkheid</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg mb-2">Optimistisch</div>
-                  <div className="text-2xl text-green-600 mb-2">€58.000</div>
-                  <div className="text-sm text-gray-600">Bij snellere betalingen</div>
-                  <div className="text-xs text-gray-500 mt-2">25% waarschijnlijkheid</div>
+                  <div className="text-2xl text-[var(--color-apple-green)] mb-2">€58.000</div>
+                  <div className="text-sm text-muted-foreground">Bij snellere betalingen</div>
+                  <div className="text-xs text-muted-foreground mt-2">25% waarschijnlijkheid</div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg mb-2">Pessimistisch</div>
-                  <div className="text-2xl text-red-600 mb-2">€28.000</div>
-                  <div className="text-sm text-gray-600">Bij betalingsvertragingen</div>
-                  <div className="text-xs text-gray-500 mt-2">15% waarschijnlijkheid</div>
+                  <div className="text-2xl text-[var(--color-apple-red)] mb-2">€28.000</div>
+                  <div className="text-sm text-muted-foreground">Bij betalingsvertragingen</div>
+                  <div className="text-xs text-muted-foreground mt-2">15% waarschijnlijkheid</div>
                 </div>
               </div>
             </Card>
@@ -464,26 +465,26 @@ export function CashflowResultatenPage() {
                 <h4 className="mb-4">Direct implementeerbaar</h4>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full mt-2 flex-shrink-0"></span>
                     <div>
                       <div className="font-medium">Kortere betaaltermijnen</div>
-                      <div className="text-sm text-gray-600">Verhoog cashflow met €3.200/maand</div>
+                      <div className="text-sm text-muted-foreground">Verhoog cashflow met €3.200/maand</div>
                       <div className="text-sm text-[var(--color-apple-blue)]">2% vroegbetaalkorting invoeren</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full mt-2 flex-shrink-0"></span>
                     <div>
                       <div className="font-medium">Automatische betalingsherinneringen</div>
-                      <div className="text-sm text-gray-600">Verminder betaalvertraging met 8 dagen</div>
+                      <div className="text-sm text-muted-foreground">Verminder betaalvertraging met 8 dagen</div>
                       <div className="text-sm text-[var(--color-apple-blue)]">Impact: €2.100 eerder beschikbaar</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full mt-2 flex-shrink-0"></span>
                     <div>
                       <div className="font-medium">Maandelijkse factuurperiode</div>
-                      <div className="text-sm text-gray-600">Voorspelbaarder dan quarterly billing</div>
+                      <div className="text-sm text-muted-foreground">Voorspelbaarder dan quarterly billing</div>
                       <div className="text-sm text-[var(--color-apple-blue)]">Verbeter cashflow stabiliteit</div>
                     </div>
                   </li>
@@ -497,7 +498,7 @@ export function CashflowResultatenPage() {
                     <span className="text-[var(--color-apple-gray-6)]0 mt-1">→</span>
                     <div>
                       <div className="font-medium">Dynamische pricing seizoenen</div>
-                      <div className="text-sm text-gray-600">Verhoog marges in Q4, verlager in Q1</div>
+                      <div className="text-sm text-muted-foreground">Verhoog marges in Q4, verlager in Q1</div>
                       <div className="text-sm text-[var(--color-apple-blue)]">Vla cashflow over het jaar</div>
                     </div>
                   </li>
@@ -505,7 +506,7 @@ export function CashflowResultatenPage() {
                     <span className="text-[var(--color-apple-gray-6)]0 mt-1">→</span>
                     <div>
                       <div className="font-medium">Creditmanagement systeem</div>
-                      <div className="text-sm text-gray-600">Automatiseer debiteuren management</div>
+                      <div className="text-sm text-muted-foreground">Automatiseer debiteuren management</div>
                       <div className="text-sm text-[var(--color-apple-blue)]">Verminder DSO met 12 dagen</div>
                     </div>
                   </li>
@@ -513,7 +514,7 @@ export function CashflowResultatenPage() {
                     <span className="text-[var(--color-apple-gray-6)]0 mt-1">→</span>
                     <div>
                       <div className="font-medium">Diversificatie klantbase</div>
-                      <div className="text-sm text-gray-600">Verminder afhankelijkheid top klanten</div>
+                      <div className="text-sm text-muted-foreground">Verminder afhankelijkheid top klanten</div>
                       <div className="text-sm text-[var(--color-apple-blue)]">Target: Geen klant &gt;15% van omzet</div>
                     </div>
                   </li>
@@ -525,19 +526,19 @@ export function CashflowResultatenPage() {
               <h4 className="mb-4">Implementatie roadmap</h4>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-green-600 text-sm">1</span>
+                  <div className="w-8 h-8 bg-[var(--color-apple-green)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-[var(--color-apple-green)] text-sm">1</span>
                   </div>
                   <div className="flex-1">
                     <h5>Maand 1: Quick wins</h5>
-                    <p className="text-sm text-gray-600 mb-2">Implementeer directe verbeteringen</p>
+                    <p className="text-sm text-muted-foreground mb-2">Implementeer directe verbeteringen</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                       <div>• Vroegbetaalkorting invoeren</div>
                       <div>• Automatische herinneringen</div>
                       <div>• Betaaltermijnen aanpassen</div>
                       <div>• Factuurfrequentie verhogen</div>
                     </div>
-                    <div className="mt-2 text-sm text-green-600">Impact: +€5.300 cashflow/maand</div>
+                    <div className="mt-2 text-sm text-[var(--color-apple-green)]">Impact: +€5.300 cashflow/maand</div>
                   </div>
                 </div>
 
@@ -547,7 +548,7 @@ export function CashflowResultatenPage() {
                   </div>
                   <div className="flex-1">
                     <h5>Maand 2-3: Processen optimaliseren</h5>
-                    <p className="text-sm text-gray-600 mb-2">Systematisch debiteuren management</p>
+                    <p className="text-sm text-muted-foreground mb-2">Systematisch debiteuren management</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                       <div>• Creditcheck nieuwe klanten</div>
                       <div>• Geautomatiseerd incasso</div>
@@ -559,19 +560,19 @@ export function CashflowResultatenPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-purple-600 text-sm">3</span>
+                  <div className="w-8 h-8 bg-[var(--color-apple-indigo)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-[var(--color-apple-indigo)] text-sm">3</span>
                   </div>
                   <div className="flex-1">
                     <h5>Maand 4-6: Strategische optimalisaties</h5>
-                    <p className="text-sm text-gray-600 mb-2">Langetermijn cashflow management</p>
+                    <p className="text-sm text-muted-foreground mb-2">Langetermijn cashflow management</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                       <div>• Klantportfolio diversificatie</div>
                       <div>• Seizoensoptimalisatie pricing</div>
                       <div>• Predictive analytics</div>
                       <div>• Cashflow stress testing</div>
                     </div>
-                    <div className="mt-2 text-sm text-purple-600">Impact: Structurele verbetering</div>
+                    <div className="mt-2 text-sm text-[var(--color-apple-indigo)]">Impact: Structurele verbetering</div>
                   </div>
                 </div>
               </div>
@@ -584,7 +585,7 @@ export function CashflowResultatenPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <Card className="p-8 bg-gradient-to-r from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-6)] text-center">
           <h3 className="mb-4">Klaar om je cashflow te optimaliseren?</h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-muted-foreground mb-6">
             Verhoog je cashflow met €8.100 per maand door onze aanbevelingen te implementeren.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -594,14 +595,14 @@ export function CashflowResultatenPage() {
             >
               Download volledige analyse
             </Button>
-            <a href="#/contact">
+            <Link href="/contact">
               <Button 
                 variant="outline" 
                 className="border-[var(--color-apple-blue)] text-[var(--color-apple-blue)] hover:bg-[var(--color-apple-gray-6)] text-[14px]"
               >
                 Hulp bij implementatie?
               </Button>
-            </a>
+            </Link>
           </div>
         </Card>
       </div>

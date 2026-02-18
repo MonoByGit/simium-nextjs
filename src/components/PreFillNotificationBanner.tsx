@@ -28,13 +28,13 @@ export function PreFillNotificationBanner({
 
   const themeStyles = {
     green: {
-      background: 'bg-green-50',
-      border: 'border-green-200',
-      iconBg: 'bg-green-600',
-      titleText: 'text-green-800',
-      subtitleText: 'text-green-600',
-      buttonText: 'text-green-600 hover:text-green-800',
-      buttonBg: 'hover:bg-green-100'
+      background: 'bg-[var(--color-apple-green)]/5',
+      border: 'border-[var(--color-apple-green)]/30',
+      iconBg: 'bg-[var(--color-apple-green)]',
+      titleText: 'text-[var(--color-apple-green)]',
+      subtitleText: 'text-[var(--color-apple-green)]',
+      buttonText: 'text-[var(--color-apple-green)] hover:text-[var(--color-apple-green)]',
+      buttonBg: 'hover:bg-[var(--color-apple-green)]/10'
     },
     blue: {
       background: 'bg-[var(--color-apple-gray-6)]',
@@ -46,13 +46,13 @@ export function PreFillNotificationBanner({
       buttonBg: 'hover:bg-[var(--color-apple-gray-6)]'
     },
     purple: {
-      background: 'bg-purple-50',
-      border: 'border-purple-200',
-      iconBg: 'bg-purple-600',
-      titleText: 'text-purple-800',
-      subtitleText: 'text-purple-600',
-      buttonText: 'text-purple-600 hover:text-purple-800',
-      buttonBg: 'hover:bg-purple-100'
+      background: 'bg-[var(--color-apple-indigo)]/5',
+      border: 'border-[var(--color-apple-indigo)]/30',
+      iconBg: 'bg-[var(--color-apple-indigo)]',
+      titleText: 'text-[var(--color-apple-indigo)]',
+      subtitleText: 'text-[var(--color-apple-indigo)]',
+      buttonText: 'text-[var(--color-apple-indigo)] hover:text-[var(--color-apple-indigo)]',
+      buttonBg: 'hover:bg-[var(--color-apple-indigo)]/10'
     }
   }
 

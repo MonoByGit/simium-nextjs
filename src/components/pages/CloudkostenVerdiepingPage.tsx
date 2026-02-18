@@ -165,8 +165,8 @@ export function CloudkostenVerdiepingPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           <a 
-            href="#/cloudkostenscan" 
-            className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+            href="/cloudkostenscan" 
+            className="inline-flex items-center text-sm text-muted-foreground dark:text-muted-foreground hover:text-[var(--color-apple-green)]/80 dark:hover:text-[var(--color-apple-green)] transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="mr-2">
               <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2"/>
@@ -177,15 +177,15 @@ export function CloudkostenVerdiepingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-green-700 text-white mx-4 rounded-2xl mb-8 overflow-hidden">
+      <section className="bg-gradient-to-r from-[var(--color-apple-green)] to-[var(--color-apple-green)]/80 text-white mx-4 rounded-2xl mb-8 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-16 relative">
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-center mb-6">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl text-white">Complete Cloudkosten Analyse</h1>
-              <p className="text-green-100 mt-2">€49,95 • Persoonlijk rapport binnen 2 uur</p>
+              <p className="text-white/70 mt-2">€49,95 • Persoonlijk rapport binnen 2 uur</p>
             </div>
             
-            <p className="text-xl mb-6 text-green-100 max-w-2xl mx-auto">
+            <p className="text-xl mb-6 text-white/70 max-w-2xl mx-auto">
               Krijg een volledig gepersonaliseerde analyse met concrete actiepunten, 
               geschatte besparingen en implementatieplan specifiek voor jouw situatie.
             </p>
@@ -218,19 +218,19 @@ export function CloudkostenVerdiepingPage() {
         <div className="space-y-8">
           
           {/* 1. Cloud Infrastructure */}
-          <Card className="p-6 lg:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-muted border border-border dark:border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-green-600 mb-2">Cloudinfrastructuur *</h3>
-              <p className="text-gray-600 dark:text-gray-400">Vertel ons over je huidige cloud-opzet</p>
+              <h3 className="text-[var(--color-apple-green)] mb-2">Cloudinfrastructuur *</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground">Vertel ons over je huidige cloud-opzet</p>
             </div>
 
             <div className="space-y-6">
               {/* Cloud Provider */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200 flex items-center">
+                <label className="block mb-2 text-foreground dark:text-muted-foreground flex items-center">
                   Welke cloudprovider gebruik je voornamelijk? *
                   {hasSavedData && formData.cloudProvider && (
-                    <span className="ml-2 inline-flex items-center text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                    <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-green)]/10 text-[var(--color-apple-green)] px-2 py-1 rounded-full">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mr-1">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                       </svg>
@@ -238,9 +238,9 @@ export function CloudkostenVerdiepingPage() {
                     </span>
                   )}
                 </label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Je primaire provider waar de meeste workloads draaien</p>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">Je primaire provider waar de meeste workloads draaien</p>
                 <Select value={formData.cloudProvider} onValueChange={(value) => handleInputChange('cloudProvider', value)}>
-                  <SelectTrigger className="w-full h-12 px-4 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 focus:border-green-500 focus:ring-green-500/20 focus:ring-2">
+                  <SelectTrigger className="w-full h-12 px-4 border border-border dark:border-border rounded-xl bg-white dark:bg-muted focus:border-[var(--color-apple-green)]/30 focus:ring-[var(--color-apple-green)]/20 focus:ring-2">
                     <SelectValue placeholder="Selecteer je cloudprovider" />
                   </SelectTrigger>
                   <SelectContent>
@@ -256,8 +256,8 @@ export function CloudkostenVerdiepingPage() {
 
               {/* Multiple Providers */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Gebruik je meerdere providers tegelijk? *</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Multi-cloud of hybride opzet</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Gebruik je meerdere providers tegelijk? *</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Multi-cloud of hybride opzet</p>
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { value: 'yes', label: 'Ja, meerdere providers' },
@@ -267,13 +267,13 @@ export function CloudkostenVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('multipleProviders', option.value)}
-                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.multipleProviders === option.value
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -282,21 +282,21 @@ export function CloudkostenVerdiepingPage() {
               {/* Additional Providers - Conditional Field */}
               {formData.multipleProviders === 'yes' && (
                 <div className="animate-in slide-in-from-top-4 duration-300">
-                  <label className="block mb-2 text-gray-800 dark:text-gray-200">Welke andere providers gebruik je?</label>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Noem de providers naast je hoofdprovider</p>
+                  <label className="block mb-2 text-foreground dark:text-muted-foreground">Welke andere providers gebruik je?</label>
+                  <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">Noem de providers naast je hoofdprovider</p>
                   <Textarea 
                     placeholder="bijv. AWS voor compute, Azure voor databases, GCP voor analytics..."
                     value={formData.additionalProviders}
                     onChange={(e) => handleInputChange('additionalProviders', e.target.value)}
-                    className="w-full p-4 border-gray-200 dark:border-gray-600 focus:border-green-500 focus:ring-green-500/20 focus:ring-2 rounded-xl transition-all min-h-[80px]"
+                    className="w-full p-4 border-border dark:border-border focus:border-[var(--color-apple-green)]/30 focus:ring-[var(--color-apple-green)]/20 focus:ring-2 rounded-xl transition-all min-h-[80px]"
                   />
                 </div>
               )}
 
               {/* Resource Types */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Welke typen bronnen gebruik je? *</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Selecteer alle toepasselijke opties</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Welke typen bronnen gebruik je? *</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Selecteer alle toepasselijke opties</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { value: 'compute', label: 'Compute (servers, containers)' },
@@ -308,10 +308,10 @@ export function CloudkostenVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.resourceTypes.includes(option.value)
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
                       <Checkbox 
@@ -319,7 +319,7 @@ export function CloudkostenVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('resourceTypes', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -328,17 +328,17 @@ export function CloudkostenVerdiepingPage() {
           </Card>
 
           {/* 2. Usage & Scale */}
-          <Card className="p-6 lg:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-muted border border-border dark:border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-green-600 mb-2">Gebruik & Schaal *</h3>
-              <p className="text-gray-600 dark:text-gray-400">Hoe intensief en voorspelbaar is je cloudgebruik?</p>
+              <h3 className="text-[var(--color-apple-green)] mb-2">Gebruik & Schaal *</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground">Hoe intensief en voorspelbaar is je cloudgebruik?</p>
             </div>
 
             <div className="space-y-6">
               {/* Workload Count */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Hoeveel workloads draaien er gemiddeld? *</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Aantal actieve applicaties, services of projecten</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Hoeveel workloads draaien er gemiddeld? *</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Aantal actieve applicaties, services of projecten</p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                   {[
                     { value: '1-5', label: '1–5' },
@@ -350,13 +350,13 @@ export function CloudkostenVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('workloadCount', option.value)}
-                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.workloadCount === option.value
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -364,8 +364,8 @@ export function CloudkostenVerdiepingPage() {
 
               {/* Usage Predictability */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Hoe voorspelbaar is je verbruik? *</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Variëren je cloudkosten veel per maand?</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Hoe voorspelbaar is je verbruik? *</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Variëren je cloudkosten veel per maand?</p>
                 <div className="space-y-3">
                   {[
                     { value: 'stable', label: 'Heel stabiel (±10% variatie)' },
@@ -377,13 +377,13 @@ export function CloudkostenVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('usagePredictability', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.usagePredictability === option.value
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -391,10 +391,10 @@ export function CloudkostenVerdiepingPage() {
 
               {/* Autoscaling */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200 flex items-center">
+                <label className="block mb-2 text-foreground dark:text-muted-foreground flex items-center">
                   Is automatische schaling geactiveerd? *
                   {hasSavedData && formData.autoscaling && (
-                    <span className="ml-2 inline-flex items-center text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                    <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-green)]/10 text-[var(--color-apple-green)] px-2 py-1 rounded-full">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mr-1">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                       </svg>
@@ -402,7 +402,7 @@ export function CloudkostenVerdiepingPage() {
                     </span>
                   )}
                 </label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Schaalt je infrastructuur automatisch mee met vraag?</p>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Schaalt je infrastructuur automatisch mee met vraag?</p>
                 <div className="space-y-3 lg:grid lg:grid-cols-3 lg:gap-3 lg:space-y-0">
                   {[
                     { value: 'full', label: 'Volledig automatisch' },
@@ -413,13 +413,13 @@ export function CloudkostenVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('autoscaling', option.value)}
-                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.autoscaling === option.value
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -428,19 +428,19 @@ export function CloudkostenVerdiepingPage() {
           </Card>
 
           {/* 3. Costs & Optimization */}
-          <Card className="p-6 lg:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-muted border border-border dark:border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-green-600 mb-2">Kosten & optimalisatie *</h3>
-              <p className="text-gray-600 dark:text-gray-400">Geef ons inzicht in je huidige kosten en optimalisaties</p>
+              <h3 className="text-[var(--color-apple-green)] mb-2">Kosten & optimalisatie *</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground">Geef ons inzicht in je huidige kosten en optimalisaties</p>
             </div>
 
             <div className="space-y-6">
               {/* Monthly Costs */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200 flex items-center">
+                <label className="block mb-2 text-foreground dark:text-muted-foreground flex items-center">
                   Huidige maandelijkse cloudkosten (geschat) *
                   {hasSavedData && formData.monthlyCosts && (
-                    <span className="ml-2 inline-flex items-center text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                    <span className="ml-2 inline-flex items-center text-xs bg-[var(--color-apple-green)]/10 text-[var(--color-apple-green)] px-2 py-1 rounded-full">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mr-1">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                       </svg>
@@ -448,23 +448,23 @@ export function CloudkostenVerdiepingPage() {
                     </span>
                   )}
                 </label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Je totale maandelijkse clouduitgaven</p>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">Je totale maandelijkse clouduitgaven</p>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">€</span>
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground dark:text-muted-foreground">€</span>
                   <Input 
                     type="number" 
                     placeholder="bijv. 4200"
                     value={formData.monthlyCosts}
                     onChange={(e) => handleInputChange('monthlyCosts', e.target.value)}
-                    className="w-full pl-8 pr-4 py-4 border-gray-200 dark:border-gray-600 focus:border-green-500 focus:ring-green-500/20 focus:ring-2 rounded-xl transition-all"
+                    className="w-full pl-8 pr-4 py-4 border-border dark:border-border focus:border-[var(--color-apple-green)]/30 focus:ring-[var(--color-apple-green)]/20 focus:ring-2 rounded-xl transition-all"
                   />
                 </div>
               </div>
 
               {/* Optimizations Done */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Welke optimalisaties heb je al gedaan?</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Selecteer alle optimalisaties die je al hebt toegepast</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Welke optimalisaties heb je al gedaan?</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Selecteer alle optimalisaties die je al hebt toegepast</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { value: 'unused-resources', label: 'Ongebruikte bronnen verwijderd' },
@@ -475,10 +475,10 @@ export function CloudkostenVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.optimizationsDone.includes(option.value)
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
                       <Checkbox 
@@ -486,7 +486,7 @@ export function CloudkostenVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('optimizationsDone', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -495,17 +495,17 @@ export function CloudkostenVerdiepingPage() {
           </Card>
 
           {/* 4. Technical Setup */}
-          <Card className="p-6 lg:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-muted border border-border dark:border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-green-600 mb-2">Technische opzet *</h3>
-              <p className="text-gray-600 dark:text-gray-400">Technische details over je infrastructuur</p>
+              <h3 className="text-[var(--color-apple-green)] mb-2">Technische opzet *</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground">Technische details over je infrastructuur</p>
             </div>
 
             <div className="space-y-6">
               {/* Containerization */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Gebruik je containerisatie of serverless?</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Selecteer alle toepasselijke technologieën</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Gebruik je containerisatie of serverless?</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Selecteer alle toepasselijke technologieën</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
                     { value: 'kubernetes', label: 'Kubernetes / ECS' },
@@ -514,10 +514,10 @@ export function CloudkostenVerdiepingPage() {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.containerization.includes(option.value)
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
                       <Checkbox 
@@ -525,7 +525,7 @@ export function CloudkostenVerdiepingPage() {
                         onCheckedChange={(checked) => handleCheckboxChange('containerization', option.value, !!checked)}
                         className="mr-3"
                       />
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -533,8 +533,8 @@ export function CloudkostenVerdiepingPage() {
 
               {/* Infrastructure as Code */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Gebruik je Infrastructure-as-Code (IaC)? *</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Terraform, CloudFormation, ARM templates, etc.</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Gebruik je Infrastructure-as-Code (IaC)? *</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Terraform, CloudFormation, ARM templates, etc.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
                     { value: 'yes', label: 'Ja' },
@@ -545,13 +545,13 @@ export function CloudkostenVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('infrastructureAsCode', option.value)}
-                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center justify-center p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.infrastructureAsCode === option.value
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -560,17 +560,17 @@ export function CloudkostenVerdiepingPage() {
           </Card>
 
           {/* 5. Goals & Context */}
-          <Card className="p-6 lg:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-muted border border-border dark:border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-green-600 mb-2">Doel en context *</h3>
-              <p className="text-gray-600 dark:text-gray-400">Wat wil je bereiken met deze analyse?</p>
+              <h3 className="text-[var(--color-apple-green)] mb-2">Doel en context *</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground">Wat wil je bereiken met deze analyse?</p>
             </div>
 
             <div className="space-y-6">
               {/* Analysis Goal */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Wat is je hoofddoel met deze analyse? *</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Kies je primaire doel</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Wat is je hoofddoel met deze analyse? *</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">Kies je primaire doel</p>
                 <div className="space-y-3">
                   {[
                     { value: 'savings', label: 'Direct geld besparen (korte termijn)' },
@@ -582,13 +582,13 @@ export function CloudkostenVerdiepingPage() {
                       key={option.value}
                       type="button"
                       onClick={() => handleInputChange('analysisGoal', option.value)}
-                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                      className={`flex items-center w-full p-4 rounded-xl border cursor-pointer transition-all hover:bg-accent dark:hover:bg-muted ${
                         formData.analysisGoal === option.value
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
-                          : 'border-gray-200 dark:border-gray-600'
+                          ? 'border-[var(--color-apple-green)]/30 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30'
+                          : 'border-border dark:border-border'
                       }`}
                     >
-                      <span className="text-gray-800 dark:text-gray-200">{option.label}</span>
+                      <span className="text-foreground dark:text-muted-foreground">{option.label}</span>
                     </button>
                   ))}
                 </div>
@@ -596,41 +596,41 @@ export function CloudkostenVerdiepingPage() {
 
               {/* Additional Comments */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Aanvullende context (optioneel)</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Specifieke uitdagingen, doelen of context die relevant zijn</p>
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Aanvullende context (optioneel)</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">Specifieke uitdagingen, doelen of context die relevant zijn</p>
                 <Textarea 
                   placeholder="bijv. We groeien snel en verwachten 3x meer verkeer dit jaar, of: We willen vooral de opslag optimaliseren..."
                   value={formData.additionalComments}
                   onChange={(e) => handleInputChange('additionalComments', e.target.value)}
-                  className="w-full p-4 border-gray-200 dark:border-gray-600 focus:border-green-500 focus:ring-green-500/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
+                  className="w-full p-4 border-border dark:border-border focus:border-[var(--color-apple-green)]/30 focus:ring-[var(--color-apple-green)]/20 focus:ring-2 rounded-xl transition-all min-h-[100px]"
                 />
               </div>
             </div>
           </Card>
 
           {/* 6. File Upload Section (Optional) */}
-          <Card className="p-6 lg:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-muted border border-border dark:border-border rounded-2xl">
             <div className="mb-6">
-              <h3 className="text-green-600 mb-2">Upload je bestanden (optioneel)</h3>
-              <p className="text-gray-600 dark:text-gray-400">Voor de meest nauwkeurige analyse kun je je facturerings- en configuratiebestanden uploaden</p>
+              <h3 className="text-[var(--color-apple-green)] mb-2">Upload je bestanden (optioneel)</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground">Voor de meest nauwkeurige analyse kun je je facturerings- en configuratiebestanden uploaden</p>
             </div>
 
             <div className="space-y-6">
               {/* File Upload Area */}
               <div>
-                <label className="block mb-2 text-gray-800 dark:text-gray-200">Upload bestanden voor gedetailleerde analyse</label>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                <label className="block mb-2 text-foreground dark:text-muted-foreground">Upload bestanden voor gedetailleerde analyse</label>
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">
                   Ondersteunde bestanden: AWS kostenoverzichten, Azure facturering CSV, GCP exports, Terraform bestanden (.tf), CloudFormation templates (.json/.yaml)
                 </p>
                 
-                <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-8 text-center hover:border-green-500 transition-colors">
+                <div className="border-2 border-dashed border-border dark:border-border rounded-xl p-8 text-center hover:border-[var(--color-apple-green)] transition-colors">
                   <div className="flex flex-col items-center">
-                    <svg className="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12 text-muted-foreground mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
-                    <p className="text-gray-600 dark:text-gray-400 mb-2">Sleep bestanden hierheen of</p>
+                    <p className="text-muted-foreground dark:text-muted-foreground mb-2">Sleep bestanden hierheen of</p>
                     <label className="cursor-pointer">
-                      <span className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+                      <span className="bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/80 text-white px-4 py-2 rounded-lg transition-colors">
                         Kies bestanden
                       </span>
                       <input 
@@ -642,29 +642,29 @@ export function CloudkostenVerdiepingPage() {
                       />
                     </label>
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">Max 10MB per bestand • CSV, JSON, YAML, XLS, TF</p>
+                  <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-4">Max 10MB per bestand • CSV, JSON, YAML, XLS, TF</p>
                 </div>
               </div>
 
               {/* Uploaded Files List */}
               {formData.uploadedFiles.length > 0 && (
                 <div>
-                  <h4 className="mb-3 text-gray-800 dark:text-gray-200">Geüploade bestanden:</h4>
+                  <h4 className="mb-3 text-foreground dark:text-muted-foreground">Geüploade bestanden:</h4>
                   <div className="space-y-2">
                     {formData.uploadedFiles.map((file, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded-lg">
+                      <div key={index} className="flex items-center justify-between p-3 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30 border border-[var(--color-apple-green)]/30 dark:border-[var(--color-apple-green)]/30 rounded-lg">
                         <div className="flex items-center">
-                          <svg className="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-5 h-5 text-[var(--color-apple-green)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
                           <div>
-                            <p className="text-sm text-gray-800 dark:text-gray-200">{file.name}</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                            <p className="text-sm text-foreground dark:text-muted-foreground">{file.name}</p>
+                            <p className="text-xs text-muted-foreground dark:text-muted-foreground">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                           </div>
                         </div>
                         <button 
                           onClick={() => removeFile(index)}
-                          className="text-red-600 hover:text-red-800 transition-colors"
+                          className="text-[var(--color-apple-red)] hover:text-[var(--color-apple-red)]/80 transition-colors"
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -679,10 +679,10 @@ export function CloudkostenVerdiepingPage() {
           </Card>
 
           {/* Payment & Submit Section */}
-          <Card className="p-6 lg:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+          <Card className="p-6 lg:p-8 bg-white dark:bg-muted border border-border dark:border-border rounded-2xl">
             <div className="text-center">
-              <h3 className="text-xl text-gray-900 dark:text-gray-100 mb-4">Klaar voor je complete analyse?</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <h3 className="text-xl text-foreground dark:text-foreground mb-4">Klaar voor je complete analyse?</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground mb-6">
                 Je krijgt binnen 2 uur een persoonlijk rapport met concrete besparingen en implementatieplan.
               </p>
               
@@ -699,8 +699,8 @@ export function CloudkostenVerdiepingPage() {
                 disabled={!isFormValid}
                 className={`w-full py-4 rounded-xl font-medium transition-all shadow-md ${
                   isFormValid 
-                    ? 'bg-green-600 hover:bg-green-700 text-white hover:shadow-lg' 
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    ? 'bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/80 text-white hover:shadow-lg' 
+                    : 'bg-muted text-muted-foreground cursor-not-allowed'
                 }`}
                 data-analytics="premium-payment-cloudkosten"
               >
@@ -708,23 +708,23 @@ export function CloudkostenVerdiepingPage() {
               </Button>
               
               {isFormValid && (
-                <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+                <div className="mt-4 text-center text-sm text-muted-foreground dark:text-muted-foreground">
                   <div className="flex items-center justify-center space-x-6">
                     <span className="flex items-center space-x-1">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-green-600">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[var(--color-apple-green)]">
                         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                         <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
                       </svg>
                       <span>Geld-terug-garantie</span>
                     </span>
                     <span className="flex items-center space-x-1">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-green-600">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[var(--color-apple-green)]">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2"/>
                       </svg>
                       <span>Veilige betaling</span>
                     </span>
                     <span className="flex items-center space-x-1">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-green-600">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[var(--color-apple-green)]">
                         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" strokeWidth="2"/>
                       </svg>
                       <span>Rapport binnen 2 uur</span>
@@ -734,8 +734,8 @@ export function CloudkostenVerdiepingPage() {
               )}
               
               {formData.uploadedFiles.length > 0 && (
-                <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded-lg">
-                  <p className="text-sm text-green-800 dark:text-green-200">
+                <div className="mt-4 p-3 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/20/30 border border-[var(--color-apple-green)]/30 dark:border-[var(--color-apple-green)]/30 rounded-lg">
+                  <p className="text-sm text-[var(--color-apple-green)] dark:text-white/70">
                     Met {formData.uploadedFiles.length} geüploade bestand(en) krijg je een nog nauwkeurigere analyse!
                   </p>
                 </div>

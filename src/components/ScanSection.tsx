@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Button } from './ui/button'
 
@@ -45,35 +47,35 @@ export function ScanSection({
         }
       case 'gray':
         return {
-          title: 'text-gray-700 dark:text-gray-300',
-          button: 'bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700',
-          checkmark: 'text-gray-700 dark:text-gray-300',
-          savingsBox: 'from-gray-50 to-gray-100 dark:from-gray-800/30 dark:to-gray-700/30',
-          savingsNumber: 'text-gray-700 dark:text-gray-300'
+          title: 'text-foreground',
+          button: 'bg-[var(--color-apple-gray)] hover:bg-[var(--color-apple-gray)]/80 dark:bg-[var(--color-apple-gray)] dark:hover:bg-[var(--color-apple-gray)]/80',
+          checkmark: 'text-foreground',
+          savingsBox: 'from-secondary to-secondary/50 dark:from-secondary dark:to-secondary/50',
+          savingsNumber: 'text-foreground'
         }
       case 'slate':
         return {
-          title: 'text-slate-600 dark:text-slate-400',
-          button: 'bg-slate-600 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-700',
-          checkmark: 'text-slate-600 dark:text-slate-400',
-          savingsBox: 'from-slate-50 to-slate-100 dark:from-slate-800/30 dark:to-slate-700/30',
-          savingsNumber: 'text-slate-600 dark:text-slate-400'
+          title: 'text-muted-foreground',
+          button: 'bg-[var(--color-apple-gray)] hover:bg-[var(--color-apple-gray)]/80 dark:bg-[var(--color-apple-gray)] dark:hover:bg-[var(--color-apple-gray)]/80',
+          checkmark: 'text-muted-foreground',
+          savingsBox: 'from-secondary to-secondary/50 dark:from-secondary dark:to-secondary/50',
+          savingsNumber: 'text-muted-foreground'
         }
       case 'green':
         return {
-          title: 'text-green-600 dark:text-green-400',
-          button: 'bg-green-600 hover:bg-green-700 dark:bg-green-600 dark:hover:bg-green-700',
-          checkmark: 'text-green-600 dark:text-green-400',
-          savingsBox: 'from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30',
-          savingsNumber: 'text-green-600 dark:text-green-400'
+          title: 'text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]',
+          button: 'bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)] dark:bg-[var(--color-apple-green)] dark:hover:bg-[var(--color-apple-green)]',
+          checkmark: 'text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]',
+          savingsBox: 'from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-5)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)]',
+          savingsNumber: 'text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]'
         }
       case 'purple':
         return {
-          title: 'text-purple-600 dark:text-purple-400',
-          button: 'bg-purple-600 hover:bg-purple-700 dark:bg-purple-600 dark:hover:bg-purple-700',
-          checkmark: 'text-purple-600 dark:text-purple-400',
-          savingsBox: 'from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30',
-          savingsNumber: 'text-purple-600 dark:text-purple-400'
+          title: 'text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-gray-3)]',
+          button: 'bg-[var(--color-apple-indigo)] hover:bg-[var(--color-apple-indigo)] dark:bg-[var(--color-apple-indigo)] dark:hover:bg-[var(--color-apple-indigo)]',
+          checkmark: 'text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-gray-3)]',
+          savingsBox: 'from-[var(--color-apple-gray-6)] to-[var(--color-apple-gray-5)] dark:from-[var(--color-apple-gray-2)] dark:to-[var(--color-apple-gray-2)]',
+          savingsNumber: 'text-[var(--color-apple-indigo)] dark:text-[var(--color-apple-gray-3)]'
         }
     }
   }
@@ -81,17 +83,17 @@ export function ScanSection({
   const getIconBackground = (color: 'blue' | 'gray' | 'slate' | 'green' | 'purple') => {
     switch (color) {
       case 'blue': return 'bg-[var(--color-apple-blue)] dark:bg-[var(--color-apple-blue)]'
-      case 'gray': return 'bg-gray-700 dark:bg-gray-600'
-      case 'slate': return 'bg-slate-600 dark:bg-slate-600'
-      case 'green': return 'bg-green-600 dark:bg-green-600'
-      case 'purple': return 'bg-purple-600 dark:bg-purple-600'
+      case 'gray': return 'bg-foreground/70'
+      case 'slate': return 'bg-foreground/70'
+      case 'green': return 'bg-[var(--color-apple-green)] dark:bg-[var(--color-apple-green)]'
+      case 'purple': return 'bg-[var(--color-apple-indigo)] dark:bg-[var(--color-apple-indigo)]'
     }
   }
 
   const colors = getColorClasses(buttonColor)
 
   return (
-    <section className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700">
+    <section className="bg-white dark:bg-card rounded-2xl p-8 shadow-sm border border-border">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Left Column - Content */}
@@ -103,7 +105,7 @@ export function ScanSection({
             <h2 className={colors.title}>{title}</h2>
           </div>
           
-          <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg">
+          <p className="text-muted-foreground mb-6 text-lg">
             {description}
           </p>
           
@@ -113,7 +115,7 @@ export function ScanSection({
                 <span className={`w-2 h-2 ${colors.checkmark.replace('text-', 'bg-')} rounded-full mr-3 flex-shrink-0 mt-2`}></span>
                 <div>
                   <h4 className="mb-1 dark:text-white">{feature.title}</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">{feature.description}</p>
+                  <p className="text-muted-foreground text-sm">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -127,7 +129,7 @@ export function ScanSection({
             {savingsIcon && <div className="text-4xl mb-4">{savingsIcon}</div>}
             <h3 className="mb-2 dark:text-white">Gemiddelde besparing</h3>
             <div className={`text-3xl ${colors.savingsNumber} mb-2`}>{savingsAmount}</div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">{savingsDescription}</p>
+            <p className="text-muted-foreground text-sm">{savingsDescription}</p>
           </div>
           
           <Button 

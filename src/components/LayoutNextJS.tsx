@@ -20,11 +20,14 @@ export function Layout({ children }: LayoutProps) {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center group transition-all duration-200">
-                <div className="w-7 h-7 bg-gradient-to-br from-[var(--color-apple-blue)] to-[var(--color-apple-blue)] rounded-lg mr-3 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M8 3L5 6h2v4h2V6h2L8 3z" fill="white"/>
-                  </svg>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.svg"
+                  alt="Simium logo"
+                  width={32}
+                  height={32}
+                  className="mr-3 transition-all duration-200 group-hover:scale-105"
+                />
                 <span className="text-xl font-semibold text-foreground tracking-tight">Simium</span>
               </Link>
             </div>
@@ -51,10 +54,8 @@ export function Layout({ children }: LayoutProps) {
                 Inloggen
               </Link>
               <DarkModeToggle />
-              <Link href="/producten">
-                <button className="hidden sm:block bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                  Start gratis scan
-                </button>
+              <Link href="/producten" className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-apple-blue)] bg-[var(--color-apple-blue)]/8 hover:bg-[var(--color-apple-blue)]/14 px-4 py-2 rounded-full transition-all duration-200">
+                Start gratis scan
               </Link>
               <MobileNavigation />
             </div>
@@ -68,17 +69,20 @@ export function Layout({ children }: LayoutProps) {
       </main>
 
       {/* Apple-style Footer */}
-      <footer className="bg-secondary border-t border-border/50 mt-24">
+      <footer className="bg-secondary border-t border-border/50">
         <div className="max-w-6xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {/* Brand Column */}
             <div className="md:col-span-1">
               <div className="flex items-center mb-6">
-                <div className="w-8 h-8 bg-gradient-to-br from-[var(--color-apple-blue)] to-[var(--color-apple-blue)] rounded-lg mr-3 flex items-center justify-center shadow-sm">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M8 3L5 6h2v4h2V6h2L8 3z" fill="white"/>
-                  </svg>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.svg"
+                  alt="Simium logo"
+                  width={32}
+                  height={32}
+                  className="mr-3"
+                />
                 <span className="text-xl font-semibold text-foreground tracking-tight">Simium</span>
               </div>
               <p className="text-muted-foreground leading-relaxed">
@@ -169,15 +173,10 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-sm">
-              © 2025 Simium. Alle rechten voorbehouden.
+          <div className="border-t border-border/50 mt-12 pt-8">
+            <p className="text-muted-foreground text-sm text-center md:text-left">
+              © 2026 Simium. Alle rechten voorbehouden.
             </p>
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
-              <span className="text-xs text-muted-foreground">
-                Ontworpen met Apple's principes in gedachten
-              </span>
-            </div>
           </div>
         </div>
       </footer>

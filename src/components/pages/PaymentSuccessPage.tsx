@@ -1,9 +1,11 @@
 'use client'
 
 import React, { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 
 export function PaymentSuccessPage() {
+  const router = useRouter()
   useEffect(() => {
     // Clear any scan data from localStorage after successful payment
     localStorage.removeItem('simium_scan_data')
@@ -22,7 +24,7 @@ export function PaymentSuccessPage() {
               <div className="space-y-6">
                 <h1 className="text-6xl leading-tight">
                   Betaling
-                  <span className="block text-green-600">geslaagd</span>
+                  <span className="block text-[var(--color-apple-green)]">geslaagd</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -33,8 +35,8 @@ export function PaymentSuccessPage() {
 
             {/* Status Cards - Apple's Information Hierarchy */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-2xl p-8 text-center">
-                <div className="w-12 h-12 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/15/30 border border-[var(--color-apple-green)]/30 dark:border-[var(--color-apple-green)]/25 rounded-2xl p-8 text-center">
+                <div className="w-12 h-12 bg-[var(--color-apple-green)] rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                     <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                   </svg>
@@ -131,7 +133,7 @@ export function PaymentSuccessPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-6 py-3 rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                  onClick={() => window.location.href = '#/contact'}
+                  onClick={() => router.push('/contact')}
                 >
                   Stel een vraag
                 </Button>
@@ -156,9 +158,9 @@ export function PaymentSuccessPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-card border border-border rounded-2xl p-8 space-y-6 hover:shadow-lg transition-all duration-200 cursor-pointer"
-                   onClick={() => window.location.href = '#/testimonials'}>
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-950/50 rounded-2xl flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-purple-600">
+                   onClick={() => router.push('/testimonials')}>
+                <div className="w-12 h-12 bg-[var(--color-apple-indigo)]/10 dark:bg-[var(--color-apple-indigo)]/15/50 rounded-2xl flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[var(--color-apple-indigo)]">
                     <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2"/>
                     <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" strokeWidth="2"/>
                   </svg>
@@ -172,9 +174,9 @@ export function PaymentSuccessPage() {
               </div>
               
               <div className="bg-card border border-border rounded-2xl p-8 space-y-6 hover:shadow-lg transition-all duration-200 cursor-pointer"
-                   onClick={() => window.location.href = '#/producten'}>
-                <div className="w-12 h-12 bg-green-100 dark:bg-green-950/50 rounded-2xl flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-green-600">
+                   onClick={() => router.push('/producten')}>
+                <div className="w-12 h-12 bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15/50 rounded-2xl flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[var(--color-apple-green)]">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
                     <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
                   </svg>

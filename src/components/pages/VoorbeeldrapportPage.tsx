@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
@@ -11,20 +12,20 @@ import dashboardImage from '@/assets/b6204b50ff8a0052ace3e0e67fcfec4b9011ecbc.pn
 import analyticsImage from '@/assets/ca1e3b46b40d11c93c9df4ed8072d161b57d1963.png'
 
 export function VoorbeeldrapportPage() {
+  const router = useRouter()
   return (
     <>
       {/* Hero - Apple's Case Study Introduction */}
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+            <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)] px-4 py-2 rounded-full text-sm font-medium">
               Case Study
             </div>
             
             <h1 className="text-6xl leading-tight">
               Van €15.000 naar
-              <span className="block text-green-600">€11.600 cloudkosten</span>
+              <span className="block text-[var(--color-apple-green)]">€11.600 cloudkosten</span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -33,13 +34,13 @@ export function VoorbeeldrapportPage() {
             </p>
             
             <div className="flex flex-wrap gap-3 justify-center">
-              <Badge className="bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300">
+              <Badge className="bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15/50 text-[var(--color-apple-green)] dark:text-white/70">
                 Échte klant
               </Badge>
-              <Badge className="bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300">
+              <Badge className="bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15/50 text-[var(--color-apple-green)] dark:text-white/70">
                 Geanonimiseerd
               </Badge>
-              <Badge className="bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300">
+              <Badge className="bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15/50 text-[var(--color-apple-green)] dark:text-white/70">
                 Geverifieerde resultaten
               </Badge>
             </div>
@@ -95,7 +96,7 @@ export function VoorbeeldrapportPage() {
                   }
                 ].map((item, index) => (
                   <div key={index} className="bg-card border border-border rounded-2xl p-6">
-                    <h4 className="font-semibold text-red-600 dark:text-red-400 mb-2">{item.problem}</h4>
+                    <h4 className="font-semibold text-[var(--color-apple-red)] dark:text-[var(--color-apple-red)]/70 mb-2">{item.problem}</h4>
                     <p className="text-muted-foreground leading-relaxed">{item.impact}</p>
                   </div>
                 ))}
@@ -103,12 +104,12 @@ export function VoorbeeldrapportPage() {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-red-50 to-orange-100 dark:from-red-950/50 dark:to-orange-950/50 rounded-3xl p-12 text-center shadow-xl">
+              <div className="bg-gradient-to-br from-[var(--color-apple-red)]/5 to-[var(--color-apple-orange)]/10 dark:from-[var(--color-apple-red)]/15/50 dark:to-[var(--color-apple-orange)]/15/50 rounded-3xl p-12 text-center shadow-xl">
                 <div className="space-y-6">
-                  <div className="text-6xl font-bold text-red-600">+87%</div>
+                  <div className="text-6xl font-bold text-[var(--color-apple-red)]">+87%</div>
                   <div className="text-xl text-muted-foreground">kostenstijging in 6 maanden</div>
-                  <div className="bg-red-100 dark:bg-red-950/50 rounded-2xl p-6">
-                    <div className="text-3xl font-bold text-red-600 mb-2">€15.000</div>
+                  <div className="bg-[var(--color-apple-red)]/10 dark:bg-[var(--color-apple-red)]/15/50 rounded-2xl p-6">
+                    <div className="text-3xl font-bold text-[var(--color-apple-red)] mb-2">€15.000</div>
                     <div className="text-muted-foreground">per maand cloudkosten</div>
                   </div>
                 </div>
@@ -141,7 +142,7 @@ export function VoorbeeldrapportPage() {
                 </div>
                 
                 <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-red-600 dark:text-red-400">
+                  <h3 className="text-2xl font-semibold text-[var(--color-apple-red)] dark:text-[var(--color-apple-red)]/70">
                     Verspilling gedetecteerd
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
@@ -155,9 +156,9 @@ export function VoorbeeldrapportPage() {
                       { item: 'Zombie EBS storage (3TB ongebruikt)', cost: '€890/maand' },
                       { item: 'Over-provisioned RDS databases', cost: '€1.100/maand' }
                     ].map((finding, index) => (
-                      <div key={index} className="flex justify-between items-start p-4 bg-red-50 dark:bg-red-950/30 rounded-xl">
+                      <div key={index} className="flex justify-between items-start p-4 bg-[var(--color-apple-red)]/5 dark:bg-[var(--color-apple-red)]/15/30 rounded-xl">
                         <span className="text-muted-foreground flex-1">{finding.item}</span>
-                        <span className="font-semibold text-red-600 ml-4">{finding.cost}</span>
+                        <span className="font-semibold text-[var(--color-apple-red)] ml-4">{finding.cost}</span>
                       </div>
                     ))}
                   </div>
@@ -177,7 +178,7 @@ export function VoorbeeldrapportPage() {
                 </div>
                 
                 <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-green-600 dark:text-green-400">
+                  <h3 className="text-2xl font-semibold text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)]/70">
                     Optimalisatie strategie
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
@@ -191,9 +192,9 @@ export function VoorbeeldrapportPage() {
                       { solution: 'Reserved Instances voor stabiele workloads', saving: '€1.850/maand' },
                       { solution: 'Spot instances voor dev/test omgevingen', saving: '€650/maand' }
                     ].map((solution, index) => (
-                      <div key={index} className="flex justify-between items-start p-4 bg-green-50 dark:bg-green-950/30 rounded-xl">
+                      <div key={index} className="flex justify-between items-start p-4 bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/15/30 rounded-xl">
                         <span className="text-muted-foreground flex-1">{solution.solution}</span>
-                        <span className="font-semibold text-green-600 ml-4">{solution.saving}</span>
+                        <span className="font-semibold text-[var(--color-apple-green)] ml-4">{solution.saving}</span>
                       </div>
                     ))}
                   </div>
@@ -289,20 +290,20 @@ export function VoorbeeldrapportPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="p-8 rounded-3xl text-center bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800">
-              <div className="text-5xl font-bold text-green-600 mb-4">€3.400</div>
+            <Card className="p-8 rounded-3xl text-center bg-[var(--color-apple-green)]/5 dark:bg-[var(--color-apple-green)]/15/30 border border-[var(--color-apple-green)]/30 dark:border-[var(--color-apple-green)]/25">
+              <div className="text-5xl font-bold text-[var(--color-apple-green)] mb-4">€3.400</div>
               <div className="text-xl font-semibold mb-2">Maandelijkse besparing</div>
               <div className="text-muted-foreground">€40.800 per jaar</div>
             </Card>
             
-            <Card className="p-8 rounded-3xl text-center bg-[var(--color-apple-gray-6)] dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
+            <Card className="p-8 rounded-3xl text-center bg-[var(--color-apple-blue)]/5 dark:bg-[var(--color-apple-blue)]/10 border border-[var(--color-apple-blue)]/30 dark:border-[var(--color-apple-blue)]/25">
               <div className="text-5xl font-bold text-[var(--color-apple-blue)] mb-4">-23%</div>
               <div className="text-xl font-semibold mb-2">Kostenverlaging</div>
               <div className="text-muted-foreground">Van €15.000 naar €11.600</div>
             </Card>
             
-            <Card className="p-8 rounded-3xl text-center bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800">
-              <div className="text-5xl font-bold text-purple-600 mb-4">3 weken</div>
+            <Card className="p-8 rounded-3xl text-center bg-[var(--color-apple-indigo)]/5 dark:bg-[var(--color-apple-indigo)]/15/30 border border-[var(--color-apple-indigo)]/30 dark:border-[var(--color-apple-indigo)]/25">
+              <div className="text-5xl font-bold text-[var(--color-apple-indigo)] mb-4">3 weken</div>
               <div className="text-xl font-semibold mb-2">Implementatietijd</div>
               <div className="text-muted-foreground">Tot volledige realisatie</div>
             </Card>
@@ -378,31 +379,31 @@ export function VoorbeeldrapportPage() {
       </section>
 
       {/* CTA - Apple's Call to Action */}
-      <section className="py-24">
+      <section className="py-32 bg-secondary/30">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="space-y-8">
             <h2 className="text-5xl leading-tight">
               Klaar voor jouw
-              <span className="block text-green-600">eigen analyse?</span>
+              <span className="block text-[var(--color-apple-blue)]">eigen analyse?</span>
             </h2>
-            
+
             <p className="text-xl text-muted-foreground leading-relaxed">
               Start vandaag nog je scan en ontdek binnen 24 uur waar jouw bedrijf kan optimaliseren
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                onClick={() => window.location.href = '#/producten'}
+                className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                onClick={() => router.push('/producten')}
               >
                 Start je scan
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
                 className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                onClick={() => window.location.href = '#/contact'}
+                onClick={() => router.push('/contact')}
               >
                 Stel een vraag
               </Button>

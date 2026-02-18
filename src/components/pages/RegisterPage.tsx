@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Card } from '../ui/card'
@@ -8,6 +10,7 @@ import { Label } from '../ui/label'
 import { Checkbox } from '../ui/checkbox'
 
 export function RegisterPage() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -30,7 +33,7 @@ export function RegisterPage() {
       return
     }
     console.log('Register:', formData)
-    window.location.href = '#/producten'
+    router.push('/producten')
   }
 
   const isFormValid = formData.firstName && formData.lastName && 
@@ -45,8 +48,7 @@ export function RegisterPage() {
           <div className="space-y-12">
             {/* Header */}
             <div className="text-center space-y-6">
-              <div className="inline-flex items-center bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300 px-4 py-2 rounded-full text-sm font-medium">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+              <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)] px-4 py-2 rounded-full text-sm font-medium">
                 Account aanmaken
               </div>
               
@@ -69,7 +71,7 @@ export function RegisterPage() {
                       value={formData.firstName}
                       onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                       placeholder="Jan"
-                      className="mt-2 h-12 px-4 rounded-2xl border-border bg-background text-foreground"
+                      className="mt-2 h-12 px-4 rounded-2xl border-border bg-secondary/30 text-foreground"
                       required
                     />
                   </div>
@@ -81,7 +83,7 @@ export function RegisterPage() {
                       value={formData.lastName}
                       onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                       placeholder="Smit"
-                      className="mt-2 h-12 px-4 rounded-2xl border-border bg-background text-foreground"
+                      className="mt-2 h-12 px-4 rounded-2xl border-border bg-secondary/30 text-foreground"
                       required
                     />
                   </div>
@@ -96,7 +98,7 @@ export function RegisterPage() {
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     placeholder="naam@bedrijf.nl"
-                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-background text-foreground"
+                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-secondary/30 text-foreground"
                     required
                   />
                 </div>
@@ -110,7 +112,7 @@ export function RegisterPage() {
                     value={formData.company}
                     onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
                     placeholder="Mijn Bedrijf B.V."
-                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-background text-foreground"
+                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-secondary/30 text-foreground"
                     required
                   />
                 </div>
@@ -124,7 +126,7 @@ export function RegisterPage() {
                     value={formData.password}
                     onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
                     placeholder="••••••••"
-                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-background text-foreground"
+                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-secondary/30 text-foreground"
                     required
                   />
                 </div>
@@ -138,7 +140,7 @@ export function RegisterPage() {
                     value={formData.confirmPassword}
                     onChange={(e) => setFormData(prev => ({ ...prev, confirmPassword: e.target.value }))}
                     placeholder="••••••••"
-                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-background text-foreground"
+                    className="mt-2 h-12 px-4 rounded-2xl border-border bg-secondary/30 text-foreground"
                     required
                   />
                 </div>
@@ -153,13 +155,13 @@ export function RegisterPage() {
                     />
                     <Label htmlFor="acceptTerms" className="text-sm text-muted-foreground leading-relaxed">
                       Ik ga akkoord met de{' '}
-                      <a href="#/voorwaarden" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
+                      <Link href="/voorwaarden" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                         algemene voorwaarden
-                      </a>{' '}
+                      </Link>{' '}
                       en het{' '}
-                      <a href="#/privacy" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
+                      <Link href="/privacy" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline">
                         privacybeleid
-                      </a>
+                      </Link>
                     </Label>
                   </div>
                   
@@ -181,7 +183,7 @@ export function RegisterPage() {
                   disabled={!isFormValid}
                   className={`w-full py-4 rounded-2xl font-medium text-lg transition-all duration-200 ${
                     isFormValid
-                      ? 'bg-green-600 hover:bg-green-700 text-white hover:-translate-y-1 hover:shadow-lg'
+                      ? 'bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)]/90 text-white hover:-translate-y-1 hover:shadow-lg'
                       : 'bg-secondary text-muted-foreground cursor-not-allowed'
                   }`}
                 >
@@ -236,9 +238,9 @@ export function RegisterPage() {
             <div className="text-center">
               <p className="text-muted-foreground">
                 Heb je al een account?{' '}
-                <a href="#/inloggen" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline font-medium">
+                <Link href="/inloggen" className="text-[var(--color-apple-blue)] dark:text-[var(--color-apple-blue)] hover:underline font-medium">
                   Log hier in
-                </a>
+                </Link>
               </p>
             </div>
           </div>

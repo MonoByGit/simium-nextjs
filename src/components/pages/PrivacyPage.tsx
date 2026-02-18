@@ -1,24 +1,25 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 
 export function PrivacyPage() {
+  const router = useRouter()
   return (
     <>
       {/* Hero - Apple's Trust-First Approach */}
       <section className="pt-20 pb-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+            <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-green)] dark:text-[var(--color-apple-green)] px-4 py-2 rounded-full text-sm font-medium">
               Privacy
             </div>
             
             <h1 className="text-6xl leading-tight">
               Jouw privacy
-              <span className="block text-green-600">staat voorop</span>
+              <span className="block text-[var(--color-apple-green)]">staat voorop</span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -170,7 +171,7 @@ export function PrivacyPage() {
                     <div className="space-y-4">
                       {section.details.map((detail, detailIndex) => (
                         <div key={detailIndex} className="flex items-start space-x-4">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-[var(--color-apple-green)] rounded-full mt-3 flex-shrink-0"></div>
                           <span className="text-muted-foreground leading-relaxed">{detail}</span>
                         </div>
                       ))}
@@ -188,7 +189,7 @@ export function PrivacyPage() {
         <div className="max-w-4xl mx-auto px-6">
           <Card className="p-12 rounded-3xl">
             <div className="text-center space-y-8">
-              <div className="w-20 h-20 bg-green-100 dark:bg-green-950/50 rounded-3xl flex items-center justify-center mx-auto">
+              <div className="w-20 h-20 bg-[var(--color-apple-green)]/10 dark:bg-[var(--color-apple-green)]/15/50 rounded-3xl flex items-center justify-center mx-auto">
                 <div className="text-3xl">🤝</div>
               </div>
               
@@ -251,7 +252,7 @@ export function PrivacyPage() {
                   <p className="text-muted-foreground leading-relaxed flex-1">{action.description}</p>
                   <Button 
                     className={`w-full bg-${action.color}-600 hover:bg-${action.color}-700 text-white py-3 rounded-2xl font-medium transition-all duration-200 mt-auto`}
-                    onClick={() => window.location.href = '#/contact'}
+                    onClick={() => router.push('/contact')}
                   >
                     {action.action}
                   </Button>
@@ -296,7 +297,7 @@ export function PrivacyPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                className="bg-[var(--color-apple-green)] hover:bg-[var(--color-apple-green)]/80 text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                 onClick={() => window.location.href = 'mailto:privacy@simium.nl'}
               >
                 E-mail privacy team
@@ -305,7 +306,7 @@ export function PrivacyPage() {
                 variant="outline" 
                 size="lg"
                 className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                onClick={() => window.location.href = '#/contact'}
+                onClick={() => router.push('/contact')}
               >
                 Contact formulier
               </Button>

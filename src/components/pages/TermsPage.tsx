@@ -1,10 +1,12 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 
 export function TermsPage() {
+  const router = useRouter()
   return (
     <>
       {/* Hero - Apple's Legal Transparency */}
@@ -12,7 +14,6 @@ export function TermsPage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8">
             <div className="inline-flex items-center bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-gray-2)] text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)] px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-[var(--color-apple-blue)] rounded-full mr-2"></div>
               Algemene Voorwaarden
             </div>
             
@@ -206,7 +207,7 @@ export function TermsPage() {
               <div key={index} className="space-y-6">
                 <div className="space-y-4">
                   <h2 className="text-3xl font-semibold">{section.title}</h2>
-                  <div className="bg-[var(--color-apple-gray-6)] dark:bg-blue-950/30 p-6 rounded-2xl border border-blue-200 dark:border-blue-800">
+                  <div className="bg-[var(--color-apple-gray-6)] dark:bg-[var(--color-apple-blue)]/15/30 p-6 rounded-2xl border border-border dark:border-border">
                     <p className="text-lg font-medium text-[var(--color-apple-gray)] dark:text-[var(--color-apple-blue-dark)]">
                       {section.summary}
                     </p>
@@ -270,7 +271,7 @@ export function TermsPage() {
                   variant="outline" 
                   size="lg"
                   className="px-8 py-4 rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                  onClick={() => window.location.href = '#/contact'}
+                  onClick={() => router.push('/contact')}
                 >
                   Contact formulier
                 </Button>
@@ -322,7 +323,7 @@ export function TermsPage() {
               <Button 
                 size="lg"
                 className="bg-[var(--color-apple-blue)] hover:bg-[var(--color-apple-blue)] text-white px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                onClick={() => window.location.href = '#/producten'}
+                onClick={() => router.push('/producten')}
               >
                 Start je scan
               </Button>
@@ -330,7 +331,7 @@ export function TermsPage() {
                 variant="outline" 
                 size="lg"
                 className="px-8 py-6 text-lg rounded-2xl font-medium transition-all duration-200 hover:-translate-y-1"
-                onClick={() => window.location.href = '#/contact'}
+                onClick={() => router.push('/contact')}
               >
                 Nog vragen? Contact ons
               </Button>
