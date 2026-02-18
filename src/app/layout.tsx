@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import { Layout } from '@/components/LayoutNextJS'
-import { DarkModeProvider } from '@/components/DarkModeContext'
+import { ThemeProvider } from 'next-themes'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="nl" suppressHydrationWarning>
       <body className={inter.className}>
-        <DarkModeProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Layout>
             {children}
           </Layout>
-        </DarkModeProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
